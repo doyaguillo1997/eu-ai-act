@@ -1,6 +1,8 @@
 # EU AI Act Studio (Reglamento UE 2024/1689)
 
-Aplicación de escritorio interactiva para el estudio, análisis y cumplimiento normativo del **Reglamento (UE) 2024/1689 sobre Inteligencia Artificial (EU AI Act)** y su marco de adaptación en España (AESIA / BOE).
+> 🌐 **Versión Web en Vivo (GitHub Pages):** [https://doyaguillo1997.github.io/eu-ai-act/](https://doyaguillo1997.github.io/eu-ai-act/)
+
+Aplicación interactiva (Web y Escritorio) para el estudio, análisis y cumplimiento normativo del **Reglamento (UE) 2024/1689 sobre Inteligencia Artificial (EU AI Act)** y su marco de adaptación en España (AESIA / BOE).
 
 Construida con **Electron, React 18, TypeScript, Tailwind CSS y motor de búsqueda vectorial híbrido (`Float32Array`) en local**.
 

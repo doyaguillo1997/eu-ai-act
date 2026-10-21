@@ -148,16 +148,17 @@ export const App: React.FC = () => {
     );
   }
 
-  const isMac =
+  const isElectronMac =
     typeof navigator !== 'undefined' &&
-    /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent);
+    /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent) &&
+    /Electron/i.test(navigator.userAgent);
 
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-slate-950 text-slate-100 select-none">
-      {/* Top Titlebar (Draggable, with traffic lights clearance on macOS) */}
+      {/* Top Titlebar (Draggable, with traffic lights clearance on macOS Electron) */}
       <header
         className={`app-drag-region h-11 shrink-0 bg-slate-950/90 border-b border-slate-800/80 flex items-center justify-between px-4 ${
-          isMac ? 'pl-20' : 'pl-4'
+          isElectronMac ? 'pl-20' : 'pl-4'
         } select-none z-30`}
       >
         {/* Left Title / Branding */}
