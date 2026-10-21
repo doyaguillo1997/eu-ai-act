@@ -1,0 +1,108 @@
+{
+  "name": "eu-ai-act-legal-helper",
+  "version": "1.0.0",
+  "description": "EU AI Act (Reglamento UE 2024/1689 · BOE / EUR-Lex) Interactive Studio & Enterprise Compliance para macOS",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "ingest": "node scripts/ingest-and-vectorize.mjs",
+    "dev": "vite --port 5175",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently -k \"vite --port 5175\" \"wait-on tcp:5175 && electron .\"",
+    "electron:start": "npm run build && electron .",
+    "dist:mac": "npm run build && electron-builder --mac dmg --universal && swift scripts/set-dmg-icon.swift",
+    "dist:mac:universal": "npm run build && electron-builder --mac dmg --universal && swift scripts/set-dmg-icon.swift",
+    "dist:mac:arm64": "npm run build && electron-builder --mac dmg --arm64 && swift scripts/set-dmg-icon.swift",
+    "dist:mac:x64": "npm run build && electron-builder --mac dmg --x64 && swift scripts/set-dmg-icon.swift",
+    "dist:win": "npm run build && electron-builder --win nsis --x64",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "lucide-react": "^0.294.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.18.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "electron": "^27.1.0",
+    "electron-builder": "^24.6.4",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vitest": "^0.34.6",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "eu.aiact.legalhelper",
+    "productName": "EU AI Act Studio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "build/icon.png",
+      "build/icon.icns",
+      "build/icon.ico"
+    ],
+    "mac": {
+      "icon": "build/icon.icns",
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "dmg": {
+      "title": "EU AI Act Studio",
+      "icon": "build/icon.icns",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "EU AI Act Studio"
+    }
+  }
+}

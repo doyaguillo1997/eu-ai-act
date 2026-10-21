@@ -1,0 +1,452 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+    --scrollbar-thumb: rgba(148, 163, 184, 0.28);
+    --scrollbar-track: transparent;
+  }
+
+  :root:has(> head > meta[name="color-scheme"][content="dark"]),
+  html.dark {
+    color-scheme: dark;
+    --scrollbar-thumb: rgba(148, 163, 184, 0.25);
+  }
+
+  :root:has(> head > meta[name="color-scheme"][content="light"]),
+  html.light {
+    color-scheme: light;
+    --scrollbar-thumb: rgba(100, 116, 139, 0.35);
+  }
+
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ==========================================================================
+   macOS Light Mode ("Modo Claro") Adaptive Theme Overrides
+   Provides crisp editorial paper contrast while preserving semantic risk colors
+   ========================================================================== */
+html.light body,
+html.light .bg-slate-950 {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-slate-950\/98,
+html.light .bg-slate-950\/95,
+html.light .bg-slate-950\/90,
+html.light .bg-slate-950\/85,
+html.light .bg-slate-950\/80,
+html.light .bg-slate-950\/75,
+html.light .bg-slate-950\/70,
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/50,
+html.light .bg-slate-950\/40,
+html.light .bg-slate-950\/30,
+html.light .bg-slate-950\/20 {
+  background-color: rgba(248, 250, 252, 0.97) !important;
+}
+
+html.light [role="tooltip"],
+html.light [role="dialog"],
+html.light dialog.command-palette-dialog {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.14), 0 8px 10px -6px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .from-slate-900,
+html.light .from-slate-950 {
+  background-image: linear-gradient(to bottom right, #ffffff, #f8fafc, #eff6ff) !important;
+}
+
+html.light details[open].open\:bg-slate-900\/90 {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-slate-900,
+html.light .bg-slate-900\/95,
+html.light .bg-slate-900\/90,
+html.light .bg-slate-900\/85,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/75,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/40,
+html.light .bg-slate-900\/30,
+html.light .bg-slate-900\/20 {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+}
+
+html.light .bg-slate-800,
+html.light .bg-slate-800\/90,
+html.light .bg-slate-800\/80,
+html.light .bg-slate-800\/60,
+html.light .bg-slate-800\/50,
+html.light .bg-slate-800\/40,
+html.light .bg-slate-800\/30 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .hover\:bg-slate-800\/60:hover,
+html.light .hover\:bg-slate-800\/50:hover,
+html.light .hover\:bg-slate-800\/40:hover,
+html.light .hover\:bg-slate-800\/30:hover,
+html.light .hover\:bg-slate-900\/60:hover,
+html.light .hover\:bg-slate-700:hover,
+html.light .hover\:bg-slate-700\/80:hover {
+  background-color: #e2e8f0 !important;
+}
+
+/* Borders & Dividers in Light Mode */
+html.light .border-slate-800,
+html.light .border-slate-800\/90,
+html.light .border-slate-800\/80,
+html.light .border-slate-800\/70,
+html.light .border-slate-800\/60,
+html.light .border-slate-800\/40,
+html.light .border-slate-700,
+html.light .border-slate-700\/80,
+html.light .border-slate-700\/70,
+html.light .border-slate-700\/60,
+html.light .border-slate-700\/50,
+html.light .border-slate-700\/40,
+html.light .border-slate-900 {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .divide-slate-800\/70 > :not([hidden]) ~ :not([hidden]),
+html.light .divide-slate-800\/40 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e2e8f0 !important;
+}
+
+/* Typography in Light Mode */
+html.light .text-white:not(.bg-indigo-600 *):not(.bg-indigo-600):not(.bg-indigo-700):not(.bg-emerald-600 *):not(.bg-emerald-600):not(.bg-rose-600 *):not(.bg-rose-600):not(.bg-rose-500),
+html.light .text-slate-100,
+html.light .text-slate-200 {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Semantic Tinted Containers & Official European Union Accent Text in Light Mode */
+html.light .bg-indigo-950,
+html.light .bg-indigo-950\/95,
+html.light .bg-indigo-950\/90,
+html.light .bg-indigo-950\/85,
+html.light .bg-indigo-950\/80,
+html.light .bg-indigo-950\/70,
+html.light .bg-indigo-950\/60,
+html.light .bg-indigo-950\/50,
+html.light .bg-indigo-950\/40,
+html.light .bg-indigo-950\/30,
+html.light .bg-indigo-950\/20,
+html.light .bg-indigo-950\/15,
+html.light .bg-indigo-900,
+html.light .bg-indigo-900\/80,
+html.light .bg-indigo-900\/60,
+html.light .bg-indigo-900\/40,
+html.light .bg-indigo-800:not(.bg-indigo-600 *):not(.bg-indigo-700 *),
+html.light .bg-indigo-800\/90:not(.bg-indigo-600 *):not(.bg-indigo-700 *) {
+  background-color: #eff6ff !important;
+}
+
+html.light .hover\:bg-indigo-950\/50:hover,
+html.light .hover\:bg-indigo-950\/40:hover,
+html.light .hover\:bg-indigo-900\/50:hover,
+html.light .hover\:bg-indigo-900\/40:hover {
+  background-color: #dbeafe !important;
+}
+
+html.light .hover\:text-indigo-200:hover,
+html.light .hover\:text-indigo-300:hover {
+  color: #002673 !important;
+}
+
+html.light .bg-violet-950,
+html.light .bg-violet-950\/90,
+html.light .bg-violet-950\/80,
+html.light .bg-violet-950\/60,
+html.light .bg-violet-950\/40,
+html.light .bg-violet-950\/20,
+html.light .bg-violet-900,
+html.light .bg-violet-900\/60,
+html.light .bg-violet-900\/40 {
+  background-color: #f5f3ff !important;
+}
+
+html.light .bg-amber-950,
+html.light .bg-amber-950\/90,
+html.light .bg-amber-950\/80,
+html.light .bg-amber-950\/60,
+html.light .bg-amber-950\/40,
+html.light .bg-amber-950\/20,
+html.light .bg-amber-950\/15,
+html.light .bg-amber-900,
+html.light .bg-amber-900\/60,
+html.light .bg-amber-900\/40 {
+  background-color: #fffbeb !important;
+}
+
+html.light .bg-rose-950,
+html.light .bg-rose-950\/90,
+html.light .bg-rose-950\/80,
+html.light .bg-rose-950\/60,
+html.light .bg-rose-950\/40,
+html.light .bg-rose-950\/30,
+html.light .bg-rose-950\/20,
+html.light .bg-rose-900,
+html.light .bg-rose-900\/60,
+html.light .bg-rose-900\/40 {
+  background-color: #fff1f2 !important;
+}
+
+html.light .bg-emerald-950,
+html.light .bg-emerald-950\/90,
+html.light .bg-emerald-950\/80,
+html.light .bg-emerald-950\/60,
+html.light .bg-emerald-950\/40,
+html.light .bg-emerald-950\/30,
+html.light .bg-emerald-950\/20,
+html.light .bg-emerald-950\/15,
+html.light .bg-emerald-900,
+html.light .bg-emerald-900\/60,
+html.light .bg-emerald-900\/40 {
+  background-color: #ecfdf5 !important;
+}
+
+/* Light Mode Borders for Colored Badges */
+html.light .border-indigo-800,
+html.light .border-indigo-700,
+html.light .border-indigo-700\/60,
+html.light .border-indigo-600\/40,
+html.light .border-indigo-500\/40,
+html.light .border-indigo-500\/30,
+html.light .border-indigo-500\/20 {
+  border-color: #bfdbfe !important;
+}
+
+html.light .border-violet-800,
+html.light .border-violet-800\/40,
+html.light .border-violet-700,
+html.light .border-violet-500\/30 {
+  border-color: #ddd6fe !important;
+}
+
+html.light .border-amber-800,
+html.light .border-amber-800\/40,
+html.light .border-amber-700,
+html.light .border-amber-500\/30,
+html.light .border-amber-500\/20 {
+  border-color: #fde68a !important;
+}
+
+html.light .border-rose-800,
+html.light .border-rose-800\/40,
+html.light .border-rose-700,
+html.light .border-rose-500\/30,
+html.light .border-rose-500\/20 {
+  border-color: #fecdd3 !important;
+}
+
+html.light .border-emerald-800,
+html.light .border-emerald-800\/40,
+html.light .border-emerald-700,
+html.light .border-emerald-500\/30,
+html.light .border-emerald-500\/20 {
+  border-color: #a7f3d0 !important;
+}
+
+/* Citation Badge Component Theme Adapters */
+.citation-badge-container {
+  background-color: rgba(15, 23, 42, 0.9);
+  border-color: rgba(51, 65, 85, 0.6);
+  color: #cbd5e1;
+}
+
+.citation-badge-btn:hover {
+  background-color: rgba(0, 17, 51, 0.5);
+  color: #bfdbfe;
+}
+
+.citation-badge-icon {
+  color: #60a5fa;
+}
+
+.citation-badge-btn:hover .citation-badge-icon {
+  color: #93c5fd;
+}
+
+.citation-badge-link {
+  border-left-color: rgba(51, 65, 85, 0.6);
+  color: #94a3b8;
+}
+
+.citation-badge-link:hover {
+  color: #93c5fd;
+  background-color: rgba(0, 17, 51, 0.5);
+}
+
+.citation-anchor-badge {
+  background-color: rgba(0, 17, 51, 0.9);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+/* Light Mode Overrides for Citation Badge */
+html.light .citation-badge-container {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .citation-badge-container:hover {
+  border-color: #93c5fd !important;
+  background-color: #ffffff !important;
+}
+
+html.light .citation-badge-btn:hover {
+  background-color: #eff6ff !important;
+  color: #003399 !important;
+}
+
+html.light .citation-badge-icon {
+  color: #004494 !important;
+}
+
+html.light .citation-badge-btn:hover .citation-badge-icon {
+  color: #002673 !important;
+}
+
+html.light .citation-badge-link {
+  border-left-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+html.light .citation-badge-link:hover {
+  color: #003399 !important;
+  background-color: #dbeafe !important;
+}
+
+html.light .citation-anchor-badge {
+  background-color: #eff6ff !important;
+  color: #003399 !important;
+  border: 1px solid #bfdbfe !important;
+  font-weight: 600 !important;
+}
+
+html.light .citation-popover-tooltip {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .citation-popover-header {
+  border-bottom-color: #e2e8f0 !important;
+}
+
+html.light .text-indigo-300:not(.bg-indigo-600 *):not(.bg-indigo-700 *),
+html.light .text-indigo-200:not(.bg-indigo-600 *):not(.bg-indigo-700 *),
+html.light .text-indigo-100:not(.bg-indigo-600 *):not(.bg-indigo-700 *) {
+  color: #003399 !important;
+}
+
+html.light .text-indigo-400 {
+  color: #004494 !important;
+}
+
+html.light .text-violet-300,
+html.light .text-violet-400 {
+  color: #6d28d9 !important;
+}
+
+html.light .text-amber-300:not(.bg-indigo-600 *):not(.bg-indigo-700 *),
+html.light .text-amber-200:not(.bg-indigo-600 *):not(.bg-indigo-700 *),
+html.light .text-amber-400:not(.bg-indigo-600 *):not(.bg-indigo-700 *) {
+  color: #b45309 !important;
+}
+
+html.light .text-rose-300,
+html.light .text-rose-200,
+html.light .text-rose-400 {
+  color: #be123c !important;
+}
+
+html.light .text-emerald-300,
+html.light .text-emerald-200,
+html.light .text-emerald-400 {
+  color: #047857 !important;
+}
+
+html.light .text-sky-300,
+html.light .text-sky-400 {
+  color: #0369a1 !important;
+}
+
+/* macOS Window Drag Region */
+.app-drag-region {
+  -webkit-app-region: drag;
+}
+
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Modern Web Guidance: defer-rendering-heavy-content
+   Applied ONLY to off-screen legal blocks below the initial fold */
+.legal-block-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 160px;
+}
+
+/* Modern Web Guidance: light-dismiss-a-dialog */
+dialog.command-palette-dialog::backdrop {
+  background-color: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(6px);
+}
+
+/* Modern Web Guidance: improve-text-layout-and-legibility */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p, blockquote, li, .pretty-text {
+  text-wrap: pretty;
+}
+
+/* Custom subtle macOS scrollbars */
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+  }
+}
