@@ -13,14 +13,18 @@ import {
 } from './legal-enrichment-data.mjs';
 import { QUIZ_BANK_DATA as QUIZ_BANK_BASE } from './quiz-bank-data.mjs';
 import { QUIZ_BANK_PART1 } from './quiz-bank-part1.mjs';
+import { QUIZ_BANK_PART1B } from './quiz-bank-part1b.mjs';
 import { QUIZ_BANK_PART2 } from './quiz-bank-part2.mjs';
+import { QUIZ_BANK_PART2B } from './quiz-bank-part2b.mjs';
+import { QUIZ_BANK_PART3 } from './quiz-bank-part3.mjs';
+import { QUIZ_BANK_PART3B } from './quiz-bank-part3b.mjs';
 
 // Unified non-repetitive quiz bank (base + Títulos I–III + Títulos IV–XIII & sector cases)
 const QUIZ_BANK_DATA = (() => {
   const seenIds = new Set();
   const seenQuestions = new Set();
   const out = [];
-  for (const q of [...QUIZ_BANK_BASE, ...QUIZ_BANK_PART1, ...QUIZ_BANK_PART2]) {
+  for (const q of [...QUIZ_BANK_BASE, ...QUIZ_BANK_PART1, ...QUIZ_BANK_PART1B, ...QUIZ_BANK_PART2, ...QUIZ_BANK_PART2B, ...QUIZ_BANK_PART3, ...QUIZ_BANK_PART3B]) {
     const key = q.question.trim().toLowerCase();
     if (seenIds.has(q.id) || seenQuestions.has(key)) {
       throw new Error(`Duplicate quiz question detected: ${q.id}`);

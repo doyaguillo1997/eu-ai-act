@@ -151,6 +151,46 @@ describe('EU AI Act Binary Corpus & Vector Engine QA', () => {
     expect(titles.size).toBeGreaterThanOrEqual(10);
   });
 
+  it('validates anti-length-bias standards across the full question bank', () => {
+    expect(corpus.quizBank.length).toBe(302);
+
+    let longestWins = 0;
+    const positions = [0, 0, 0, 0];
+    let shortOnlyCount = 0;
+
+    for (const q of corpus.quizBank) {
+      const lengths = q.options.map((o) => o.length);
+      const maxLen = Math.max(...lengths);
+      if (lengths.indexOf(maxLen) === q.correctOptionIndex) {
+        longestWins++;
+      }
+      positions[q.correctOptionIndex]++;
+      if (maxLen <= 60) {
+        shortOnlyCount++;
+      }
+
+      // Check ratio constraints on each question: correct option should not be disproportionately longer
+      const correctLen = lengths[q.correctOptionIndex];
+      const otherLens = lengths.filter((_, i) => i !== q.correctOptionIndex);
+      const maxOther = Math.max(...otherLens);
+      expect(correctLen / maxOther).toBeLessThanOrEqual(1.25);
+    }
+
+    // Longest option heuristic must win <= 30% of the time (random chance is 25%)
+    const longestWinPct = (longestWins / corpus.quizBank.length) * 100;
+    expect(longestWinPct).toBeLessThanOrEqual(30);
+
+    // Each option position (A, B, C, D) must have ~25% distribution (between 20% and 30%)
+    for (const count of positions) {
+      const pct = (count / corpus.quizBank.length) * 100;
+      expect(pct).toBeGreaterThanOrEqual(20);
+      expect(pct).toBeLessThanOrEqual(30);
+    }
+
+    // Must have at least 70 short-only questions (options <= 60 characters)
+    expect(shortOnlyCount).toBeGreaterThanOrEqual(70);
+  });
+
   it('validates smart sub-point paragraph resolution and BOE updates', () => {
     expect(corpus.boeUpdates.length).toBeGreaterThanOrEqual(6);
     const pSubliminal = engine.getParagraph('art_5.p1.a');

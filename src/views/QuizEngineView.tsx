@@ -151,10 +151,10 @@ const FALLBACK_QUIZ_QUESTIONS: QuizQuestion[] = [
     question:
       'Una empresa de comercio electrónico implementa un sistema de IA con microestímulos sonoros y visuales imperceptibles para inducir a usuarios vulnerables a solicitar préstamos rápidos. ¿Cómo se califica bajo el EU AI Act?',
     options: [
-      'Sistema de Alto Riesgo que requiere auditoría previa y marcado CE.',
-      'Práctica prohibida de riesgo inaceptable bajo el Art. 5.1(a) sujeta a multas de hasta 35M€ o 7% de facturación.',
-      'Riesgo de transparencia específica regulado en el Art. 50 que requiere sólo aviso en pantalla.',
-      'Práctica permitida si el usuario aceptó los términos y condiciones de la plataforma.',
+      'Sistema de alto riesgo regulado en el Art. 6 que exige evaluación de conformidad y marcado CE.',
+      'Práctica prohibida de riesgo inaceptable bajo el Art. 5.1(a) sujeta a sanción de hasta 35M€ o 7%.',
+      'Riesgo de transparencia específica regulado en el Art. 50 que requiere advertencia al usuario.',
+      'Práctica permitida en el mercado digital si media consentimiento previo e informado del cliente.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -186,10 +186,10 @@ const FALLBACK_QUIZ_QUESTIONS: QuizQuestion[] = [
     question:
       'Un departamento corporativo de Recursos Humanos adquiere una herramienta de IA para filtrar currículums y clasificar candidatos según probabilidades de éxito. ¿Qué obligaciones impone el Reglamento a la empresa usuaria (desplegador)?',
     options: [
-      'Ninguna, las obligaciones corresponden exclusivamente al fabricante del software.',
-      'Supervisión humana efectiva (Art. 26.2), control de datos de entrada pertinentes, conservación de logs durante 6 meses e información previa a los empleados.',
-      'Redactar un nuevo modelo fundacional conforme al Anexo XI.',
-      'Solicitar autorización previa trimestral a la Comisión Europea.',
+      'Verificar que el proveedor disponga de certificado ISO vigente y remitir una notificación informativa anual a la autoridad laboral.',
+      'Supervisión humana efectiva (Art. 26.2), control de datos de entrada, conservación de logs durante 6 meses e información previa a empleados.',
+      'Diseñar la arquitectura del modelo fundacional conforme al Anexo XI y asumir la responsabilidad técnica plena como proveedor del sistema.',
+      'Solicitar autorización administrativa previa trimestral a la Comisión Europea y someter cada decisión a auditoría judicial previa.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -220,10 +220,10 @@ const FALLBACK_QUIZ_QUESTIONS: QuizQuestion[] = [
     question:
       'Una entidad bancaria despliega un agente virtual de atención al cliente que atiende llamadas de voz de forma indistinguible de un operador humano. ¿Qué deber inexcusable establece el Art. 50?',
     options: [
-      'Inscribir el agente en el registro de patentes de la Unión.',
-      'Informar inmediatamente a la persona de que está interactuando con un sistema de IA.',
-      'Ceder el código fuente del modelo a la AESIA.',
-      'Limitar la duración de la llamada a un máximo de 5 minutos.',
+      'Inscribir obligatoriamente el asistente virtual en el registro público de patentes y marcas de la Unión.',
+      'Informar de manera clara y oportuna a la persona física de que está interactuando con un sistema de IA.',
+      'Depositar el código fuente íntegro del algoritmo y sus pesos neuronales ante la autoridad de supervisión.',
+      'Limitar la duración de cada llamada o sesión a un tiempo máximo estricto de cinco minutos ininterrumpidos.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -255,10 +255,10 @@ const FALLBACK_QUIZ_QUESTIONS: QuizQuestion[] = [
     question:
       '¿A partir de qué umbral técnico cuantitativo se presume que un modelo de IA de uso general (GPAI) presenta "riesgo sistémico" bajo el Art. 51?',
     options: [
-      'Más de 100 millones de parámetros y 10.000 usuarios activos diarios.',
-      'Potencia de cálculo acumulada superior a 10^25 FLOPs utilizada para su entrenamiento.',
-      'Facturación de más de 100 millones de euros en la Unión Europea.',
-      'Cualquier modelo entrenado con datos no autorizados por el RGPD.',
+      'Contar con más de cien millones de parámetros y diez mil usuarios empresariales activos en la UE.',
+      'Potencia de cálculo acumulada superior a 10^25 FLOPs utilizada para el entrenamiento del modelo.',
+      'Facturación anual superior a cien millones de euros generada por servicios digitales en la Unión.',
+      'Entrenamiento ejecutado con conjuntos masivos de datos no anonimizados procedentes de la Unión.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -290,10 +290,10 @@ const FALLBACK_QUIZ_QUESTIONS: QuizQuestion[] = [
     question:
       '¿Cuál es el límite máximo de sanción económica previsto en el Reglamento por incumplir los requisitos esenciales de un sistema de IA de alto riesgo (como la falta de gestión de riesgos o datos de calidad)?',
     options: [
-      'Hasta 15.000.000 € o el 3% del volumen de negocios mundial total anual.',
-      'Hasta 35.000.000 € o el 7% del volumen de negocios mundial total anual.',
-      'Hasta 7.500.000 € o el 1.5% del volumen de negocios.',
-      'Una sanción administrativa fija de 50.000 €.',
+      'Hasta 15.000.000 € o el 3% del volumen de negocios mundial total anual del ejercicio precedente.',
+      'Hasta 35.000.000 € o el 7% del volumen de negocios mundial total anual del ejercicio precedente.',
+      'Hasta 7.500.000 € o el 1% del volumen de negocios mundial total anual del ejercicio precedente.',
+      'Hasta 20.000.000 € o el 4% del volumen de negocios mundial total anual del ejercicio precedente.',
     ],
     correctOptionIndex: 0,
     explanation:
@@ -325,10 +325,10 @@ const FALLBACK_QUIZ_QUESTIONS: QuizQuestion[] = [
     question:
       'En el calendario de aplicación del Reglamento, ¿qué acontecimiento clave tuvo lugar el 2 de agosto de 2026?',
     options: [
-      'La expiración definitiva de la moratoria para prácticas prohibidas.',
-      'La plena aplicación de las obligaciones para sistemas de IA de alto riesgo del Anexo III y la transparencia del Art. 50.',
-      'El cierre de la oficina de la AESIA en España.',
-      'La entrada en vigor exclusiva para modelos cuánticos.',
+      'La entrada en vigor de las prohibiciones absolutas de prácticas de riesgo inaceptable previstas en el Art. 5.',
+      'La plena aplicación general del Reglamento para los sistemas de alto riesgo del Anexo III y deberes del Art. 50.',
+      'La creación preceptiva de la Oficina Europea de Inteligencia Artificial y la disolución formal de la AESIA.',
+      'La entrada en aplicación exclusiva y obligatoria de normas armonizadas para infraestructuras críticas y GPAI.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -407,6 +407,28 @@ function getScoreLevel(scorePct: number): {
 
 function synthesizeArticleQuestion(art: LegalArticle): QuizQuestion {
   const firstP = art.paragraphs[0];
+  const rawTarget =
+    firstP?.enterpriseImpact?.actionItems[0] ||
+    firstP?.plainExplanation ||
+    art.summary ||
+    'Cumplir los deberes normativos exigidos en el artículo.';
+  // Trim to a clean ~110-140 character summary
+  const correctText =
+    rawTarget.length > 140
+      ? rawTarget.slice(0, 137).replace(/[,;.\s]+$/, '') + '...'
+      : rawTarget;
+
+  const distractors = [
+    'Exención automática para todas las empresas que facturen menos de 50 millones de euros anuales.',
+    'Sustituir la evaluación técnica por una declaración verbal interna sin trazabilidad documental.',
+    'Delegar la responsabilidad jurídica exclusivamente en el proveedor de infraestructura en la nube.',
+  ];
+
+  // Distribute correct position pseudo-randomly based on article id (0..3)
+  const targetIdx = (art.id.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)) % 4;
+  const options = [...distractors];
+  options.splice(targetIdx, 0, correctText);
+
   return {
     id: `art_${art.id}_synth_clean`,
     topicId: 'enterprise_cases',
@@ -416,15 +438,8 @@ function synthesizeArticleQuestion(art: LegalArticle): QuizQuestion {
     difficulty: 'intermedio',
     isPracticalCase: true,
     question: `En relación con el ${art.titleLabel} («${art.heading}»), ¿cuál es el mandato u obligación esencial que debe considerar una empresa afectada?`,
-    options: [
-      firstP?.enterpriseImpact?.actionItems[0] ||
-        firstP?.plainExplanation?.slice(0, 200) ||
-        art.summary,
-      'Exención automática para todas las empresas que facturen menos de 50 millones de euros anuales.',
-      'Sustituir la evaluación técnica por una declaración verbal interna sin trazabilidad documental.',
-      'Delegar la responsabilidad jurídica exclusivamente en el proveedor de infraestructura en la nube.',
-    ],
-    correctOptionIndex: 0,
+    options,
+    correctOptionIndex: targetIdx,
     explanation: firstP?.plainExplanation || art.summary,
     enterpriseLesson: art.enterpriseTakeaway,
     citations: firstP ? firstP.citations : [],

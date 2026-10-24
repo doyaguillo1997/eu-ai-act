@@ -16,12 +16,12 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 1.1 y el Considerando 1 del Reglamento (UE) 2024/1689, ¿pueden los Estados miembros imponer de forma unilateral restricciones nacionales adicionales al desarrollo, la comercialización o la utilización de sistemas de IA por considerarlos arriesgados?',
     options: [
-      'No: el Reglamento garantiza la libre circulación transfronteriza de mercancías y servicios basados en la IA en el mercado interior, impidiendo que los Estados miembros impongan restricciones salvo que el propio Reglamento lo autorice expresamente.',
-      'Sí, cualquier municipio o comunidad autónoma puede prohibir libremente cualquier sistema de IA comercializado con marcado CE.',
-      'Sí, porque se trata de una directiva de mínimos que cada parlamento nacional debe transponer libremente.',
-      'Solo pueden hacerlo respecto a sistemas de IA desarrollados dentro de su propio territorio nacional.',
+      'Sí: el artículo 1.2 reconoce soberanía plena a cada Estado miembro para vetar unilateralmente cualquier sistema de IA que supere umbrales de riesgo fijados por sus autoridades nacionales de mercado.',
+      'No: garantiza la libre circulación de sistemas de IA en el mercado interior (art. 1.1), impidiendo restricciones estatales unilaterales salvo que el propio Reglamento lo autorice expresamente.',
+      'Solo mediante real decreto de emergencia de orden público tras solicitar dictamen vinculante a la Oficina Europea de IA y obtener aprobación por mayoría cualificada en el Comité de Inteligencia Artificial.',
+      'Sí, al fundamentarse en el artículo 168 del TFUE sobre salud pública, opera como armonización de mínimos que faculta a los parlamentos autonómicos y nacionales para introducir prohibiciones suplementarias.',
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
     explanation:
       'El artículo 1.1, interpretado junto con el Considerando 1, establece un marco jurídico uniforme basado en el artículo 114 del TFUE (mercado interior) que impide a los Estados miembros imponer restricciones al desarrollo, la comercialización o la utilización de sistemas de IA, a menos que el Reglamento lo autorice expresamente (como ocurre en el Art. 2.11 para normas laborales más favorables o el Art. 5.5 para restringir aún más la identificación biométrica remota).',
     enterpriseLesson:
@@ -49,10 +49,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Aunque el artículo 2.1(c) extiende el Reglamento a proveedores y desplegadores de terceros países cuando los resultados de salida (outputs) se utilizan en la Unión, ¿qué excepción contempla el artículo 2.4 respecto a autoridades públicas de terceros países y organizaciones internacionales?',
     options: [
-      'Aplica a cualquier empresa privada extranjera que facture menos de 10 millones de euros.',
-      'Excluye únicamente a las agencias tributarias extranjeras.',
-      'El Reglamento no se aplica a las autoridades públicas de un tercer país ni a las organizaciones internacionales cuando actúen en el marco de acuerdos de cooperación o tratados internacionales celebrados con la Unión o con sus Estados miembros en el ámbito de la garantía del cumplimiento del Derecho y la cooperación judicial, siempre que ofrezcan garantías adecuadas de protección de los derechos fundamentales.',
-      'Excluye a todas las autoridades públicas extranjeras aunque vendan software comercial en el mercado europeo.',
+      'Las exime plenamente de cualquier obligación del Reglamento si designan un representante autorizado en la Unión y constituyen una fianza de responsabilidad civil superior a diez millones de euros ante la Comisión.',
+      'Solo las excluye si sus sistemas de IA han obtenido previamente una certificación de conformidad militar o policial homologada por la Oficina Europea de Inteligencia Artificial para misiones conjuntas en territorio de la Unión.',
+      'El Reglamento no se aplica a autoridades públicas de terceros países ni organizaciones internacionales en el marco de tratados de cooperación policial o judicial con la UE o Estados miembros con garantías de derechos.',
+      'Las exime de los requisitos sustantivos de alto riesgo del Título III, pero exige su inscripción en el registro público de la Unión y la auditoría bienal de sus algoritmos por un organismo notificado europeo acreditado.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -82,10 +82,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Un contratista tecnológico español desarrolla un sistema de IA de visión por computador inicialmente concebido para defensa militar (excluido por el Art. 2.3), pero posteriormente lo comercializa para vigilancia policial civil y control de accesos en puertos comerciales. ¿Cómo se le aplica el Reglamento según el artículo 2.3 y el Considerando 24?',
     options: [
-      'Sigue exento para siempre por haber nacido en un proyecto militar.',
-      'Queda exento si el Ministerio de Defensa posee al menos el 10 % del capital del contratista.',
-      'Solo se le aplica el artículo 95 de códigos voluntarios.',
-      'Queda plenamente sujeto al Reglamento: la exclusión del artículo 2.3 solo ampara sistemas introducidos o utilizados EXCLUSIVAMENTE con fines militares, de defensa o de seguridad nacional; si se comercializa o utiliza para fines civiles, humanitarios o de garantía del cumplimiento del Derecho, se le aplica íntegramente.',
+      'Permanece excluido de forma indefinida, pues el artículo 2.3 confiere inmunidad regulatoria permanente a todo software cuya arquitectura o pesos iniciales hayan sido financiados mediante fondos del Ministerio de Defensa.',
+      'Queda exento de los requisitos de alto riesgo siempre que la entidad portuaria y la policía certifiquen que el sistema no realiza transferencias de metadatos biométricos hacia servidores ubicados fuera del territorio de la Unión.',
+      'Solo debe cumplir las obligaciones de transparencia voluntaria del artículo 95, al presumirse que los sistemas de tecnología de doble uso mantienen la salvaguarda de seguridad nacional que declara el Estado miembro de origen.',
+      'Queda plenamente sujeto al Reglamento: la exclusión del artículo 2.3 solo ampara sistemas introducidos o utilizados exclusivamente con fines militares o de defensa, aplicando el régimen general a usos policiales civiles.',
     ],
     correctOptionIndex: 3,
     explanation:
@@ -115,10 +115,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'El equipo de I+D de una empresa biotecnológica está entrenando y probando en su laboratorio interno un nuevo modelo de diagnóstico de alto riesgo aún no comercializado. Para validarlo, decide probarlo directamente con pacientes reales en una clínica privada fuera de cualquier sandbox. Según los apartados 6 y 8 del artículo 2, ¿está exenta esa prueba con pacientes reales?',
     options: [
-      'No: aunque el artículo 2.8 excluye las actividades de investigación, prueba o desarrollo previas a la introducción en el mercado o puesta en servicio, establece expresamente que "Las pruebas en condiciones reales no estarán cubiertas por dicha exclusión" y deben cumplir el régimen del artículo 60.',
-      'Sí, cualquier prueba previa a la emisión de la primera factura comercial está exenta.',
-      'Sí, porque el artículo 2.6 exime cualquier actividad realizada por ingenieros con doctorado.',
-      'Solo está sujeta si el paciente paga por la consulta.',
+      'No: el artículo 2.8 excluye actividades de I+D previas a la comercialización, pero dispone expresamente que las pruebas en condiciones reales no están cubiertas por la exclusión y deben ajustarse al régimen del artículo 60.',
+      'Sí: el artículo 2.6 ampara cualquier ensayo clínico o prueba con pacientes siempre que no se perciba contraprestación económica directa y la clínica privada cuente con autorización del comité de ética de la investigación médica.',
+      'Sí, porque toda fase anterior a la primera factura comercial o distribución masiva del producto goza de exención completa de conformidad y registro bajo la salvaguardia general de innovación tecnológica del artículo 2.8.',
+      'Solo queda sujeta si el modelo de diagnóstico se conecta a redes públicas de telecomunicaciones o almacena historiales médicos en infraestructuras informáticas compartidas en la nube con arreglo al artículo 60.2.',
     ],
     correctOptionIndex: 0,
     explanation:
@@ -148,10 +148,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       '¿Qué dispone el artículo 2.11 respecto a la facultad de la Unión o de los Estados miembros para regular el uso de sistemas de IA en el ámbito laboral?',
     options: [
-      'Prohíbe que los convenios colectivos o leyes laborales nacionales regulen el uso de algoritmos en las empresas.',
-      'El Reglamento no impide que la Unión o los Estados miembros mantengan o introduzcan disposiciones legales, reglamentarias o administrativas más favorables para los trabajadores en lo que respecta a la protección de sus derechos en relación con el uso de sistemas de IA por parte de los empleadores, ni que fomenten o permitan convenios colectivos más favorables.',
-      'Deroga automáticamente el artículo 64.4.d) del Estatuto de los Trabajadores español sobre información algorítmica.',
-      'Solo permite negociar condiciones laborales sobre IA en empresas de más de 5.000 trabajadores.',
+      'Armoniza de forma plena y excluyente las relaciones laborales digitales, impidiendo que la legislación nacional o la negociación colectiva impongan obligaciones de información algorítmica adicionales a las del artículo 26.',
+      'No impide que la Unión o los Estados miembros mantengan o aprueben normas legales más favorables para los trabajadores frente a la IA laboral, ni que fomenten o permitan convenios colectivos con mayores niveles de protección.',
+      'Permite regular condiciones laborales más estrictas únicamente en empresas de más de doscientos cincuenta trabajadores y siempre que la autoridad laboral autonómica emita un informe favorable previo en el plazo de un mes.',
+      'Deroga todas las facultades de información sindical sobre algoritmos en los Estados miembros, reservando la interlocución sobre sistemas de IA de recursos humanos exclusivamente al Comité Europeo de Inteligencia Artificial.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -181,10 +181,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Un fotógrafo aficionado utiliza en su domicilio un generador de imágenes por IA para editar fotos de sus vacaciones familiares sin ninguna actividad comercial, profesional ni empresarial. Según el artículo 2.10, ¿qué obligaciones tiene como responsable del despliegue?',
     options: [
-      'Debe inscribirse en la base de datos de la UE del artículo 71.',
-      'Debe realizar una Evaluación de Impacto en los Derechos Fundamentales (FRIA).',
-      'Ninguna obligación como responsable del despliegue: el artículo 2.10 excluye de las obligaciones de los responsables del despliegue a las personas físicas que utilicen sistemas de IA en el ejercicio de una actividad puramente personal de carácter no profesional.',
-      'Debe conservar los logs durante 10 años.',
+      'Debe conservar los registros de generación durante seis meses y registrar el software en la base de datos comunitaria del artículo 71 para acreditar la ausencia de actividad económica remunerada ante la autoridad competente.',
+      'Debe efectuar una evaluación simplificada de impacto en derechos fundamentales (FRIA) si el modelo genera imágenes de menores de edad o personas identificables según las pautas de transparencia previstas en el artículo 27.',
+      'Ninguna: el artículo 2.10 excluye de las obligaciones a las personas físicas que utilicen sistemas de IA en el ejercicio de una actividad puramente personal de carácter no profesional (exención para uso doméstico o particular).',
+      'Está obligado a incorporar una marca de agua visible y metadatos criptográficos en cada fotografía editada, notificando el uso doméstico a la autoridad nacional de protección de datos en un plazo de diez días hábiles.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -214,12 +214,12 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una comunidad de desarrolladores publica en GitHub un sistema completo de IA bajo licencia libre y de código abierto (MIT) sin monetización. Según el artículo 2.12, ¿en qué tres supuestos NO se aplica la exención para sistemas de IA de código abierto y el sistema queda plenamente sujeto al Reglamento?',
     options: [
-      'Cuando esté escrito en Python, cuando supere 10.000 descargas o cuando tenga interfaz gráfica.',
-      'Solo cuando el repositorio esté alojado fuera de la Unión Europea.',
-      'Únicamente cuando sea utilizado por bancos centrales.',
-      'Cuando se introduzca en el mercado o se ponga en servicio como sistema de IA de alto riesgo, o como un sistema de IA al que sea aplicable el artículo 5 (prácticas prohibidas) o el artículo 50 (obligaciones de transparencia específica).',
+      'Cuando se introduzca en el mercado o ponga en servicio como sistema de alto riesgo (Título III), incurra en prácticas prohibidas del artículo 5 o quede sujeto a las obligaciones de transparencia específica del artículo 50.',
+      'Cuando supere diez mil descargas mensuales, cuando su repositorio esté alojado fuera de la Unión o cuando su código fuente contenga librerías privativas que impidan la auditoría algorítmica por terceros evaluadores acreditados.',
+      'Únicamente cuando el software se utilice en infraestructuras críticas del sector energético, se traduzca a más de tres lenguas oficiales de la Unión o reciba aportaciones de desarrolladores con sede en terceros países.',
+      'Cuando la comunidad acepte donaciones voluntarias, cuando el sistema procese imágenes satelitales o cuando sea distribuido en plataformas comerciales con independencia de su finalidad prevista y nivel de riesgo real.',
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 0,
     explanation:
       'El artículo 2.12 exime del Reglamento a los sistemas de IA (distintos de los modelos GPAI, que se rigen por el Art. 53.2) publicados con licencias libres y de código abierto, A MENOS que se introduzcan en el mercado o se pongan en servicio como sistemas de IA de alto riesgo (Cap. III), incurran en prácticas prohibidas del artículo 5, o estén sujetos a las obligaciones de transparencia del artículo 50 (chatbots, generación de contenido sintético, deepfakes, reconocimiento emocional).',
     enterpriseLesson:
@@ -247,12 +247,12 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Un banco utiliza una hoja de cálculo y un motor determinista de reglas condicionales ("SI ingresos > 30.000 € Y antigüedad > 2 años ENTONCES aprobar") programado íntegramente por analistas humanos sin aprendizaje automático ni inferencia estadística avanzada. Según el artículo 3.1 y el Considerando 12, ¿es un «sistema de IA»?',
     options: [
-      'No: el elemento diferencial de un «sistema de IA» (Art. 3.1) es su capacidad de inferir a partir de la información de entrada cómo generar predicciones, contenidos, recomendaciones o decisiones, quedando excluidos la programación tradicional y los sistemas basados únicamente en reglas definidas por personas físicas para ejecutar operaciones de forma automática.',
-      'Sí, cualquier programa informático que procese números financieros es un sistema de IA.',
-      'Sí, siempre que se ejecute en servidores en la nube.',
-      'Depende de si está programado en Java o en C++.',
+      'Sí: cualquier programa informático que ejecute flujos lógicos condicionales y automatice decisiones de crédito financiero con repercusión sobre personas físicas se califica de sistema de IA de alto riesgo bajo el artículo 3.1.',
+      'Sí, porque el concepto de autonomía del artículo 3.1 incluye cualquier software que procese datos bancarios y ejecute evaluaciones sin intervención de un operador humano en cada cálculo matemático realizado en los servidores.',
+      'Depende exclusivamente de si el motor de reglas se aloja en un servidor local del banco o en una plataforma en la nube pública sujeta a las exigencias de ciberseguridad y gobernanza establecidas en el artículo 15 del Reglamento.',
+      'No: el artículo 3.1 exige inferir de las entradas cómo generar salidas; el Considerando 12 aclara que la programación tradicional y los sistemas basados únicamente en reglas humanas para ejecutar operaciones automáticas no son IA.',
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 3,
     explanation:
       'El artículo 3.1 define «sistema de IA» exigiendo capacidad de inferencia y autonomía, y el Considerando 12 aclara expresamente que la definición no debe abarcar los sistemas de software más sencillos ni la programación tradicional, como los sistemas que se basan únicamente en las reglas definidas por personas físicas para ejecutar operaciones de forma automática.',
     enterpriseLesson:
@@ -280,10 +280,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 3.8 del Reglamento (UE) 2024/1689, ¿quiénes quedan englobados bajo el término jurídico «operador»?',
     options: [
-      'Exclusivamente los teleoperadores que atienden llamadas telefónicas.',
-      'El proveedor, el fabricante del producto, el responsable del despliegue, el representante autorizado, el importador o el distribuidor.',
-      'Únicamente las empresas de telecomunicaciones con licencia 5G.',
-      'Solo los organismos notificados y las agencias públicas.',
+      'Únicamente los proveedores de sistemas de IA y los responsables del despliegue establecidos legalmente dentro del territorio de la Unión Europea.',
+      'El proveedor, el fabricante del producto, el responsable del despliegue, el representante autorizado, el importador o el distribuidor en la Unión.',
+      'Los organismos notificados, los evaluadores de conformidad independientes y las autoridades nacionales de vigilancia del mercado de los Estados miembros.',
+      'Cualquier entidad mercantil que comercialice servicios de telecomunicaciones o suministre redes de conectividad digital en el mercado interior europeo.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -313,10 +313,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       '¿Qué diferencia establece el artículo 3, puntos 12 y 13, entre «finalidad prevista» y «uso indebido razonablemente previsible»?',
     options: [
-      'Son sinónimos exactos.',
-      'La finalidad prevista la decide el cliente final y el uso indebido lo decide la policía.',
-      'La «finalidad prevista» es el uso para el que un proveedor concibe un sistema de IA (según sus instrucciones, documentación y material promocional), mientras que el «uso indebido razonablemente previsible» es la utilización de un modo que no se ajusta a su finalidad prevista pero que puede resultar de un comportamiento humano razonablemente previsible o de la interacción con otros sistemas.',
-      'El uso indebido razonablemente previsible solo incluye ataques informáticos de estados extranjeros.',
+      'La finalidad prevista comprende los usos autorizados contractualmente por el usuario final, mientras que el uso indebido razonablemente previsible abarca exclusivamente los ciberataques maliciosos, manipulaciones fraudulentas o sabotajes externos tipificados penalmente.',
+      'La finalidad prevista define los requisitos mínimos de ciberseguridad del sistema, mientras que el uso indebido razonablemente previsible es cualquier fallo o anomalía técnica imputable a defectos en los datos de entrenamiento suministrados por terceros proveedores.',
+      'La «finalidad prevista» es el uso concebido por el proveedor en su documentación e instrucciones; el «uso indebido razonablemente previsible» es la utilización no ajustada a dicha finalidad resultante del comportamiento humano o de la interacción con otros sistemas.',
+      'Son conceptos sinónimos a efectos del análisis de riesgos del artículo 9, diferenciándose únicamente en que el uso indebido solo es exigible a distribuidores e importadores pero nunca al proveedor original del sistema de IA comercializado en el mercado interior.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -346,12 +346,12 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Un sistema de IA de alto riesgo con capacidad de aprendizaje continuo tras su despliegue actualiza periódicamente sus parámetros en producción. Según el artículo 3.23 (y el artículo 43.4), ¿cuándo NO constituye ese cambio una «modificación sustancial» que obligue a repetir la evaluación de la conformidad?',
     options: [
-      'Siempre constituye una modificación sustancial cada vez que cambia un peso neuronal.',
-      'Cuando el cambio ocurre en horario nocturno.',
-      'Cuando el cambio solo afecta a usuarios de fuera de la capital.',
-      'Cuando dichos cambios y su rendimiento hayan sido predeterminados por el proveedor en el momento de la evaluación inicial de la conformidad y figuren dentro de la información contenida en la documentación técnica a que se refiere el punto 2, letra f), del Anexo IV.',
+      'Cuando los cambios y su rendimiento hayan sido predeterminados por el proveedor en la evaluación inicial de la conformidad y figuren descritos en la documentación técnica a que se refiere el punto 2, letra f), del Anexo IV.',
+      'Cuando los reentrenamientos algorítmicos se ejecuten fuera del horario comercial y la variación acumulada de los pesos en la red neuronal no altere más del cinco por ciento del rendimiento estadístico global validado inicialmente.',
+      'Siempre que el sistema conserve su interfaz gráfica original sin añadir nuevas funciones para el usuario final y mantenga idéntico nivel de ciberseguridad perimetral conforme a las normas armonizadas europeas aplicables al sector.',
+      'Únicamente cuando el reentrenamiento se realice empleando conjuntos de datos sintéticos generados en un espacio controlado de pruebas (sandbox) que cuente con supervisión previa de la autoridad nacional de vigilancia del mercado.',
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 0,
     explanation:
       'El artículo 3.23 define «modificación sustancial» como todo cambio tras la comercialización no previsto o planeado en la evaluación inicial que afecte al cumplimiento de los requisitos de alto riesgo o modifique la finalidad prevista; y añade que en los sistemas de IA que continúen aprendiendo tras su introducción en el mercado, los cambios y su rendimiento que hayan sido predeterminados por el proveedor en la evaluación inicial y documentados en el Anexo IV.2.f) NO constituirán una modificación sustancial.',
     enterpriseLesson:
@@ -379,12 +379,12 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 3.49, ¿cuál de los siguientes sucesos provocados directa o indirectamente por el funcionamiento o mal funcionamiento de un sistema de IA constituye legalmente un «incidente grave» de notificación obligatoria (Art. 73)?',
     options: [
-      'Cualquiera de los cuatro siguientes: (a) el fallecimiento de una persona o un daño grave para su salud; (b) una alteración grave e irreversible de la gestión o el funcionamiento de infraestructuras críticas; (c) el incumplimiento de las obligaciones establecidas en el Derecho de la Unión destinadas a proteger los derechos fundamentales; o (d) daños graves a los bienes o al medio ambiente.',
-      'Únicamente los incidentes que provoquen la caída de un servidor durante más de 5 minutos sin afectar a personas, derechos ni bienes.',
-      'Exclusivamente cuando fallecen más de 10 personas simultáneamente.',
-      'Una errata ortográfica sin relevancia en un chatbot interno de pruebas.',
+      'Exclusivamente la interrupción imprevista del suministro en infraestructuras digitales críticas durante un período superior a cuarenta y ocho horas continuadas, siempre que afecte a usuarios de más de dos Estados miembros de la Unión.',
+      'Únicamente el fallecimiento de una o varias personas físicas derivado de fallos mecánicos directos de un sistema de IA integrado en maquinaria industrial pesada regulada por la normativa de armonización del Anexo I del Reglamento.',
+      'Cualquier divergencia algorítmica imprevista que provoque pérdidas económicas empresariales superiores a dos millones de euros o que reduzca la precisión declarada en la documentación técnica en más de un quince por ciento.',
+      'Cualquiera de estos cuatro: muerte o daño grave para la salud; alteración grave de infraestructuras críticas; vulneración de normas de la Unión de protección de derechos fundamentales; o daños graves a bienes o al medio ambiente.',
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 3,
     explanation:
       'El artículo 3.49 define «incidente grave» incluyendo expresamente no solo el fallecimiento o daño grave a la salud (letra a) y la alteración grave e irreversible de infraestructuras críticas (letra b), sino también el incumplimiento de obligaciones del Derecho de la Unión destinadas a proteger los derechos fundamentales (letra c, por ejemplo una discriminación masiva ilegal en contratación o crédito) y los daños graves a los bienes o al medio ambiente (letra d).',
     enterpriseLesson:
@@ -412,10 +412,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 3.39 y el Considerando 18, ¿incluye la definición de «sistema de reconocimiento de emociones» la detección de estados puramente físicos como el dolor, la fatiga o las sonrisas/gestos aparentes sin deducir emociones internas?',
     options: [
-      'Sí, cualquier cámara que detecte que una persona lleva los ojos cerrados es un sistema de reconocimiento de emociones.',
-      'No: el concepto se refiere a distinguir o deducir emociones o intenciones (como felicidad, tristeza, indignación, sorpresa, asco, miedo) a partir de datos biométricos, y no incluye estados físicos como el dolor o la fatiga ni el mero movimiento físico de expresiones faciales aparentes salvo que se usen para deducir una emoción.',
-      'Solo incluye la lectura de ondas cerebrales mediante implantes quirúrgicos.',
-      'El Reglamento no define los sistemas de reconocimiento de emociones.',
+      'Sí: cualquier tecnología biométrica capaz de registrar parámetros faciales o gestuales del cuerpo humano califica como reconocimiento de emociones, con independencia de que analice estados fisiológicos o estados afectivos internos.',
+      'No: se limita a deducir emociones o intenciones (felicidad, miedo, etc.) a partir de datos biométricos, y no abarca estados físicos como el dolor o la fatiga ni expresiones faciales salvo que se empleen para inferir emociones internas.',
+      'Sí, pero únicamente cuando el sistema procese imágenes captadas en lugares de trabajo o centros de formación profesional y el operador omita recabar el consentimiento explícito previsto en el artículo 9 del Reglamento General de Protección de Datos.',
+      'No, porque la definición legal del artículo 3.39 exige exclusivamente la captación directa de señales neuronales mediante interfaces cerebro-ordenador para poder hablar jurídicamente de reconocimiento emocional en el Derecho europeo.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -445,10 +445,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       '¿Qué diferencia conceptual establece el artículo 3, puntos 63 y 66, entre un «modelo de IA de uso general» (GPAI model) y un «sistema de IA de uso general» (GPAI system)?',
     options: [
-      'No existe ninguna diferencia: modelo y sistema significan lo mismo.',
-      'Un modelo tiene interfaz de usuario y un sistema son solo los pesos matemáticos.',
-      'El «modelo de IA de uso general» (Art. 3.63) es el componente entrenado con un gran volumen de datos capaz de realizar una amplia gama de tareas pero que requiere que se le añadan otros componentes (como una interfaz de usuario) para convertirse en un sistema; mientras que el «sistema de IA de uso general» (Art. 3.66) es el sistema de IA completo basado en un modelo de uso general que puede servir para diversos usos, tanto directamente como integrado en otros sistemas.',
-      'Los modelos de uso general solo procesan texto y los sistemas solo procesan vídeo.',
+      'El modelo GPAI es todo software entrenado con menos de 10^25 FLOPs de cómputo acumulado bajo licencias libres, mientras que el sistema GPAI abarca exclusivamente las soluciones comerciales propietarias puestas a disposición mediante interfaces web de pago en la Unión.',
+      'El modelo GPAI abarca únicamente arquitecturas de lenguaje natural destinadas a la generación de texto sintético, mientras que el sistema GPAI engloba de manera exclusiva soluciones multimodales de visión e inferencia integradas en entornos industriales críticos.',
+      'El modelo GPAI (art. 3.63) es el componente de base entrenado a gran escala que requiere capas adicionales para operar, mientras que el sistema GPAI (art. 3.66) es el sistema de IA completo basado en dicho modelo que puede utilizarse directamente o integrarse en otras aplicaciones.',
+      'No existe distinción material en el articulado: ambos conceptos se emplean de forma intercambiable en los artículos 51 a 56 para regular a cualquier algoritmo probabilístico con parámetros adaptativos comercializado en el mercado de la Unión Europea.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -478,12 +478,12 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una empresa contrata a una consultora externa cuyos empleados operan en nombre de la empresa un sistema de IA de atención y clasificación de clientes. Según el artículo 4, ¿a quiénes debe alcanzar la obligación de alfabetización en materia de IA?',
     options: [
-      'Únicamente a los miembros del consejo de administración.',
-      'Solo a los ingenieros en plantilla con contrato indefinido.',
-      'Solo a los clientes finales que visitan la página web.',
-      'Tanto a su propio personal como a las demás personas que se encarguen en su nombre del funcionamiento y la utilización de sistemas de IA, teniendo en cuenta sus conocimientos técnicos, experiencia, educación, contexto previsto de uso y los colectivos de personas en que se van a utilizar.',
+      'Tanto a su personal como a las personas que operen sistemas de IA en su nombre, según sus conocimientos, experiencia, educación, contexto de uso y los colectivos afectados.',
+      'Únicamente a los empleados en plantilla fija que diseñen o programen la arquitectura técnica del sistema, excluyendo a subcontratistas externos y encargados de tratamiento.',
+      'Solo a los miembros del consejo de administración y directivos con poderes de representación legal ante las autoridades de supervisión del mercado de la Unión Europea.',
+      'Exclusivamente a los operadores que atiendan reclamaciones sobre sistemas de alto riesgo enumerados en el Anexo III, quedando exenta la atención comercial ordinaria.',
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 0,
     explanation:
       'El artículo 4 obliga a los proveedores y responsables del despliegue a adoptar medidas para garantizar un nivel suficiente de alfabetización en materia de IA no solo de su personal en plantilla, sino también "de las demás personas que se encarguen en su nombre del funcionamiento y la utilización de sistemas de IA" (contratistas, BPOs, operadores externos).',
     enterpriseLesson:
@@ -511,12 +511,12 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 5.1(a) y el Considerando 29, ¿cuándo queda prohibido un sistema de IA que emplea técnicas subliminales, deliberadamente manipuladoras o engañosas?',
     options: [
-      'Cuando tiene el objetivo o el efecto de alterar de manera sustancial el comportamiento de una persona o colectivo, mermando de manera apreciable su capacidad para tomar una decisión informada y haciendo que tomen una decisión que de otro modo no habrían tomado, de un modo que provoque, o sea razonablemente probable que provoque, perjuicios considerables (físicos, psicológicos o financieros).',
-      'En cualquier anuncio publicitario legítimo y transparente que ofrezca un descuento comercial.',
-      'Solo cuando se utiliza en televisión analógica.',
-      'Únicamente si el proveedor reconoce por escrito ante notario su intención de hacer daño.',
+      'En cualquier campaña comercial ordinaria que utilice segmentación psicográfica o pruebas A/B para optimizar la tasa de compra, con independencia de si se merman decisiones informadas o si concurren perjuicios considerables.',
+      'Únicamente cuando el proveedor actúe con dolo acreditado judicialmente y el sistema utilice frecuencias de audio inaudibles o impulsos visuales de duración inferior a cincuenta milisegundos en medios de difusión pública.',
+      'Solo si las técnicas engañosas se dirigen de forma exclusiva a menores de catorce años en plataformas digitales educativas y el daño económico directo resultante supera los umbrales de fraude agravado del Código Penal.',
+      'Cuando altere de manera sustancial el comportamiento humano mermando apreciablemente la capacidad de decisión informada, haciendo tomar decisiones perjudiciales que causen o puedan causar perjuicios considerables físicos, psicológicos o financieros.',
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 3,
     explanation:
       'El artículo 5.1(a) no prohíbe la persuasión comercial lícita y transparente (Considerando 29), sino las técnicas subliminales, manipuladoras o engañosas que subvierten la autonomía de la persona (mermando apreciablemente su decisión informada) y tienen el objetivo O EL EFECTO de provocar (o ser razonablemente probable que provoquen) perjuicios considerables.',
     enterpriseLesson:
@@ -544,10 +544,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una plataforma de microcréditos instantáneos entrena un sistema de IA para detectar usuarios adultos sin discapacidad pero en situación de extrema precariedad económica o insolvencia inminente, dirigiéndoles ofertas predatorias personalizadas en los momentos de mayor angustia financiera para hacerles contratar productos ruinosos. ¿Vulnera el artículo 5.1(b)?',
     options: [
-      'No, porque el artículo 5.1(b) solo protege a menores de edad y personas con discapacidad.',
-      'Sí: el artículo 5.1(b) prohíbe expresamente explotar las vulnerabilidades de una persona física o colectivo derivadas no solo de su edad o discapacidad, sino también "de una situación social o económica específica", causando perjuicios considerables.',
-      'No, porque las finanzas están excluidas del Reglamento.',
-      'Solo vulnera el artículo 95 de códigos de conducta.',
+      'No: el artículo 5.1(b) ampara únicamente la tutela de menores de edad o personas con discapacidad legalmente reconocida, quedando las situaciones de precariedad patrimonial reguladas por la normativa de crédito al consumo.',
+      'Sí: el artículo 5.1(b) prohíbe explotar vulnerabilidades derivadas de la edad, discapacidad o de una situación social o económica específica, cuando altere sustancialmente el comportamiento causando perjuicios considerables.',
+      'Solo incurre en infracción si la plataforma aplica tipos de interés que superen en diez puntos porcentuales el interés legal del dinero fijado anualmente por el Banco Central Europeo conforme a la legislación financiera.',
+      'No se considera práctica prohibida si el prestatario firma electrónicamente un descargo de responsabilidad informado y el algoritmo ha sido auditado por un organismo notificado bajo el procedimiento del Anexo VII.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -577,10 +577,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según los incisos i) e ii) del artículo 5.1(c), ¿cuáles son las dos situaciones alternativas que hacen que un sistema de evaluación o clasificación por comportamiento social o características de personalidad constituya una «puntuación ciudadana» (social scoring) prohibida?',
     options: [
-      'Que utilice más de tres bases de datos relacionales o que tarde menos de un segundo en calcular la nota.',
-      'Que se aplique solo a personas jurídicas o que sea gratuito.',
-      '(i) Que provoque un trato perjudicial o desfavorable en contextos sociales que no guarden relación con los contextos donde se generaron o recabaron los datos originalmente, O (ii) que provoque un trato perjudicial o desfavorable que sea injustificado o desproporcionado con respecto a su comportamiento social o la gravedad de este.',
-      'Que el algoritmo no haya sido publicado en el Diario Oficial de la Unión Europea.',
+      '(i) Que sea implementado por entidades bancarias privadas para evaluar préstamos, o (ii) que asigne notas numéricas de reputación basadas exclusivamente en infracciones de tráfico comunicadas por ayuntamientos.',
+      '(i) Que procese datos de más de tres administraciones públicas simultáneamente, o (ii) que ejecute valoraciones algorítmicas automáticas sin permitir la intervención de un funcionario supervisor en el plazo de un mes.',
+      '(i) Que cause trato perjudicial en contextos sociales desvinculados de donde se recabaron los datos, o (ii) que cause un trato perjudicial injustificado o desproporcionado respecto a la conducta social o su gravedad.',
+      '(i) Que cruce información tributaria con historiales clínicos sanitarios, o (ii) que califique la fidelidad corporativa de empleados en centros de trabajo sin previa negociación con los comités de empresa.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -610,10 +610,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una unidad de investigación de delitos financieros utiliza un sistema de IA para apoyar a los inspectores humanos al analizar transferencias bancarias sospechosas vinculadas a un delito concreto de blanqueo de capitales sobre el que ya existen indicios objetivos y verificables. Según el último inciso del artículo 5.1(d), ¿está prohibido este sistema?',
     options: [
-      'Sí, cualquier sistema de IA utilizado por la policía o inspectores está prohibido.',
-      'Sí, porque el artículo 5.1(d) prohíbe cualquier análisis de datos en investigaciones penales.',
-      'Solo es legal si no intervienen inspectores humanos.',
-      'No está prohibido por el artículo 5.1(d) (aunque sí es de alto riesgo según el Anexo III punto 6): el propio artículo 5.1(d) establece que esta prohibición NO se aplicará a los sistemas de IA utilizados para apoyar la valoración humana de la implicación de una persona en una actividad delictiva, que ya se base en hechos objetivos y verificables directamente vinculados a una actividad delictiva.',
+      'Sí, porque el artículo 5.1(d) prohíbe de forma taxativa cualquier herramienta de inferencia algorítmica utilizada por autoridades policiales o tributarias para prevenir, investigar o perseguir infracciones penales o administrativas.',
+      'Solo es legal si la investigación se tramita ante la Fiscalía Europea y el modelo ha sido verificado mediante el procedimiento de evaluación de conformidad de urgencia regulado en el artículo 46 del presente Reglamento.',
+      'Está prohibido salvo que el sospechoso haya sido condenado en firme previamente por blanqueo y el sistema de IA cuente con autorización judicial individualizada emitida en las veinticuatro horas previas al cruce de datos.',
+      'No: la prohibición del artículo 5.1(d) no se aplica si el sistema apoya la valoración humana basada en hechos objetivos y verificables vinculados directamente a una actividad delictiva (clasificándose como alto riesgo en Anexo III).',
     ],
     correctOptionIndex: 3,
     explanation:
@@ -643,10 +643,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una compañía ferroviaria instala en la cabina de sus maquinistas un sistema de IA que monitoriza signos biométricos y oculares para detectar episodios de microsueño o crisis médicas agudas durante la conducción del tren. Por otro lado, una universidad instala cámaras con IA en sus aulas para medir el grado de aburrimiento o entusiasmo emocional de los estudiantes durante las clases. Según el artículo 5.1(f), ¿cuál de los dos usos es legal?',
     options: [
-      'El sistema de la compañía ferroviaria es legal por estar destinado a motivos médicos o de seguridad en el trabajo (aunque sujeto a alto riesgo/protección de datos), mientras que el sistema de la universidad está prohibido por inferir emociones en un centro educativo sin finalidad médica ni de seguridad.',
-      'Ambos están prohibidos sin excepción.',
-      'Ambos son legales si se informa por megafonía.',
-      'El de la universidad es legal y el de la compañía ferroviaria está prohibido.',
+      'El ferroviario es legal por motivos médicos o de seguridad (art. 5.1.f, sujeto a alto riesgo); el de la universidad está prohibido al inferir emociones en un centro educativo sin fin médico o de seguridad.',
+      'Ambos sistemas son plenamente legales siempre que las entidades publiquen avisos visibles y los afectados puedan solicitar la desconexión de los sensores en virtud del artículo 50 sobre transparencia informativa.',
+      'El de la universidad es legal con fines de mejora pedagógica, mientras que el ferroviario está prohibido por vulnerar la intimidad corporal de los trabajadores protegida por el artículo 5.1(c) del Reglamento.',
+      'Ambos están taxativamente prohibidos, pues el artículo 5.1(f) no admite excepción alguna para monitorizaciones biométricas continuadas en centros de trabajo ni en instituciones educativas de la Unión Europea.',
     ],
     correctOptionIndex: 0,
     explanation:
@@ -676,10 +676,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'El artículo 5.1(g) prohíbe los sistemas de categorización biométrica que clasifiquen individualmente a personas físicas para deducir su raza, opiniones políticas, afiliación sindical, religión u orientación sexual. ¿Qué excepción técnica puntual contempla la segunda frase de esa misma letra g)?',
     options: [
-      'Permite deducir la afiliación sindical durante procesos de huelga.',
-      'Esta prohibición no abarca el etiquetado o filtrado de conjuntos de datos biométricos adquiridos legalmente, como imágenes, basados en datos biométricos o en la categorización de datos biométricos en el ámbito de la garantía del cumplimiento del Derecho.',
-      'Permite a las redes sociales inferir la orientación sexual a partir de selfies para segmentar anuncios.',
-      'Permite clasificar votantes por ideología política en colegios electorales.',
+      'Permite categorizar opiniones políticas en campañas electorales siempre que el tratamiento se limite a mayores de edad y los datos sean anonimizados dentro de las cuarenta y ocho horas posteriores al escrutinio.',
+      'No abarca el etiquetado o filtrado de conjuntos de datos biométricos adquiridos legalmente (como imágenes) ni la categorización biométrica legítima en el ámbito de la garantía del cumplimiento del Derecho.',
+      'Excluye los sistemas de categorización comercial operados por redes sociales cuando tengan como único propósito recomendar contenidos religiosos o asociativos solicitados voluntariamente por el propio usuario registrado.',
+      'Autoriza deducir la orientación sexual y el origen racial en procesos de selección laboral cuando sea indispensable para verificar cuotas de diversidad exigidas por directivas de la Unión en materia de igualdad.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -709,10 +709,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Para que las fuerzas del orden puedan utilizar excepcionalmente la identificación biométrica remota «en tiempo real» en espacios de acceso público con el fin de localizar o identificar a un sospechoso de un delito del Anexo II (Art. 5.1.h.iii), ¿qué requisito punitivo mínimo debe tener dicho delito en el Estado miembro correspondiente?',
     options: [
-      'Cualquier falta administrativa o multa de aparcamiento.',
-      'Pena privativa de libertad de al menos 6 meses.',
-      'Estar castigado en el Estado miembro de que se trate con una pena privativa de libertad o una medida de seguridad privativa de libertad de una duración máxima de al menos cuatro años.',
-      'Exclusivamente delitos castigados con cadena perpetua.',
+      'Estar sancionado en la legislación nacional correspondiente con una pena privativa de libertad cuya duración mínima obligatoria sea de al menos dos años de reclusión.',
+      'Constituir una infracción penal grave castigada con penas de prisión de duración máxima de al menos un año o inhabilitación especial para empleo público en dicho Estado.',
+      'Estar castigado en el Estado miembro de que se trate con pena o medida de seguridad privativa de libertad de una duración máxima de al menos cuatro años.',
+      'Estar tipificado como delito societario o fiscal grave sancionado con pena privativa de libertad de duración máxima superior a tres años en la jurisdicción del Estado.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -742,10 +742,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 5.2, antes de desplegar un sistema de identificación biométrica remota «en tiempo real» en espacios de acceso público para alguno de los tres objetivos excepcionales del artículo 5.1(h), ¿qué dos trámites obligatorios debe haber completado la autoridad policial?',
     options: [
-      'Publicar la ubicación exacta de las cámaras en redes sociales y pedir permiso al alcalde.',
-      'Solo realizar una encuesta ciudadana.',
-      'Contratar un seguro de responsabilidad civil y pagar una tasa municipal.',
-      'Haber realizado una evaluación del impacto en los derechos fundamentales de conformidad con el artículo 27 y haber registrado el sistema en la base de datos de la UE de conformidad con el artículo 49 (si bien en casos de urgencia debidamente justificados podrá iniciarse el uso sin el registro previo siempre que se complete sin demora indebida).',
+      'Haber depositado una memoria de impacto ambiental ante la Comisión Europea y recabado la conformidad vinculante del Comité Europeo de Protección de Datos en un plazo no superior a treinta días naturales previos al despliegue.',
+      'Haber obtenido dictamen favorable por unanimidad del parlamento autonómico y publicado el código fuente del algoritmo en el boletín oficial del Estado miembro para garantizar la auditoría ciudadana de los sesgos biométricos.',
+      'Haber contratado una póliza de responsabilidad civil de cobertura ilimitada y notificado las coordenadas geoespaciales de las cámaras a la Oficina Europea de Inteligencia Artificial con cuarenta y ocho horas de antelación.',
+      'Haber completado una evaluación del impacto en los derechos fundamentales (art. 27) y haber registrado el sistema en la base de datos de la Unión (art. 49), salvo urgencia justificada en que el registro se hace sin demora.',
     ],
     correctOptionIndex: 3,
     explanation:
@@ -775,10 +775,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Ante una amenaza terrorista inminente (caso de urgencia debidamente justificado), una autoridad policial inicia el uso de identificación biométrica remota «en tiempo real» sin autorización judicial previa. Según el artículo 5.3, ¿en qué plazo máximo debe solicitarse dicha autorización judicial y qué ocurre si finalmente el juez la deniega?',
     options: [
-      'Debe solicitarse sin demora indebida y a más tardar en un plazo de 24 horas; si la autorización es rechazada, el uso se detendrá con efecto inmediato y todos los datos, así como los resultados y los resultados de salida de dicho uso, serán inmediatamente descartados y suprimidos.',
-      'Dispone de 15 días hábiles para pedirla y, si se deniega, puede conservar los datos durante 6 meses.',
-      'Dispone de 72 horas y no es necesario borrar las identificaciones ya realizadas.',
-      'En caso de urgencia no hace falta solicitar autorización judicial posterior.',
+      'Debe solicitarse a más tardar en 24 horas; si es rechazada, el uso cesa de inmediato y todos los datos, resultados y registros de salida generados son inmediatamente descartados y suprimidos.',
+      'Debe solicitarse en el plazo máximo de setenta y dos horas; si es denegada, la policía puede conservar las grabaciones como diligencias previas reservadas durante un período de seis meses.',
+      'Debe pedirse en cuarenta y ocho horas; si se rechaza, cesa el uso futuro pero se conservan los resultados obtenidos que resulten de utilidad para la investigación penal en curso del sospechoso.',
+      'Debe tramitarse en un plazo improrrogable de siete días naturales; en caso de denegación judicial, los datos biométricos se transfieren para su custodia cautelar al órgano de supervisión de mercado.',
     ],
     correctOptionIndex: 0,
     explanation:
@@ -808,10 +808,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según los apartados 4 y 5 del artículo 5, ¿basta con el Reglamento europeo para que la policía de un Estado miembro utilice identificación biométrica remota «en tiempo real» en espacios públicos bajo los supuestos del artículo 5.1(h)?',
     options: [
-      'Sí, es directamente aplicable sin necesidad de ley nacional y ningún Estado miembro puede limitarlo.',
-      'No: el artículo 5.5 establece que un Estado miembro podrá decidir prever la posibilidad de autorizar total o parcialmente dicho uso dentro de los límites del Reglamento y deberá establecer en su Derecho nacional las normas detalladas necesarias para la solicitud, concesión y supervisión de las autorizaciones; además, cada uso debe notificarse a la autoridad de vigilancia del mercado y a la autoridad nacional de protección de datos (Art. 5.4).',
-      'Basta con una circular interna de la comisaría local.',
-      'Solo requiere autorización de la empresa proveedora de las cámaras.',
+      'Sí: al ser un reglamento europeo de eficacia directa con arreglo al artículo 288 del TFUE, surte plenos efectos directos sin requerir ley nacional habilitante, bastando una instrucción formal del mando policial responsable del operativo en la vía pública.',
+      'No: el artículo 5.5 exige que el Estado miembro apruebe normas en su Derecho nacional para autorizar y regular el procedimiento de solicitud, concesión y supervisión, debiendo notificar cada uso a las autoridades de vigilancia y protección de datos.',
+      'No: requiere la previa adopción de una directiva delegada de armonización aprobada formalmente por el Parlamento Europeo y el Consejo, así como una autorización de seguridad anual expresa concedida por el Comité Europeo de Inteligencia Artificial.',
+      'Solo en casos de ciberterrorismo internacional, mientras que para los restantes supuestos del Anexo II basta con suscribir un protocolo de colaboración interadministrativa ratificado por el Ministerio de Asuntos Exteriores del Estado.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -841,10 +841,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       '¿Qué obligación de transparencia institucional imponen los apartados 6 y 7 del artículo 5 respecto al uso excepcional de sistemas de identificación biométrica remota «en tiempo real» en los Estados miembros?',
     options: [
-      'Mantener en secreto perpetuo el número de autorizaciones concedidas.',
-      'Publicar los nombres y fotografías de todas las personas investigadas.',
-      'Las autoridades nacionales de vigilancia del mercado y las autoridades nacionales de protección de datos deben presentar informes anuales a la Comisión sobre dicho uso (sin datos personales sensibles), y la Comisión publicará informes anuales agregados basados en esos datos.',
-      'Enviar los vídeos originales al Parlamento Europeo cada semana.',
+      'Las autoridades policiales deben publicar en sus portales web oficiales los fotogramas anonimizados de cada intervención en el plazo máximo de diez días hábiles desde la clausura de la investigación penal.',
+      'Los órganos judiciales autorizantes remitirán trimestralmente al Tribunal de Justicia de la Unión Europea las grabaciones y registros biométricos íntegros para su archivo centralizado en Luxemburgo.',
+      'Las autoridades de vigilancia del mercado y de protección de datos remitirán informes anuales a la Comisión sobre dicho uso (sin datos sensibles), y la Comisión publicará informes anuales de síntesis.',
+      'La Oficina Europea de IA celebrará comparecencias parlamentarias mensuales confidenciales en las que expondrá las grabaciones remitidas por los cuerpos y fuerzas de seguridad de los Estados miembros.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -879,10 +879,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Un fabricante de equipamiento industrial integra un módulo de IA como componente de seguridad de una máquina regulada por el Reglamento de Máquinas (Anexo I, Sección A). Según el artículo 6.1, ¿basta con que el producto esté listado en el Anexo I para que el sistema de IA sea automáticamente de alto riesgo?',
     options: [
-      'Sí, cualquier software instalado en una máquina o juguete es automáticamente de alto riesgo.',
-      'No, solo es de alto riesgo si la máquina pesa más de 5 toneladas.',
-      'Solo si la máquina se exporta fuera de la Unión Europea.',
-      'No: el artículo 6.1 exige DOS condiciones acumulativas: (a) que el sistema de IA sea componente de seguridad de un producto (o sea él mismo un producto) regulado por un acto del Anexo I, Y (b) que dicho producto deba someterse a una evaluación de la conformidad de terceros con arreglo a ese acto legislativo del Anexo I.',
+      'Sí: cualquier sistema de IA incorporado a maquinaria, ascensores o equipos industriales regulados en el Anexo I es automáticamente de alto riesgo con independencia del procedimiento de evaluación de conformidad que rija para el producto.',
+      'No: solo es de alto riesgo si la máquina opera con algoritmos de aprendizaje por refuerzo en tiempo real y el fabricante no cuenta con una sede corporativa registrada en alguno de los veintisiete Estados miembros de la Unión Europea.',
+      'Sí, salvo que el fabricante presente una declaración responsable de exención ante la autoridad de vigilancia del mercado y subcontrate el soporte operativo con una pyme europea conforme al régimen simplificado del artículo 11 del Reglamento.',
+      'No: el artículo 6.1 exige dos requisitos acumulativos: ser componente de seguridad (o producto) bajo el Anexo I y que dicho producto deba someterse a evaluación de conformidad por terceros conforme a dicha norma del Anexo I.',
     ],
     correctOptionIndex: 3,
     explanation:
@@ -912,10 +912,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una aplicación bancaria utiliza reconocimiento facial (1-a-1) en el móvil del cliente con la única finalidad de confirmar que la persona que intenta iniciar sesión o autorizar una transferencia es efectivamente el titular registrado de la cuenta. Según el Anexo III, punto 1, letra a), ¿es este sistema de verificación biométrica un sistema de IA de alto riesgo?',
     options: [
-      'No: el Anexo III, punto 1, letra a), excluye expresamente de los sistemas biométricos de alto riesgo aquellos destinados a ser utilizados con fines de verificación biométrica cuya única finalidad sea confirmar que una persona física concreta es la persona que afirma ser.',
-      'Sí, cualquier uso de biometría facial o dactilar es siempre de alto riesgo.',
-      'Está prohibido por el artículo 5.1(h).',
-      'Solo está exento si utiliza huella dactilar en lugar de rostro.',
+      'No: el Anexo III, punto 1(a), excluye expresamente los sistemas de verificación biométrica (1-a-1) cuya única finalidad sea confirmar que una persona concreta es quien dice ser.',
+      'Sí: toda tecnología de reconocimiento facial aplicada al sector financiero o bancario clasifica como de alto riesgo bajo el punto 5 del Anexo III con independencia de su arquitectura técnica.',
+      'Sí, porque el Reglamento califica como de alto riesgo cualquier tratamiento de datos biométricos ejecutado en teléfonos móviles inteligentes sin intervención de un empleado humano de la entidad.',
+      'Solo si el importe de las transferencias autorizadas por la aplicación móvil supera los diez mil euros o si el banco comparte los vectores faciales con agencias de prevención de fraude del sector.',
     ],
     correctOptionIndex: 0,
     explanation:
@@ -945,10 +945,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el Anexo III, punto 2, ¿en qué cinco sectores se consideran de alto riesgo los sistemas de IA destinados a ser utilizados como componentes de seguridad en la gestión y el funcionamiento de infraestructuras críticas?',
     options: [
-      'Hostelería, comercio minorista, cines, gimnasios y peluquerías.',
-      'La infraestructura digital crítica, el tráfico vial y el suministro de agua, gas, calefacción y electricidad.',
-      'Únicamente las centrales nucleares militares.',
-      'Las bibliotecas municipales y los parques públicos.',
+      'La red ferroviaria de alta velocidad, las telecomunicaciones por satélite, los puertos marítimos comerciales, las refinerías y la banca minorista.',
+      'La infraestructura digital crítica, el tráfico vial y el suministro de agua, gas, calefacción y electricidad, conforme al anexo III, punto 2.',
+      'Las instalaciones de energía nuclear, el transporte marítimo comercial, la gestión aeroportuaria, los hospitales y las redes postales.',
+      'La distribución de alimentos básicos, las presas hidráulicas, las autopistas de peaje, el alumbrado municipal y el tratamiento de residuos.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -978,10 +978,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una plataforma de formación online incorpora un sistema de IA de "proctoring" que vigila y detecta comportamientos sospechosos o prohibidos de los estudiantes durante la realización de exámenes a distancia. Según el Anexo III, punto 3, letra d), ¿cómo se clasifica este sistema?',
     options: [
-      'Es un sistema prohibido por el artículo 5.',
-      'Es un sistema de riesgo mínimo porque solo vigila exámenes.',
-      'Es un sistema de IA de alto riesgo expresamente incluido en el Anexo III, punto 3, letra d) ("sistemas de IA destinados a ser utilizados para vigilar y detectar comportamientos prohibidos de los estudiantes durante las pruebas").',
-      'Solo se regula si el examen es para obtener el permiso de conducir.',
+      'Es una práctica prohibida absoluta bajo el artículo 5.1(a) al considerarse una técnica subliminal y de vigilancia biométrica invasiva en el domicilio.',
+      'Es de riesgo mínimo bajo el artículo 95 al operar en entornos educativos privados donde los alumnos han aceptado voluntariamente la supervisión.',
+      'Es de alto riesgo: el Anexo III, punto 3(d), incluye los sistemas de IA para vigilar y detectar comportamientos prohibidos de estudiantes en pruebas.',
+      'Queda regulado únicamente bajo las obligaciones de transparencia informativa del artículo 50 sin someterse a evaluación de conformidad de alto riesgo.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -1011,10 +1011,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una empresa de reparto utiliza un algoritmo de gestión algorítmica que asigna tareas de forma individualizada a sus repartidores basándose en sus rasgos de personalidad y comportamiento previo, y además evalúa su rendimiento para decidir qué contratos se renuevan. ¿En qué apartado del Anexo III encaja?',
     options: [
-      'No encaja en el Anexo III porque los repartidores trabajan en la vía pública.',
-      'En el punto 1 sobre biometría.',
-      'En el punto 8 sobre administración de justicia.',
-      'En el Anexo III, punto 4, letra b): sistemas de IA destinados a tomar decisiones que afecten a las condiciones de las relaciones laborales, la promoción o la rescisión de relaciones contractuales de índole laboral, para asignar tareas a partir de comportamientos individuales o rasgos y características personales, o para supervisar y evaluar el rendimiento y el comportamiento.',
+      'En el Anexo III, punto 1(a), al calificarse como un sistema de categorización biométrica conductual aplicado a la supervisión remota de trabajadores en el marco de la economía de plataformas.',
+      'En el Anexo III, punto 5(b), al considerarse análogo a los modelos de calificación de solvencia y riesgo patrimonial aplicados a contratistas autónomos dependientes en el mercado interior.',
+      'No encaja en el Anexo III: la asignación operativa de tareas a profesionales autónomos en la vía pública queda excluida del alto riesgo laboral si no se utiliza reconocimiento facial en tiempo real.',
+      'En el Anexo III, punto 4(b): sistemas para tomar decisiones sobre condiciones laborales, rescisiones o promociones, asignar tareas según conducta o rasgos personales, o vigilar y evaluar el rendimiento laboral.',
     ],
     correctOptionIndex: 3,
     explanation:
@@ -1044,10 +1044,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una entidad financiera utiliza dos sistemas de IA distintos: el Sistema A calcula la calificación de solvencia crediticia de los clientes para conceder préstamos (credit scoring), y el Sistema B analiza transacciones con tarjeta con el único fin de detectar fraudes financieros y suplantaciones. Según el Anexo III, punto 5, letra b), ¿cuál de los dos es de alto riesgo?',
     options: [
-      'El Sistema A (evaluación de la solvencia o calificación crediticia de personas físicas) es de alto riesgo, mientras que el Sistema B está expresamente EXCLUIDO del alto riesgo porque el Anexo III.5.b) exceptúa los sistemas de IA utilizados con el fin de detectar fraudes financieros.',
-      'Ambos son de alto riesgo sin excepción.',
-      'El Sistema B es de alto riesgo y el Sistema A es de riesgo mínimo.',
-      'Ninguno de los dos es de alto riesgo.',
+      'El Sistema A (calificación crediticia de personas físicas) es de alto riesgo; el Sistema B queda expresamente excluido porque el Anexo III, punto 5(b), exceptúa los sistemas destinados a detectar fraudes financieros.',
+      'Ambos son de alto riesgo con arreglo al Anexo III, punto 5(b), al evaluar perfiles de solvencia y transacciones monetarias de personas físicas en entidades de crédito supervisadas por las autoridades bancarias europeas.',
+      'El Sistema B es de alto riesgo por analizar transferencias en tiempo real, mientras que el Sistema A está exento si el score crediticio es validado por un gestor de sucursal bancaria en un plazo de 48 horas.',
+      'Ninguno es de alto riesgo: el sector bancario se rige de forma exclusiva por las normas prudenciales de solvencia de Basilea III y las directivas sectoriales sobre créditos al consumo sin sujeción a este Anexo.',
     ],
     correctOptionIndex: 0,
     explanation:
@@ -1077,10 +1077,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una compañía aseguradora utiliza IA para fijar precios y evaluar riesgos en tres ramos: (1) seguro de automóvil, (2) seguro de hogar y (3) seguros de vida y de salud para personas físicas. Según el Anexo III, punto 5, letra c), ¿cuál de estos sistemas tiene la consideración de alto riesgo?',
     options: [
-      'Los tres ramos de seguro son de alto riesgo.',
-      'Únicamente los sistemas de IA destinados a ser utilizados para la evaluación de riesgos y la fijación de precios en relación con las personas físicas en el caso de los seguros de VIDA y de SALUD (quedando fuera de este punto los seguros de daños materiales como hogar o automóvil).',
-      'Solo el seguro de automóvil.',
-      'Ningún seguro privado está incluido en el Anexo III.',
+      'Los tres ramos son de alto riesgo: cualquier fijación algorítmica de primas que discrimine perfiles de riesgo contractual en pólizas aseguradoras queda englobada en el Anexo III, punto 5(c).',
+      'Únicamente los seguros de vida y de salud: el Anexo III, punto 5(c), limita el alto riesgo a la evaluación de riesgos y tarificación respecto a personas físicas en ramos de vida y salud.',
+      'Solo el seguro de automóvil, al estar vinculado a la seguridad vial y directivas de homologación de vehículos a motor incluidas en la lista armonizada de seguridad del Anexo I del Reglamento.',
+      'Ninguno de ellos: las entidades aseguradoras privadas están exentas del Anexo III al someterse al régimen de supervisión prudencial y solvencia de la Directiva 2009/138/CE (Solvencia II).',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -1110,10 +1110,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el Anexo III, punto 8, ¿qué dos tipos de sistemas de IA se clasifican como de alto riesgo en el ámbito de la administración de justicia y los procesos democráticos?',
     options: [
-      'Los procesadores de texto ofimáticos usados en juzgados y las calculadoras de mesas electorales.',
-      'Solo los sistemas de recuento óptico de papeletas.',
-      '(a) Los sistemas destinados a ser utilizados por una autoridad judicial (o en su nombre) para ayudarla a investigar e interpretar hechos y la ley y a aplicar la ley a un conjunto concreto de hechos (o en resolución alternativa de litigios), y (b) los sistemas destinados a influir en el resultado de una elección o referéndum o en el comportamiento de voto de las personas físicas en el ejercicio de su voto (excluyendo herramientas administrativas de organización de campañas).',
-      'Cualquier página web de un partido político.',
+      '(a) Plataformas informáticas para la gestión procesal y señalamiento telemático de vistas judiciales, y (b) sistemas de recuento electrónico de votos y escrutinio electoral administrados por el Ministerio del Interior.',
+      '(a) Modelos de procesamiento de lenguaje para redactar transcripciones literales de declaraciones judiciales, y (b) chatbots de partidos políticos utilizados para informar sobre sus programas electorales sin perfilar votantes.',
+      '(a) Sistemas para ayudar a autoridades judiciales a investigar e interpretar hechos y leyes y aplicarlas a hechos concretos (o en ADR), y (b) sistemas para influir en el resultado electoral o referéndum o en el voto de personas.',
+      '(a) Software de ciberseguridad utilizado para proteger bases de datos del Consejo General del Poder Judicial, y (b) encuestas demoscópicas de intención de voto publicadas por medios de comunicación durante periodos electorales.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -1143,10 +1143,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 6.3, un sistema de IA enumerado en el Anexo III NO se considerará de alto riesgo si no plantea un riesgo significativo para la salud, la seguridad o los derechos fundamentales (y no realiza perfilado de personas físicas) por cumplirse una o varias de cuatro condiciones tasadas. ¿Cuáles son esas cuatro condiciones?',
     options: [
-      'Ser gratuito, tener menos de 100 usuarios, funcionar sin internet o usar software libre.',
-      'Ser desarrollado por una universidad, una ONG, un ayuntamiento pequeño o una startup.',
-      'Usar datos anonimizados, no tener interfaz web, ejecutarse en local o borrar datos cada hora.',
-      '(a) Estar destinado a realizar una tarea procedimental limitada; (b) estar destinado a mejorar el resultado de una actividad humana previamente completada; (c) estar destinado a detectar patrones de toma de decisiones o desviaciones sin sustituir la valoración humana previamente completada ni influir en ella sin una revisión humana adecuada; o (d) estar destinado a realizar una tarea preparatoria para una evaluación pertinente a efectos de los casos del Anexo III.',
+      '(a) Estar bajo licencia de código abierto; (b) procesar menos de diez mil consultas anuales; (c) contar con auditoría externa de ciberseguridad; o (d) haber sido financiado íntegramente por fondos públicos del programa Horizonte Europa.',
+      '(a) Operar exclusivamente sin conexión a internet; (b) borrar los datos biométricos tras cada sesión; (c) no utilizar redes neuronales profundas; o (d) ser desarrollado por una pyme con menos de cincuenta empleados en plantilla.',
+      '(a) No tener interfaz de usuario directa; (b) almacenar la información en servidores ubicados en la Unión; (c) limitar los outputs a formatos numéricos; o (d) contar con un seguro de responsabilidad civil suscrito ante notario.',
+      '(a) Realizar una tarea procedimental limitada; (b) mejorar el resultado de una actividad humana previa; (c) detectar patrones o desviaciones de decisiones sin sustituir la valoración humana previa; o (d) realizar una tarea preparatoria.',
     ],
     correctOptionIndex: 3,
     explanation:
@@ -1176,10 +1176,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 7.1, ¿qué dos condiciones acumulativas deben cumplirse para que la Comisión Europea pueda añadir o modificar casos de uso de alto riesgo en el Anexo III mediante actos delegados?',
     options: [
-      '(a) Que los sistemas de IA estén destinados a ser utilizados en cualquiera de los ámbitos ya enumerados en el Anexo III (puntos 1 a 8), Y (b) que planteen un riesgo de daño para la salud y la seguridad, o un impacto adverso en los derechos fundamentales, que sea equivalente o superior al riesgo que plantean los sistemas de IA de alto riesgo que ya figuran en el Anexo III.',
-      'Que lo solicite al menos una empresa competidora y que el sistema tenga más de un millón de usuarios.',
-      'Que la Comisión quiera añadir cualquier sector nuevo ajeno a los 8 ámbitos del Anexo III sin pasar por el Parlamento.',
-      'Que hayan transcurrido al menos 15 años desde la entrada en vigor.',
+      '(a) Utilizarse en alguno de los 8 ámbitos ya enumerados en el Anexo III, y (b) plantear un riesgo de daño a la salud, seguridad o impacto adverso en derechos fundamentales equivalente o superior al de los sistemas ya contemplados en dicho Anexo.',
+      '(a) Contar con la ratificación expresa por mayoría cualificada del Parlamento Europeo y del Consejo en un plazo de tres meses, y (b) acreditar un volumen de implantación superior al veinte por ciento de las empresas del mercado interior.',
+      '(a) Haber obtenido dictamen preceptivo favorable del Comité Europeo de Inteligencia Artificial, y (b) que el caso de uso implique el despliegue de modelos de IA de uso general con riesgo sistémico evaluados bajo el artículo 51 del Reglamento.',
+      '(a) Estar vinculado a nuevas tecnologías cuánticas emergentes que carezcan de norma armonizada, y (b) haber originado al menos tres incidentes graves notificados por los Estados miembros ante la base de datos de la Unión del artículo 73.',
     ],
     correctOptionIndex: 0,
     explanation:
@@ -1209,10 +1209,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según el artículo 8.1, al determinar las medidas técnicas para garantizar que un sistema de IA de alto riesgo cumple los requisitos de la Sección 2 (Arts. 9 a 15), ¿qué tres elementos deben tenerse en cuenta expresamente?',
     options: [
-      'El precio de venta del software, el país de nacimiento de los programadores y el tamaño de la oficina.',
-      'Su finalidad prevista, el estado de la técnica generalmente reconocido en materia de IA y de tecnologías relacionadas con la IA, y el sistema de gestión de riesgos a que se refiere el artículo 9.',
-      'Únicamente las normas técnicas estadounidenses del NIST.',
-      'La opinión de las agencias de calificación bursátil.',
+      'El volumen de facturación mercantil del proveedor, el país de origen de la inversión y la cuota de mercado total ocupada en el sector relevante de la Unión.',
+      'Su finalidad prevista, el estado de la técnica generalmente reconocido en IA y tecnologías conexas, y el sistema de gestión de riesgos del artículo 9.',
+      'Las directrices técnicas del marco NIST, el número de patentes registradas por el desarrollador y los estándares de gestión de calidad ISO 9001.',
+      'El coste computacional en servidores en la nube, la solvencia financiera de la entidad y la experiencia formativa de los ingenieros en plantilla.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -1242,10 +1242,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       '¿Cómo define el artículo 9.2 la naturaleza del sistema de gestión de riesgos para sistemas de IA de alto riesgo, y qué exige el artículo 9.9 respecto a los menores de edad?',
     options: [
-      'Es una auditoría única que se realiza un día antes de lanzar el producto y no vuelve a tocarse.',
-      'Es un cuestionario voluntario que solo rellenan las empresas públicas.',
-      'Se entiende como un proceso iterativo continuo planificado y ejecutado durante todo el ciclo de vida de un sistema de IA de alto riesgo que requiere revisiones y actualizaciones periódicas sistemáticas; además, el artículo 9.9 obliga a prestar consideración específica a si el sistema puede tener un impacto adverso en personas menores de 18 años o colectivos vulnerables.',
-      'Solo analiza riesgos financieros para los accionistas del proveedor.',
+      'Es una auditoría técnica formal previa al marcado CE que no precisa actualización posterior alguna; el artículo 9.9 prohíbe el uso de sistemas de IA de alto riesgo por menores de dieciocho años salvo previa autorización judicial en cada Estado miembro.',
+      'Es un protocolo voluntario elaborado conforme a los códigos de conducta del artículo 95; el artículo 9.9 recomienda recabar el consentimiento de progenitores únicamente cuando el sistema procese categorías especiales de datos del RGPD.',
+      'Es un proceso iterativo continuo planificado y ejecutado durante todo el ciclo de vida con revisiones periódicas sistemáticas; el artículo 9.9 exige considerar específicamente si puede tener un impacto adverso en menores de 18 años o grupos vulnerables.',
+      'Es una autoevaluación bienal obligatoria gestionada por la autoridad de vigilancia del mercado; el artículo 9.9 exime de considerar a menores de edad siempre que el sistema opere en infraestructuras clasificadas como críticas del Anexo III.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -1275,10 +1275,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según los apartados 6, 7 y 8 del artículo 9, ¿cuándo y cómo deben realizarse las pruebas de los sistemas de IA de alto riesgo para determinar las medidas de gestión de riesgos más adecuadas?',
     options: [
-      'Únicamente después de que el sistema lleve dos años comercializado.',
-      'Solo mediante encuestas de satisfacción comercial.',
-      'Sin definir umbrales previos, improvisando las métricas según los resultados obtenidos.',
-      'En cualquier momento a lo largo del proceso de desarrollo y, en todo caso, antes de su introducción en el mercado o puesta en servicio, realizándose con respecto a parámetros (métricas) y umbrales probabilísticos definidos previamente que sean adecuados a la finalidad prevista del sistema de IA de alto riesgo.',
+      'Exclusivamente en los tres meses posteriores a la comercialización inicial, evaluando el comportamiento del modelo frente a incidencias reales no planificadas reportadas por usuarios en el marco de la vigilancia poscomercialización.',
+      'Únicamente dentro de un espacio controlado de pruebas (sandbox) regulatorio nacional autorizado por la AESIA, siguiendo metodologías empíricas no predeterminadas para contrastar la adaptabilidad algorítmica en entornos abiertos.',
+      'Obligatoriamente tras recibir la aprobación del organismo notificado en la evaluación de la conformidad, sin requerir parámetros ni umbrales probabilísticos cuantitativos fijados con anterioridad a la ejecución de los ensayos.',
+      'En cualquier momento del desarrollo y, en todo caso, antes de su comercialización o puesta en servicio, sobre la base de parámetros y umbrales probabilísticos definidos previamente que sean adecuados a la finalidad prevista.',
     ],
     correctOptionIndex: 3,
     explanation:
@@ -1308,10 +1308,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Según los apartados 3 y 4 del artículo 10, ¿qué características de calidad deben cumplir los conjuntos de datos de entrenamiento, validación y prueba de un sistema de IA de alto riesgo?',
     options: [
-      'Deben ser pertinentes, suficientemente representativos y, en la mayor medida posible, carecer de errores y estar completos en vista de la finalidad prevista, teniendo además en cuenta las características o elementos particulares del ámbito geográfico, contextual, conductual o funcional específico en el que se prevé utilizar el sistema.',
-      'Deben estar compuestos exclusivamente por datos sintéticos generados al azar.',
-      'Basta con que tengan más de 10 millones de filas, sin importar si provienen de otro continente con demografía distinta.',
-      'Solo deben revisarse los datos de prueba, pero no los de entrenamiento.',
+      'Deben ser pertinentes, suficientemente representativos y, en lo posible, carecer de errores y estar completos para su finalidad, atendiendo a las características del ámbito geográfico, contextual, conductual o funcional de uso.',
+      'Deben contener al menos un noventa por ciento de datos anonimizados o sintéticos generados en la Unión Europea, con independencia de su representatividad estadística respecto a la demografía o peculiaridades del territorio de despliegue.',
+      'Basta con que el volumen de entrenamiento supere los diez millones de registros etiquetados, sin que resulte exigible auditar errores muestrales o sesgos geográficos si el sistema no realiza decisiones íntegramente automatizadas.',
+      'Deben estar certificados mediante sello de calidad algorítmica emitido por un organismo notificado, debiendo renovarse el conjunto de validación de forma obligatoria cada seis meses mediante auditorías de sesgo algorítmico.',
     ],
     correctOptionIndex: 0,
     explanation:
@@ -1341,10 +1341,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Cuando un proveedor de alto riesgo se acoge excepcionalmente al artículo 10.5 para tratar categorías especiales de datos personales (Art. 9.1 RGPD) con el fin de detectar y corregir sesgos, ¿cuál de las siguientes seis condiciones acumulativas es OBLIGATORIA según las letras a) a f) del artículo 10.5?',
     options: [
-      'Vender posteriormente los datos especiales a terceros para amortizar el coste de la auditoría.',
-      'Que la detección y corrección de sesgos no pueda lograrse eficazmente tratando otros datos (incluidos datos sintéticos o anonimizados), que los datos estén sujetos a limitaciones técnicas de reutilización y medidas de seguridad/seudonimización, que no se transmitan ni transfieran a terceros, y que se supriman una vez corregido el sesgo o al finalizar el período de conservación, lo que ocurra primero.',
-      'Publicar los datos sensibles en el repositorio público del proyecto.',
-      'Conservar los datos sensibles de forma indefinida.',
+      'Que la autoridad de protección de datos apruebe formalmente cada sesión de entrenamiento y que el proveedor conserve copia íntegra de los datos sensibles en un archivo notarial permanente como garantía documental de diligencia debida.',
+      'Que no pueda lograrse con otros datos (como sintéticos), que existan límites de reutilización y seguridad/seudonimización, que no se transfieran a terceros y que se supriman una vez corregido el sesgo o finalizada la conservación.',
+      'Que el tratamiento se realice exclusivamente en sistemas de computación en la nube pública certificada y que los datos especiales se cedan a investigadores universitarios para contrastar los resultados de la corrección del sesgo.',
+      'Que se abone una compensación económica a las personas afectadas por el tratamiento de sus datos sensibles y que el sesgo residual del modelo quede acreditado por debajo del uno por ciento mediante auditoría externa del Anexo VII.',
     ],
     correctOptionIndex: 1,
     explanation:
@@ -1374,10 +1374,10 @@ export const QUIZ_BANK_PART1 = [
     question:
       'Una pyme o empresa emergente (startup) desarrolla un sistema de IA de alto riesgo y debe elaborar la documentación técnica del artículo 11 (Anexo IV) antes de introducirlo en el mercado. ¿Qué facilidad específica le concede el artículo 11.1?',
     options: [
-      'Las pymes y startups están exentas de elaborar documentación técnica.',
-      'Pueden entregar la documentación 5 años después de empezar a vender.',
-      'Las pymes, incluidas las empresas emergentes, podrán proporcionar los elementos de la documentación técnica especificados en el Anexo IV de manera simplificada utilizando un formulario de documentación técnica simplificado establecido por la Comisión, que será aceptado por los organismos notificados a efectos de la evaluación de la conformidad.',
-      'Solo tienen que presentar una diapositiva comercial.',
+      'Quedan plenamente exentas de presentar documentación técnica y registrar el sistema en la base de datos de la Unión durante sus primeros tres ejercicios fiscales si su plantilla no supera los cincuenta trabajadores en cómputo anual.',
+      'Pueden sustituir la documentación técnica del Anexo IV por una declaración jurada de solvencia tecnológica acompañada de la memoria económica anual depositada en el Registro Mercantil del Estado miembro donde tengan su sede social.',
+      'Pueden presentar los elementos del Anexo IV de forma simplificada mediante un formulario establecido por la Comisión, el cual deberá ser aceptado por los organismos notificados a efectos de la evaluación de la conformidad.',
+      'Tienen derecho a una moratoria legal improrrogable de cinco años desde la puesta en servicio para elaborar el expediente técnico, siempre que el sistema opere bajo la supervisión de un socio tecnológico de gran tamaño en la Unión.',
     ],
     correctOptionIndex: 2,
     explanation:
@@ -1396,1390 +1396,4 @@ export const QUIZ_BANK_PART1 = [
       }),
     ],
   },
-  {
-    id: 'qz_91',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_11',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: true,
-    question:
-      'Un fabricante de dispositivos médicos (sujeto al Reglamento MDR 2017/745 del Anexo I, Sección A) integra un sistema de IA de alto riesgo (Art. 6.1) en su equipo de diagnóstico. Según el artículo 11.2, ¿debe elaborar dos expedientes técnicos separados (uno para el MDR y otro para el Reglamento de IA)?',
-    options: [
-      'Sí, está prohibido unificar la documentación y debe duplicar todos los archivos.',
-      'Solo debe elaborar el del Reglamento de IA, quedando derogado el MDR.',
-      'No necesita elaborar ninguno si el hospital es público.',
-      'No: el artículo 11.2 establece que cuando un sistema de IA de alto riesgo relacionado con un producto al que sean aplicables los actos legislativos del Anexo I, Sección A, se introduzca en el mercado o se ponga en servicio, se elaborará una ÚNICA documentación técnica que contenga toda la información establecida en el Anexo IV junto con la exigida en dichos actos legislativos.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'Para evitar duplicidades administrativas en productos regulados del Anexo I, Sección A (dispositivos médicos, maquinaria, juguetes, ascensores, etc.), el artículo 11.2 dispone que se elaborará un único conjunto de documentación técnica que integre la información del Anexo IV del Reglamento de IA y la exigida por el acto sectorial correspondiente.',
-    enterpriseLesson:
-      'En productos sanitarios o maquinaria industrial con IA, unifica el expediente técnico integrando los apartados del Anexo IV dentro de tu Technical File sectorial.',
-    citations: [
-      makeCitation({
-        id: 'art_11.p2',
-        targetType: 'paragraph',
-        articleId: 'art_11',
-        paragraphId: 'art_11.p2',
-        displayLabel: 'Art. 11.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Cuando un sistema de IA de alto riesgo relacionado con un producto al que sean aplicables los actos legislativos de armonización de la Unión enumerados en el anexo I, sección A, se introduzca en el mercado o se ponga en servicio, se elaborará una única documentación técnica que contenga toda la información establecida en el apartado 1, así como la información exigida en virtud de dichos actos legislativos.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_92',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_12',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: false,
-    question:
-      'Además de la capacidad general de registro automático de eventos (logs) durante toda la vida útil del sistema (Art. 12.1), ¿qué cuatro elementos específicos exige el artículo 12.3 que registren como mínimo los sistemas de identificación biométrica remota del Anexo III, punto 1, letra a)?',
-    options: [
-      '(a) El registro de la duración de cada utilización del sistema (fecha y hora de inicio y fin); (b) la base de datos de referencia con la que el sistema ha cotejado los datos de entrada; (c) los datos de entrada con respecto a los cuales la búsqueda ha dado lugar a una coincidencia (match); y (d) la identificación de las personas físicas que hayan participado en la verificación de los resultados a que se refiere el artículo 14.5.',
-      'Únicamente el consumo eléctrico de la cámara y la temperatura ambiente.',
-      'Solo el nombre del fabricante de la lente óptica.',
-      'La dirección postal de todas las personas que pasen por la calle aunque no den coincidencia.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 12.3 impone capacidades de logging reforzadas para los sistemas del Anexo III, punto 1, letra a) (identificación biométrica remota): inicio y fin de cada uso, base de datos de referencia consultada, datos de entrada que generaron coincidencia e identificación de los al menos dos supervisores humanos que verificaron el resultado según el artículo 14.5.',
-    enterpriseLesson:
-      'Si desarrollas software biométrico del Anexo III.1.a), el esquema de base de datos de auditoría (audit log) debe almacenar obligatoriamente la identidad de los dos operadores humanos que confirmaron cada coincidencia.',
-    citations: [
-      makeCitation({
-        id: 'art_12.p3',
-        targetType: 'paragraph',
-        articleId: 'art_12',
-        paragraphId: 'art_12.p3',
-        displayLabel: 'Art. 12.1 y 12.3(a)-(d) · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'En el caso de los sistemas de IA de alto riesgo a que se refiere el anexo III, punto 1, letra a), las capacidades de registro ofrecerán, como mínimo: a) el registro de la duración de cada utilización del sistema (fecha y hora de inicio y de finalización de cada utilización); b) la base de datos de referencia con la que el sistema ha cotejado los datos de entrada; c) los datos de entrada con respecto a los cuales la búsqueda ha dado lugar a una coincidencia; d) la identificación de las personas físicas que hayan participado en la verificación de los resultados, según se contempla en el artículo 14, apartado 5.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_93',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_13',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 13.3, ¿qué información crítica debe figurar obligatoriamente en las «instrucciones de uso» que acompañan a todo sistema de IA de alto riesgo entregadas al responsable del despliegue?',
-    options: [
-      'Únicamente el precio de renovación anual de la licencia.',
-      'La identidad y datos de contacto del proveedor; las características, capacidades y limitaciones de rendimiento del sistema (incluidos su finalidad prevista, nivel de precisión, solidez y ciberseguridad, circunstancias que puedan provocar riesgos o discriminación, y especificaciones de los datos de entrada); las medidas de supervisión humana (incluidas medidas técnicas para facilitar la interpretación de los resultados de salida); y la vida útil prevista y medidas de mantenimiento y recogida de logs.',
-      'El currículum vitae de todos los becarios que participaron en el proyecto.',
-      'Solo el logotipo del marcado CE sin texto explicativo.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 13.3 detalla de la letra a) a la letra f) el contenido mínimo exhaustivo de las instrucciones de uso en formato digital o físico: datos del proveedor, capacidades y limitaciones (precisión por colectivos, riesgos previsibles, especificaciones de datos de entrada), cambios predeterminados, medidas de supervisión humana y explicabilidad (13.3.d), recursos de cálculo necesarios, vida útil y mecanismos para que el desplegador recoja y conserve los logs (13.3.f).',
-    enterpriseLesson:
-      'Trata las «instrucciones de uso» del Art. 13 como un entregable técnico-jurídico vinculante: si omites especificar las limitaciones del modelo o cómo debe supervisarlo el cliente, incumples un requisito esencial de conformidad.',
-    citations: [
-      makeCitation({
-        id: 'art_13.p3',
-        targetType: 'paragraph',
-        articleId: 'art_13',
-        paragraphId: 'art_13.p3',
-        displayLabel: 'Art. 13.1, 13.2 y 13.3 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los sistemas de IA de alto riesgo irán acompañados de instrucciones de uso en un formato digital adecuado o de otro tipo que incluyan información concisa, completa, correcta y clara que sea pertinente, accesible y comprensible para los responsables del despliegue.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_94',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_14',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: true,
-    question:
-      'Al diseñar la interfaz de supervisión humana de un sistema de IA de alto riesgo conforme al artículo 14.4, ¿qué fenómeno cognitivo exige expresamente la letra b) que las personas encargadas de la supervisión puedan prevenir, y qué facultades operativas exigen las letras d) y e)?',
-    options: [
-      'Fomentar que el operador acepte siempre la primera recomendación del sistema sin cuestionarla para ahorrar tiempo.',
-      'Ocultar el nivel de confianza del modelo para no confundir al operador.',
-      'Ser conscientes de la posible tendencia a confiar automáticamente o en exceso en los resultados de salida generados por un sistema de IA de alto riesgo («sesgo de automatización»), así como poder decidir no utilizar el sistema, descartar, invalidar o revertir sus resultados de salida, e intervenir o interrumpir el sistema mediante un botón de «parada» o procedimiento similar que permita detenerlo de forma segura.',
-      'Impedir que el operador humano pueda contradecir al algoritmo.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 14.4 exige que las medidas de supervisión humana permitan a los supervisores: (a) comprender capacidades y limitaciones y detectar anomalías; (b) mantenerse alerta frente al «sesgo de automatización» (automation bias), especialmente cuando el sistema proporciona recomendaciones o información para la toma de decisiones; (c) interpretar correctamente los outputs; (d) decidir no utilizar el sistema o descartar, invalidar o revertir sus resultados; y (e) detener el funcionamiento en condiciones de seguridad mediante un botón de parada.',
-    enterpriseLesson:
-      'En interfaces de sistemas de alto riesgo (RR.HH., crédito, triaje), evita diseños UX que induzcan a clicar "Aceptar recomendación" por inercia; exige motivación activa, permite revertir la decisión e incluye botón de parada segura.',
-    citations: [
-      makeCitation({
-        id: 'art_14.p4',
-        targetType: 'paragraph',
-        articleId: 'art_14',
-        paragraphId: 'art_14.p4',
-        displayLabel: 'Art. 14.4(a)-(e) · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'b) mantenerse conscientes de la posible tendencia a confiar automáticamente o en exceso en los resultados de salida generados por un sistema de IA de alto riesgo («sesgo de automatización»)... d) decidir, en cualquier situación concreta, no utilizar el sistema de IA de alto riesgo o descartar, invalidar o revertir de otro modo los resultados de salida... e) intervenir en el funcionamiento del sistema de IA de alto riesgo o interrumpir el sistema mediante un botón de «parada» o un procedimiento similar que permita que el sistema se detenga de forma segura.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_95',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_15',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: false,
-    question:
-      'Según los apartados 4 y 5 del artículo 15, ¿qué medidas específicas de solidez técnica y de ciberseguridad frente a vulnerabilidades propias de la IA deben incorporar los sistemas de IA de alto riesgo?',
-    options: [
-      'Basta con instalar un antivirus comercial estándar en el ordenador del recepcionista.',
-      'Solo se exige cifrar el disco duro donde se guarda la factura.',
-      'No se exige ninguna medida específica para sistemas que continúen aprendiendo tras su despliegue.',
-      'En solidez: planes de prevención de fallos (redundancia o copias de seguridad) y, en sistemas con aprendizaje continuo, mitigación del riesgo de que resultados futuros sesgados influyan en entradas futuras («bucles de retroalimentación»). En ciberseguridad: soluciones para prevenir, detectar y responder a ataques que intenten manipular el conjunto de datos de entrenamiento («envenenamiento de datos»), componentes preentrenados («envenenamiento de modelos»), entradas diseñadas para que el modelo cometa un error («ejemplos adversarios» o «evasión de modelos») o ataques a la confidencialidad.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El artículo 15.4 exige solidez técnica (redundancia, planes fail-safe y mitigación de bucles de retroalimentación sesgados en sistemas de aprendizaje continuo), mientras que el artículo 15.5 exige ciberseguridad específica de IA frente a data poisoning (envenenamiento de datos), model poisoning (envenenamiento de modelos), adversarial examples / model evasion (ejemplos adversarios o evasión) y ataques a la confidencialidad de los datos o pesos.',
-    enterpriseLesson:
-      'La ciberseguridad del Art. 15.5 va más allá de la seguridad IT perimetral (ISO 27001): tu equipo de seguridad debe auditar y mitigar vectores específicos de Machine Learning (data/model poisoning, prompt injection y ataques adversarios).',
-    citations: [
-      makeCitation({
-        id: 'art_15.p5',
-        targetType: 'paragraph',
-        articleId: 'art_15',
-        paragraphId: 'art_15.p5',
-        displayLabel: 'Art. 15.4 y 15.5 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Las soluciones técnicas encaminadas a garantizar la ciberseguridad de los sistemas de IA de alto riesgo se adaptarán a las circunstancias pertinentes y a los riesgos, e incluirán, cuando proceda, medidas para prevenir, detectar, responder, resolver y controlar los ataques que intenten manipular el conjunto de datos de entrenamiento («envenenamiento de datos»), o los componentes preentrenados utilizados en el entrenamiento («envenenamiento de modelos»), las entradas diseñadas para hacer que el modelo de IA cometa un error («ejemplos adversarios» o «evasión de modelos»), o los ataques a la confidencialidad o los defectos en el modelo.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_96',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_16',
-    titleId: 'tit_III',
-    difficulty: 'básico',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 16, letras b) y l), ¿qué obligaciones de identificación y de accesibilidad tienen los proveedores de sistemas de IA de alto riesgo?',
-    options: [
-      'Deben indicar en el sistema de IA de alto riesgo (o, cuando no sea posible, en su embalaje o en la documentación que lo acompañe) su nombre, su nombre comercial registrado o su marca registrada y su dirección de contacto; y deben asegurarse de que el sistema de IA de alto riesgo cumpla los requisitos de accesibilidad de conformidad con las Directivas (UE) 2016/2102 y (UE) 2019/882 (Acta Europea de Accesibilidad).',
-      'Pueden comercializar el sistema de forma totalmente anónima.',
-      'Están exentos de cumplir cualquier normativa de accesibilidad para personas con discapacidad.',
-      'Solo deben indicar un apartado de correos sin nombre de empresa.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 16 enumera las doce obligaciones troncales del proveedor de alto riesgo (letras a a l), incluyendo en la letra b) el deber de identificación clara del proveedor y su dirección de contacto en el propio sistema, su embalaje o documentación, y en la letra l) el cumplimiento obligatorio de los requisitos de accesibilidad para personas con discapacidad de las Directivas (UE) 2016/2102 y (UE) 2019/882.',
-    enterpriseLesson:
-      'Todo sistema de IA de alto riesgo debe cumplir por mandato del Art. 16(l) el Acta Europea de Accesibilidad (Directiva UE 2019/882 / WCAG) y mostrar de forma inequívoca la razón social y dirección de contacto del proveedor (Art. 16.b).',
-    citations: [
-      makeCitation({
-        id: 'art_16.p3',
-        targetType: 'paragraph',
-        articleId: 'art_16',
-        paragraphId: 'art_16.p3',
-        displayLabel: 'Art. 16(b) y 16(l) · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'b) indicarán en el sistema de IA de alto riesgo o, cuando no sea posible, en su embalaje o en la documentación que lo acompañe, según proceda, su nombre, su nombre comercial registrado o su marca registrada y su dirección de contacto... l) se asegurarán de que el sistema de IA de alto riesgo cumpla los requisitos de accesibilidad de conformidad con las Directivas (UE) 2016/2102 y (UE) 2019/882.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_97',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_17',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según los apartados 1 y 2 del artículo 17, ¿cómo se modula la aplicación del sistema de gestión de la calidad obligatorio para los proveedores de sistemas de IA de alto riesgo?',
-    options: [
-      'Exige exactamente el mismo volumen burocrático a una microempresa de 3 empleados que a una multinacional de 100.000 empleados.',
-      'La aplicación de los trece aspectos del sistema de gestión de la calidad (Art. 17.1.a-m) será PROPORCIONADA al tamaño de la organización del proveedor, documentándose en forma de políticas, procedimientos e instrucciones escritos; además, las entidades financieras reguladas pueden integrarlo en sus sistemas de gobernanza y control interno existentes.',
-      'El sistema de gestión de la calidad es meramente verbal y no requiere políticas escritas.',
-      'Solo es obligatorio a partir del año 2035.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 17.1 exige documentar de manera sistemática y ordenada en políticas, procedimientos e instrucciones escritos los trece pilares de gestión de la calidad (diseño, control de calidad, examen de datos, gestión de riesgos, vigilancia poscomercialización, incidentes, comunicación con autoridades, conservación documental, asignación de responsabilidades), pero el artículo 17.2 dispone que la aplicación de tales aspectos será proporcionada al tamaño de la organización del proveedor.',
-    enterpriseLesson:
-      'El principio de proporcionalidad del Art. 17.2 permite a pymes y startups implantar un Sistema de Gestión de Calidad ágil (integrado en su repositorio documental / ISO 42001) adaptado al tamaño real de su organización.',
-    citations: [
-      makeCitation({
-        id: 'art_17.p2',
-        targetType: 'paragraph',
-        articleId: 'art_17',
-        paragraphId: 'art_17.p2',
-        displayLabel: 'Art. 17.1 y 17.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'La aplicación de los aspectos a que se refiere el apartado 1 será proporcionada al tamaño de la organización del proveedor.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_98',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_18',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: true,
-    question:
-      'Un proveedor de sistemas de IA de alto riesgo entra en concurso de acreedores (quiebra) o cesa su actividad tres años después de haber introducido el sistema en el mercado. Según el artículo 18.2 (y las obligaciones del Estado miembro), ¿qué ocurre con el deber de conservar la documentación durante 10 años?',
-    options: [
-      'Se destruye toda la documentación inmediatamente el día del cierre de la empresa.',
-      'La obligación desaparece por completo.',
-      'Cada Estado miembro determinará las condiciones en las que la documentación a que se refiere el artículo 18.1 permanezca a disposición de las autoridades nacionales competentes durante el período de 10 años para los casos en que un proveedor o su representante autorizado establecido en su territorio se declare en quiebra o ponga fin a su actividad antes de que finalice dicho período.',
-      'Los clientes particulares pasan a ser responsables penales de redactar de nuevo el Anexo IV.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 18.2 prevé expresamente la contingencia de insolvencia o cese de actividad del proveedor (o de su representante autorizado) antes de cumplirse los 10 años de conservación documental del artículo 18.1, obligando a los Estados miembros a garantizar que dicha documentación permanezca a disposición de las autoridades nacionales competentes durante todo el período restante.',
-    enterpriseLesson:
-      'Cuando adquieras o despliegues un sistema de IA de alto riesgo de una startup o proveedor externo, incluye una cláusula de depósito (escrow documental del Anexo IV y Declaración UE) en caso de insolvencia o cierre del proveedor.',
-    citations: [
-      makeCitation({
-        id: 'art_18.p2',
-        targetType: 'paragraph',
-        articleId: 'art_18',
-        paragraphId: 'art_18.p2',
-        displayLabel: 'Art. 18.1 y 18.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Cada Estado miembro determinará las condiciones en las que la documentación a que se refiere el apartado 1 permanezca a disposición de las autoridades nacionales competentes durante el período indicado en dicho apartado para los casos en que un proveedor o su representante autorizado establecido en su territorio se declare en quiebra o ponga fin a su actividad antes de que finalice dicho período.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_99',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_19',
-    titleId: 'tit_III',
-    difficulty: 'básico',
-    isPracticalCase: true,
-    question:
-      'En el caso de los proveedores de sistemas de IA de alto riesgo que sean entidades financieras sujetas a legislación de servicios financieros de la Unión, ¿cómo deben cumplir la obligación de conservar los archivos de registro (logs) generados automáticamente según el artículo 19.2?',
-    options: [
-      'Deben borrar los logs cada 48 horas.',
-      'Están exentos de generar logs.',
-      'Deben enviar los logs en papel al Banco Central Europeo cada mañana.',
-      'Conservarán los archivos de registro generados automáticamente por sus sistemas de IA de alto riesgo como parte de la documentación contemplada en la legislación pertinente en materia de servicios financieros.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'Al igual que el artículo 17.3 (sobre el sistema de gestión de calidad) y el artículo 26.6 párrafo segundo (para desplegadores financieros), el artículo 19.2 coordina el Reglamento de IA con la regulación prudencial bancaria y financiera disponiendo que las entidades financieras conserven los logs de sus sistemas de alto riesgo como parte de la documentación exigida por su normativa sectorial de servicios financieros.',
-    enterpriseLesson:
-      'En bancos, aseguradoras y sociedades de inversión, integra el almacenamiento de logs del Art. 19/26 directamente en los repositorios regulatorios de auditoría financiera y DORA.',
-    citations: [
-      makeCitation({
-        id: 'art_19.p2',
-        targetType: 'paragraph',
-        articleId: 'art_19',
-        paragraphId: 'art_19.p2',
-        displayLabel: 'Art. 19.1 y 19.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los proveedores que sean entidades financieras sujetas a requisitos relativos a su gobernanza, sus mecanismos o sus procesos internos en virtud de la legislación de la Unión en materia de servicios financieros conservarán los archivos de registro generados automáticamente por sus sistemas de IA de alto riesgo como parte de la documentación contemplada en la legislación pertinente en materia de servicios financieros.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_100',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_20',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: true,
-    question:
-      'Un proveedor de un sistema de IA de alto riesgo ya comercializado detecta que una actualización ha introducido un defecto que hace que el sistema deje de ser conforme con el Reglamento. Según los artículos 20.1 y 20.2, ¿qué acciones inmediatas está obligado a ejecutar?',
-    options: [
-      'Adoptar inmediatamente las medidas correctoras necesarias para poner el sistema en conformidad, retirarlo del mercado, desactivarlo o recuperarlo, según proceda; informar de ello a los distribuidores, responsables del despliegue, representante autorizado e importadores; y si presenta un riesgo en el sentido del artículo 79.1, informar inmediatamente a las autoridades de vigilancia del mercado de los Estados miembros y, en su caso, al organismo notificado.',
-      'Esperar a que venza el contrato anual de los clientes sin comunicar el fallo.',
-      'Corregirlo en silencio únicamente para los nuevos clientes.',
-      'Solo informar a su departamento de marketing.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 20 impone un deber activo de subsanación y alerta en toda la cadena de suministro: el proveedor que considere o tenga motivos para pensar que su sistema de alto riesgo no es conforme debe tomar de inmediato medidas correctoras (reparar, retirar, desactivar o recuperar), avisar a distribuidores, desplegadores, importadores y representante autorizado, e investigar las causas en colaboración con el desplegador e informar a las autoridades de vigilancia del mercado y al organismo notificado.',
-    enterpriseLesson:
-      'Tu plan de respuesta a no conformidades (Art. 20) debe incluir plantillas de aviso inmediato tanto a clientes (desplegadores) y canal de distribución como a la AESIA.',
-    citations: [
-      makeCitation({
-        id: 'art_20.p1',
-        targetType: 'paragraph',
-        articleId: 'art_20',
-        paragraphId: 'art_20.p1',
-        displayLabel: 'Art. 20.1 y 20.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los proveedores de sistemas de IA de alto riesgo que consideren o tengan motivos para pensar que un sistema de IA de alto riesgo que han introducido en el mercado o puesto en servicio no es conforme con el presente Reglamento adoptarán inmediatamente las medidas correctoras necesarias para poner dicho sistema en conformidad, retirarlo del mercado, desactivarlo o recuperarlo, según proceda. Informarán de ello a los distribuidores del sistema de IA de alto riesgo de que se trate y, en su caso, a los responsables del despliegue, al representante autorizado y a los importadores.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_101',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_21',
-    titleId: 'tit_III',
-    difficulty: 'básico',
-    isPracticalCase: false,
-    question:
-      'Cuando una autoridad nacional competente formula una solicitud motivada al proveedor de un sistema de IA de alto riesgo conforme al artículo 21.1, ¿en qué idioma debe el proveedor facilitarle toda la información y documentación necesarias para demostrar la conformidad?',
-    options: [
-      'Exclusivamente en latín o en esperanto.',
-      'En una lengua que pueda ser fácilmente comprendida por dicha autoridad, que será una de las lenguas oficiales de las instituciones de la Unión determinada por el Estado miembro de que se trate.',
-      'Únicamente en el idioma del tercer país donde resida la matriz del proveedor.',
-      'En código binario sin traducir.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 21.1 obliga a los proveedores de sistemas de IA de alto riesgo, previa solicitud motivada de una autoridad competente, a facilitarle toda la información y documentación necesarias para demostrar la conformidad en una lengua que pueda ser fácilmente comprendida por la autoridad entre las lenguas oficiales de la Unión determinadas por dicho Estado miembro.',
-    enterpriseLesson:
-      'Si comercializas sistemas de alto riesgo en España, asegúrate de poder entregar la documentación del Anexo IV y evidencias de conformidad en español o en la lengua oficial aceptada por la AESIA.',
-    citations: [
-      makeCitation({
-        id: 'art_21.p1',
-        targetType: 'paragraph',
-        articleId: 'art_21',
-        paragraphId: 'art_21.p1',
-        displayLabel: 'Art. 21.1 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los proveedores de sistemas de IA de alto riesgo facilitarán a la autoridad competente, previa solicitud motivada de esta, toda la información y la documentación necesarias para demostrar la conformidad del sistema de IA de alto riesgo con los requisitos establecidos en la sección 2, en una lengua que pueda ser fácilmente comprendida por la autoridad en cuestión, que será una de las lenguas oficiales de las instituciones de la Unión determinada por el Estado miembro de que se trate.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_102',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_22',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: true,
-    question:
-      'Un representante autorizado en Madrid, designado por un proveedor extracomunitario de un sistema de IA de alto riesgo conforme al artículo 22, comprueba que el proveedor extranjero está incumpliendo gravemente sus obligaciones del Reglamento y se niega a subsanarlas. Según el artículo 22.3, último párrafo, ¿qué deber jurídico tiene el representante autorizado?',
-    options: [
-      'Ocultar el incumplimiento para no perder su comisión mercantil.',
-      'Seguir comercializando el sistema hasta que caduque el contrato.',
-      'Poner fin inmediatamente al mandato cuando considere o tenga motivos para considerar que el proveedor actúa de forma contraria a las obligaciones que le incumben en virtud del Reglamento, e informar inmediatamente de la finalización del mandato y de los motivos a la autoridad de vigilancia del mercado pertinente y, en su caso, al organismo notificado.',
-      'Esperar 5 años antes de comunicarlo.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 22.3 impone al representante autorizado un rol de garante regulatorio en la Unión: además de verificar la declaración UE de conformidad y la documentación técnica y mantenerlas 10 años a disposición de las autoridades, "El representante autorizado pondrá fin al mandato cuando considere o tenga motivos para considerar que el proveedor actúa de forma contraria a las obligaciones que le incumben en virtud del presente Reglamento. En tal caso, informará inmediatamente de la finalización del mandato y de los motivos para ello a la autoridad de vigilancia del mercado pertinente".',
-    enterpriseLesson:
-      'Actuar como Representante Autorizado en la UE (Art. 22) no es un mero buzón postal: conlleva responsabilidad directa y la obligación legal de rescindir el mandato y denunciar al proveedor extracomunitario ante la autoridad si incumple el Reglamento.',
-    citations: [
-      makeCitation({
-        id: 'art_22.p4',
-        targetType: 'paragraph',
-        articleId: 'art_22',
-        paragraphId: 'art_22.p4',
-        displayLabel: 'Art. 22.1 y 22.3 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'El representante autorizado pondrá fin al mandato cuando considere o tenga motivos para considerar que el proveedor actúa de forma contraria a las obligaciones que le incumben en virtud del presente Reglamento. En tal caso, informará inmediatamente de la finalización del mandato y de los motivos para ello a la autoridad de vigilancia del mercado pertinente del Estado miembro en el que esté establecido y, en su caso, al organismo notificado.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_103',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_23',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según los apartados 1, 2 y 5 del artículo 23, ¿qué comprobaciones e indicaciones debe realizar todo IMPORTADOR antes de introducir en el mercado de la Unión un sistema de IA de alto riesgo fabricado en un tercer país, y durante cuánto tiempo debe conservar copia del certificado y de la declaración UE de conformidad?',
-    options: [
-      'No tiene que comprobar nada si el fabricante tiene página web.',
-      'Solo debe comprobar que el precio esté expresado en euros.',
-      'Debe conservar los documentos únicamente durante 3 meses.',
-      'Debe asegurarse de que el proveedor ha realizado la evaluación de la conformidad, ha elaborado la documentación técnica, el sistema lleva el marcado CE y va acompañado de la declaración UE de conformidad e instrucciones de uso, y que el proveedor ha designado un representante autorizado; además, debe indicar en el sistema/embalaje/documentación su propio nombre, marca y dirección de contacto, y conservar durante 10 años copia del certificado del organismo notificado, de las instrucciones de uso y de la declaración UE de conformidad.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El artículo 23 impone a los importadores un control de entrada riguroso (Art. 23.1), la prohibición de introducir el sistema en el mercado si consideran que no es conforme o está falsificado (Art. 23.2), la obligación de añadir sus propios datos de identificación y contacto sin ocultar los del proveedor (Art. 23.3), la garantía de condiciones de almacenamiento o transporte adecuadas (Art. 23.4) y la conservación durante 10 años de copia del certificado, instrucciones y declaración UE de conformidad (Art. 23.5).',
-    enterpriseLesson:
-      'Si tu empresa importa software o hardware con IA de alto riesgo desde fuera del EEE, debes auditar el dossier de conformidad antes de la primera venta y archivar la Declaración UE e instrucciones durante 10 años (Art. 23.5).',
-    citations: [
-      makeCitation({
-        id: 'art_23.p1',
-        targetType: 'paragraph',
-        articleId: 'art_23',
-        paragraphId: 'art_23.p1',
-        displayLabel: 'Art. 23.1, 23.3 y 23.5 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Antes de introducir en el mercado un sistema de IA de alto riesgo, los importadores se asegurarán de que el proveedor de dicho sistema de IA haya llevado a cabo el procedimiento de evaluación de la conformidad pertinente, de que el proveedor haya elaborado la documentación técnica... de que el sistema lleve el marcado CE requerido y vaya acompañado de la declaración UE de conformidad y de las instrucciones de uso, y de que el proveedor haya designado a un representante autorizado.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_104',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_24',
-    titleId: 'tit_III',
-    difficulty: 'básico',
-    isPracticalCase: true,
-    question:
-      'Un distribuidor de software empresarial en España detecta que un sistema de IA de alto riesgo que tiene en catálogo carece del marcado CE o de la declaración UE de conformidad. Según los apartados 1 y 2 del artículo 24, ¿puede comercializarlo mientras el proveedor tramita los papeles?',
-    options: [
-      'No: cuando un distribuidor considere o tenga motivos para considerar, sobre la base de la información que obre en su poder, que un sistema de IA de alto riesgo no es conforme con los requisitos del Capítulo III, Sección 2, NO comercializará dicho sistema hasta que haya sido puesto en conformidad, y si presenta un riesgo informará al proveedor o importador y a las autoridades competentes.',
-      'Sí, puede venderlo durante 6 meses de carencia.',
-      'Sí, si hace un descuento del 20 % al comprador.',
-      'Los distribuidores no tienen ninguna obligación en el Reglamento de IA.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 24.1 exige al distribuidor verificar antes de comercializar el sistema que lleva el marcado CE, va acompañado de copia de la declaración UE de conformidad y de las instrucciones de uso, y que el proveedor y el importador han cumplido sus deberes de identificación. El artículo 24.2 le prohíbe taxativamente comercializarlo si tiene motivos para considerar que no es conforme.',
-    enterpriseLesson:
-      'Los resellers, partners e integradores B2B deben incluir un checklist obligatorio del Art. 24.1 (marcado CE + Declaración UE Anexo V + instrucciones Art. 13) antes de dar de alta cualquier solución de alto riesgo en su catálogo comercial.',
-    citations: [
-      makeCitation({
-        id: 'art_24.p2',
-        targetType: 'paragraph',
-        articleId: 'art_24',
-        paragraphId: 'art_24.p2',
-        displayLabel: 'Art. 24.1 y 24.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Cuando un distribuidor considere o tenga motivos para considerar, sobre la base de la información que obre en su poder, que un sistema de IA de alto riesgo no es conforme con los requisitos establecidos en la sección 2, no comercializará el sistema de IA de alto riesgo hasta que dicho sistema haya sido puesto en conformidad.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_105',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_25',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: true,
-    question:
-      'Cuando un responsable del despliegue o distribuidor pasa a ser considerado nuevo PROVEEDOR de un sistema de IA de alto riesgo en virtud del artículo 25.1 (por cambio de marca, modificación sustancial o cambio a finalidad de alto riesgo), ¿qué obligaciones impone el artículo 25.2 al proveedor inicial y qué límite establece?',
-    options: [
-      'El proveedor inicial sigue siendo el único responsable y el nuevo proveedor no asume obligaciones.',
-      'El proveedor que haya introducido inicialmente en el mercado o puesto en servicio el sistema de IA dejará de ser considerado proveedor de ese sistema concreto y cooperará estrechamente con el nuevo proveedor, facilitándole la información necesaria y el acceso técnico razonablemente esperado para cumplir el Reglamento, SALVO en aquellos casos en que el proveedor inicial haya especificado claramente que su sistema de IA no debe transformarse en un sistema de IA de alto riesgo.',
-      'El proveedor inicial debe regalarle todas sus patentes.',
-      'El artículo 25 prohíbe cualquier cooperación entre proveedor inicial y nuevo proveedor.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 25.2 establece dos reglas clave: (1) el proveedor inicial deja de ser considerado proveedor de ese sistema específico pero está obligado a cooperar estrechamente con el nuevo proveedor facilitándole documentación técnica y asistencia; y (2) esta obligación de cooperación NO se aplicará cuando el proveedor inicial haya especificado claramente que su sistema de IA no debe transformarse en un sistema de IA de alto riesgo y, por tanto, no entra en la obligación de entregar documentación.',
-    enterpriseLesson:
-      'Si eres proveedor de un sistema de IA de riesgo mínimo o general y NO quieres verte obligado por el Art. 25.2 a dar soporte regulatorio de alto riesgo a clientes que desvíen tu producto hacia el Anexo III, prohíbe expresamente en tus Términos de Uso y ficha técnica su transformación en un sistema de alto riesgo.',
-    citations: [
-      makeCitation({
-        id: 'art_25.p5',
-        targetType: 'paragraph',
-        articleId: 'art_25',
-        paragraphId: 'art_25.p5',
-        displayLabel: 'Art. 25.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'En las circunstancias a que se refiere el apartado 1, el proveedor que haya introducido inicialmente en el mercado o puesto en servicio el sistema de IA dejará de ser considerado proveedor de ese sistema de IA específico a efectos del presente Reglamento. Dicho proveedor inicial cooperará estrechamente con los nuevos proveedores y pondrá a su disposición la información necesaria y facilitará el acceso técnico y otro tipo de asistencia que cabe esperar razonablemente... El presente apartado no se aplicará en aquellos casos en que el proveedor inicial haya especificado claramente que su sistema de IA no debe transformarse en un sistema de IA de alto riesgo.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_106',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_25',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: false,
-    question:
-      'En el caso de sistemas de IA de alto riesgo que sean componentes de seguridad de productos regulados por la legislación del Anexo I, Sección A (como maquinaria o dispositivos médicos), ¿quién es considerado proveedor del sistema de IA de alto riesgo según el artículo 25.3?',
-    options: [
-      'El transportista que entrega la máquina.',
-      'El usuario final que pulsa el botón de encendido.',
-      'El fabricante del producto será considerado proveedor del sistema de IA de alto riesgo y estará sujeto a las obligaciones del artículo 16 si el sistema de IA de alto riesgo se introduce en el mercado junto con el producto con el nombre o la marca comercial del fabricante del producto, o si se pone en servicio con el nombre o la marca comercial del fabricante del producto después de que el producto haya sido introducido en el mercado.',
-      'Nadie, porque el Anexo I anula el artículo 16.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 25.3 concentra la responsabilidad en el fabricante final del producto regulado por el Anexo I, Sección A, cuando el sistema de IA se comercializa junto con el producto bajo el nombre o marca comercial del fabricante del producto (o se pone en servicio después bajo su marca), garantizando un único responsable frente a las autoridades.',
-    enterpriseLesson:
-      'Los fabricantes OEM de dispositivos médicos o maquinaria industrial que integran módulos de IA de terceros bajo la marca del fabricante OEM asumen legalmente el rol de Proveedor del sistema de IA de alto riesgo (Art. 25.3), por lo que deben exigir a su proveedor de componentes de IA acuerdos escritos de suministro técnico (Art. 25.4).',
-    citations: [
-      makeCitation({
-        id: 'art_25.p6',
-        targetType: 'paragraph',
-        articleId: 'art_25',
-        paragraphId: 'art_25.p6',
-        displayLabel: 'Art. 25.3 y 25.4 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'En el caso de los sistemas de IA de alto riesgo que sean componentes de seguridad de productos a los que sean aplicables los actos legislativos de armonización de la Unión enumerados en el anexo I, sección A, el fabricante del producto será considerado proveedor del sistema de IA de alto riesgo y estará sujeto a las obligaciones a que se refiere el artículo 16 en cualquiera de las circunstancias siguientes...',
-      }),
-    ],
-  },
-  {
-    id: 'qz_107',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_26',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: true,
-    question:
-      'Una empresa usuaria (responsable del despliegue) está utilizando un sistema de IA de alto riesgo y observa durante la vigilancia de su funcionamiento (Art. 26.5) que el sistema puede presentar un riesgo para la salud, la seguridad o los derechos fundamentales (en el sentido del Art. 79.1). ¿Qué debe hacer según el artículo 26.5?',
-    options: [
-      'Seguir utilizándolo hasta final de mes y comentarlo en la reunión anual.',
-      'Reprogramar por su cuenta el código fuente sin avisar al proveedor.',
-      'Solo apagar el monitor durante unos minutos.',
-      'Informar sin demora indebida al proveedor o al distribuidor y a la autoridad de vigilancia del mercado pertinente, y SUSPENDER la utilización de ese sistema (así como informar inmediatamente primero al proveedor y luego a las autoridades si detecta un incidente grave).',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El artículo 26.5 obliga a los responsables del despliegue a vigilar el funcionamiento del sistema de alto riesgo sobre la base de las instrucciones de uso: si tienen motivos para considerar que su uso puede dar lugar a que presente un riesgo del artículo 79.1, informarán sin demora indebida al proveedor o distribuidor y a la autoridad de vigilancia del mercado, y suspenderán la utilización del sistema.',
-    enterpriseLesson:
-      'Los protocolos internos del responsable del despliegue (Art. 26.5) deben facultar al supervisor humano a suspender inmediatamente la ejecución del sistema de IA si detecta desviaciones de riesgo o incidentes graves.',
-    citations: [
-      makeCitation({
-        id: 'art_26.p5',
-        targetType: 'paragraph',
-        articleId: 'art_26',
-        paragraphId: 'art_26.p5',
-        displayLabel: 'Art. 26.5 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Cuando los responsables del despliegue tengan motivos para considerar que la utilización del sistema de IA de alto riesgo con arreglo a las instrucciones puede dar lugar a que dicho sistema presente un riesgo en el sentido del artículo 79, apartado 1, informarán sin demora indebida al proveedor o al distribuidor y a la autoridad de vigilancia del mercado pertinente, y suspenderán la utilización de ese sistema.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_108',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_26',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: true,
-    question:
-      'Un ayuntamiento (autoridad pública) va a desplegar un sistema de IA de alto riesgo del Anexo III para evaluar solicitudes de prestaciones de asistencia social (Anexo III.5.a). Antes de utilizar el sistema, el ayuntamiento consulta la base de datos de la UE (Art. 71) y comprueba que el proveedor NO ha registrado aún el sistema. Según el artículo 26.8, ¿puede el ayuntamiento utilizarlo?',
-    options: [
-      'No: según el artículo 26.8, los responsables del despliegue que sean autoridades públicas o instituciones de la Unión cumplirán las obligaciones de inscripción del artículo 49 y, si constatan que el sistema de alto riesgo que prevén utilizar no ha sido inscrito en la base de datos de la UE a que se refiere el artículo 71, NO utilizarán dicho sistema e informarán de ello al proveedor o al distribuidor.',
-      'Sí, las administraciones públicas pueden usar sistemas sin registrar.',
-      'Sí, siempre que el contrato sea menor de 15.000 euros.',
-      'Solo tiene que esperar 48 horas y puede encenderlo.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 26.8 impone un doble deber a los desplegadores del sector público: (1) inscribirse ellos mismos y registrar el uso del sistema en la base de datos de la UE conforme al artículo 49.3, y (2) abstenerse taxativamente de utilizar cualquier sistema de alto riesgo del Anexo III que no haya sido previamente inscrito por su proveedor en la base de datos del artículo 71, informando de ello al proveedor o distribuidor.',
-    enterpriseLesson:
-      'Si eres proveedor de soluciones de IA para el sector público, ten presente que ninguna administración pública podrá poner en producción tu sistema ni abonar el hito de puesta en marcha si no consta previamente tu registro del Art. 49.1 en la base de datos de la UE (Art. 26.8).',
-    citations: [
-      makeCitation({
-        id: 'art_26.p8',
-        targetType: 'paragraph',
-        articleId: 'art_26',
-        paragraphId: 'art_26.p8',
-        displayLabel: 'Art. 26.8 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los responsables del despliegue de sistemas de IA de alto riesgo que sean autoridades públicas, o instituciones, órganos u organismos de la Unión cumplirán las obligaciones de inscripción en el registro a que se refiere el artículo 49. Si dichas autoridades, instituciones, órganos u organismos constatan que el sistema de IA de alto riesgo que prevén utilizar no ha sido inscrito en la base de datos de la UE a que se refiere el artículo 71, no utilizarán dicho sistema e informarán de ello al proveedor o al distribuidor.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_109',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_26',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      '¿Qué obligación de transparencia directa frente a los ciudadanos impone el artículo 26.11 a los responsables del despliegue de sistemas de IA de alto riesgo enumerados en el Anexo III que tomen decisiones o ayuden a tomar decisiones relacionadas con personas físicas?',
-    options: [
-      'Entregarles una copia impresa del código fuente.',
-      'Informar a las personas físicas de que están sujetas a la utilización del sistema de IA de alto riesgo (sin perjuicio de lo dispuesto en el artículo 50, y aplicando una regla adaptada para fines policiales en consonancia con el artículo 13 de la Directiva UE 2016/680).',
-      'Pagarles una compensación económica por cada consulta.',
-      'Ninguna, porque el Anexo III es confidencial.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 26.11 establece que los responsables del despliegue de sistemas de IA de alto riesgo enumerados en el Anexo III que tomen decisiones o ayuden a tomar decisiones relacionadas con personas físicas informarán a las personas físicas de que están sujetas a la utilización del sistema de IA de alto riesgo. Esta obligación complementa el derecho posterior a obtener una explicación del artículo 86.',
-    enterpriseLesson:
-      'En procesos de selección de personal, admisión educativa, concesión de créditos o seguros de salud/vida, debes informar al candidato o solicitante de que su solicitud será evaluada con apoyo de un sistema de IA de alto riesgo (Art. 26.11).',
-    citations: [
-      makeCitation({
-        id: 'art_26.p11',
-        targetType: 'paragraph',
-        articleId: 'art_26',
-        paragraphId: 'art_26.p11',
-        displayLabel: 'Art. 26.11 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Sin perjuicio de lo dispuesto en el artículo 50, los responsables del despliegue de sistemas de IA de alto riesgo enumerados en el anexo III que tomen decisiones o ayuden a tomar decisiones relacionadas con personas físicas informarán a las personas físicas de que están sujetas a la utilización del sistema de IA de alto riesgo.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_110',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_27',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: false,
-    question:
-      'Según las letras a) a f) del artículo 27.1, ¿cuáles son los seis elementos que debe contener toda Evaluación del Impacto en los Derechos Fundamentales (FRIA), y cómo se relaciona con la Evaluación de Impacto en la Protección de Datos (EIPD del Art. 35 RGPD) según el artículo 27.4?',
-    options: [
-      'Solo contiene el presupuesto financiero del proyecto y la lista de servidores.',
-      'Obliga a repetir desde cero todos los apartados ya realizados en la EIPD del RGPD.',
-      'Debe constar de: (a) descripción de los procesos del desplegador en que se utilizará el sistema conforme a su finalidad prevista; (b) período de tiempo y frecuencia de uso; (c) categorías de personas físicas y colectivos que puedan verse afectados en el contexto específico; (d) riesgos específicos de perjuicio que puedan afectar a esas categorías teniendo en cuenta la información del proveedor (Art. 13); (e) descripción de la aplicación de las medidas de supervisión humana según las instrucciones; y (f) medidas que se adoptarán si se materializan dichos riesgos (gobernanza interna y mecanismos de reclamación). Además, según el Art. 27.4, si ya se cumple alguna obligación mediante una EIPD del Art. 35 RGPD, la FRIA complementará dicha evaluación de impacto en la protección de datos.',
-      'Solo requiere una firma electrónica sin contenido descriptivo.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 27.1 detalla los seis bloques obligatorios de la FRIA (procesos, duración/frecuencia, colectivos afectados, riesgos específicos para derechos fundamentales, supervisión humana y medidas de mitigación/reclamación), y el artículo 27.4 evita duplicidades disponiendo que la FRIA complementará la EIPD realizada en virtud del artículo 35 del RGPD.',
-    enterpriseLesson:
-      'No elabores la FRIA (Art. 27) y la EIPD (Art. 35 RGPD) en silos desconectados: diseña una plantilla integrada donde la FRIA amplíe la EIPD existente con los 6 elementos del Art. 27.1 y notifícala a la AESIA mediante el cuestionario automatizado (Art. 27.3 y 27.5).',
-    citations: [
-      makeCitation({
-        id: 'art_27.p1',
-        targetType: 'paragraph',
-        articleId: 'art_27',
-        paragraphId: 'art_27.p1',
-        displayLabel: 'Art. 27.1(a)-(f) y 27.4 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'A tal fin, la evaluación constará de los siguientes elementos: a) una descripción de los procesos del responsable del despliegue en los que se utilizará el sistema de IA de alto riesgo... b) una descripción del período de tiempo durante el cual se prevé utilizar cada sistema de IA de alto riesgo y con qué frecuencia... c) las categorías de personas físicas y colectivos que puedan verse afectados... d) los riesgos específicos de perjuicio... e) una descripción de la aplicación de las medidas de supervisión humana... f) las medidas que se adoptarán en caso de que se materialicen dichos riesgos.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_111',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_28',
-    titleId: 'tit_III',
-    difficulty: 'básico',
-    isPracticalCase: false,
-    question:
-      'En la arquitectura del Capítulo III, Sección 4 (artículos 28 a 39), ¿qué diferencia existe entre una «autoridad notificante» y un «organismo notificado»?',
-    options: [
-      'Son exactamente la misma entidad.',
-      'El organismo notificado es un ministerio público que aprueba leyes y la autoridad notificante es una empresa privada.',
-      'Solo existen en terceros países fuera de la Unión Europea.',
-      'La «autoridad notificante» (Art. 28) es la autoridad pública designada por cada Estado miembro como responsable de establecer y aplicar los procedimientos necesarios para la evaluación, designación, notificación y supervisión de los organismos de evaluación de la conformidad; mientras que el «organismo notificado» (Arts. 29–31) es el organismo independiente de evaluación de la conformidad acreditado y notificado para auditar y certificar sistemas de IA de alto riesgo cuando se exige evaluación por terceros.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El artículo 28 obliga a cada Estado miembro a designar o establecer al menos una autoridad notificante pública (que puede apoyarse en el organismo nacional de acreditación, como ENAC en España, según el Art. 28.2), la cual evalúa, designa y supervisa a los organismos de evaluación de la conformidad que, una vez notificados a la Comisión y demás Estados miembros sin objeciones (Art. 30), operan como «organismos notificados».',
-    enterpriseLesson:
-      'Distingue entre la Autoridad Notificante pública (Art. 28), el Organismo Nacional de Acreditación (ENAC) y el Organismo Notificado certificador (Art. 31) al que contratas cuando tu sistema requiere evaluación del Anexo VII.',
-    citations: [
-      makeCitation({
-        id: 'art_28.p1',
-        targetType: 'paragraph',
-        articleId: 'art_28',
-        paragraphId: 'art_28.p1',
-        displayLabel: 'Art. 28.1 y Art. 30 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Cada Estado miembro designará o establecerá al menos una autoridad notificante responsable de establecer y aplicar los procedimientos necesarios para la evaluación, designación y notificación de los organismos de evaluación de la conformidad y para su supervisión.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_112',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_31',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: true,
-    question:
-      'Una consultora tecnológica diseñó y entrenó el sistema de IA de alto riesgo de un cliente, y ahora pretende actuar también como «organismo notificado» para emitir el certificado oficial de evaluación de la conformidad del Anexo VII sobre ese mismo sistema. ¿Lo permite el artículo 31?',
-    options: [
-      'No: según los apartados 4, 5 y 6 del artículo 31, los organismos notificados serán independientes del proveedor del sistema de IA de alto riesgo en relación con el cual realicen actividades de evaluación de la conformidad (así como de cualquier competidor del proveedor), y ni el organismo, ni sus máximos directivos ni el personal responsable de la evaluación podrán ser el diseñador, proveedor, instalador, comprador, propietario o usuario de los sistemas de IA que evalúen.',
-      'Sí, es recomendable porque ya conocen el sistema por dentro.',
-      'Sí, siempre que cobren tarifas separadas por consultoría y por certificación.',
-      'Solo está prohibido si el cliente es una administración pública.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 31 (apartados 4, 5 y 6) impone un régimen estricto de independencia, imparcialidad y ausencia de conflictos de intereses a los organismos notificados: no pueden tener vínculos económicos con el proveedor evaluado ni con sus competidores, ni haber participado directamente en el diseño, desarrollo, comercialización o uso de los sistemas de IA que evalúan.',
-    enterpriseLesson:
-      'Nunca contrates como consultor de diseño o implementación del Anexo IV al mismo entidad/grupo que vaya a actuar como tu Organismo Notificado certificador bajo el Anexo VII (Art. 31.4-6).',
-    citations: [
-      makeCitation({
-        id: 'art_31.p4',
-        targetType: 'paragraph',
-        articleId: 'art_31',
-        paragraphId: 'art_31.p4',
-        displayLabel: 'Art. 31.4, 31.5 y 31.6 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los organismos notificados serán independientes del proveedor del sistema de IA de alto riesgo en relación con el cual realicen actividades de evaluación de la conformidad. Los organismos notificados también serán independientes de cualquier otro operador que tenga un interés económico en los sistemas de IA de alto riesgo que se evalúen, así como de cualquier competidor del proveedor.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_113',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_33',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Cuando un organismo notificado subcontrata tareas específicas relacionadas con la evaluación de la conformidad o recurre a una filial según el artículo 33, ¿qué requisitos deben cumplirse?',
-    options: [
-      'Puede subcontratar el 100 % sin pedir permiso al cliente y se libera de toda responsabilidad.',
-      'Solo podrá subcontratar tareas o recurrir a una filial previo acuerdo con el proveedor; deberá asegurarse de que el subcontratista o la filial cumpla los requisitos del artículo 31 e informar a la autoridad notificante; y el organismo notificado asumirá la PLENA responsabilidad de las tareas realizadas por los subcontratistas o las filiales, con independencia de dónde tengan su sede.',
-      'Está totalmente prohibido subcontratar cualquier ensayo técnico puntual.',
-      'Solo puede subcontratar en paraísos fiscales.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 33 regula las filiales y la subcontratación por parte de los organismos notificados: exige que el subcontratista/filial cumpla todos los requisitos de competencia, independencia y ciberseguridad del artículo 31, que medie el acuerdo previo del proveedor auditado (Art. 33.2), que las listas de subcontratistas sean públicas y que el organismo notificado mantenga la plena responsabilidad sobre todas las tareas subcontratadas (Art. 33.3).',
-    enterpriseLesson:
-      'Como proveedor auditado bajo el Anexo VII, tienes derecho legal a conocer y autorizar previamente (Art. 33.2) cualquier subcontratación de ensayos técnicos por parte de tu organismo notificado.',
-    citations: [
-      makeCitation({
-        id: 'art_33.p2',
-        targetType: 'paragraph',
-        articleId: 'art_33',
-        paragraphId: 'art_33.p2',
-        displayLabel: 'Art. 33.1, 33.2 y 33.3 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Las actividades solo podrán ser subcontratadas o realizadas por una filial previo acuerdo con el proveedor. Los organismos notificados pondrán a disposición del público una lista de sus filiales. Los organismos notificados asumirán la plena responsabilidad de las tareas realizadas por los subcontratistas o las filiales, con independencia de dónde tengan su sede.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_114',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_34',
-    titleId: 'tit_III',
-    difficulty: 'básico',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 34.2, ¿cómo deben ejercer sus actividades los organismos notificados para no perjudicar la competitividad de los proveedores, especialmente de las pymes y startups?',
-    options: [
-      'Exigiendo siempre auditorías presenciales de 6 meses de duración.',
-      'Cobrando el doble a las empresas de menos de 50 empleados.',
-      'Evitando cargas innecesarias para los proveedores y teniendo debidamente en cuenta el tamaño de la empresa, el sector en que opera, su estructura y el grado de complejidad del sistema de IA de que se trate, en particular teniendo en cuenta los intereses de las pymes, incluidas las empresas emergentes, a la hora de fijar las tasas de evaluación de la conformidad.',
-      'Rechazando solicitudes de microempresas.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 34.2 obliga a los organismos notificados a realizar las evaluaciones de conformidad evitando cargas innecesarias y adaptándose al tamaño de la empresa, su estructura y la complejidad del sistema, teniendo en cuenta específicamente la situación de las pymes y startups al establecer las tasas y al respetar los plazos del artículo 43.',
-    enterpriseLesson:
-      'Las pymes y startups tienen derecho a tarifas proporcionales y reducidas en las evaluaciones de conformidad ante organismos notificados (Arts. 34.2 y 62.4).',
-    citations: [
-      makeCitation({
-        id: 'art_34.p2',
-        targetType: 'paragraph',
-        articleId: 'art_34',
-        paragraphId: 'art_34.p2',
-        displayLabel: 'Art. 34.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los organismos notificados ejercerán sus actividades con arreglo a los procedimientos de evaluación de la conformidad establecidos en el artículo 43, evitando cargas innecesarias para los proveedores y teniendo debidamente en cuenta el tamaño de la empresa, el sector en que opera, su estructura y el grado de complejidad del sistema de IA de que se trate.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_115',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_40',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      '¿Qué efecto jurídico fundamental otorga el artículo 40.1 a los sistemas de IA de alto riesgo o modelos GPAI que sean conformes con las «normas armonizadas» europeas (CEN/CENELEC) cuyas referencias se hayan publicado en el Diario Oficial de la Unión Europea?',
-    options: [
-      'Los exime de las prohibiciones del artículo 5.',
-      'Les permite operar sin marcado CE ni registro.',
-      'Les concede una subvención europea directa.',
-      'Se presumirá que son conformes con los requisitos establecidos en el Capítulo III, Sección 2 (o, según proceda, con las obligaciones de los artículos 53 y 55 para modelos GPAI), en la medida en que dichas normas armonizadas abarquen tales requisitos u obligaciones ("presunción de conformidad").',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El artículo 40.1 consagra el mecanismo de «presunción de conformidad» del Nuevo Marco Legislativo europeo: aplicar las normas armonizadas elaboradas por CEN/CENELEC a petición de la Comisión y publicadas en el DOUE otorga presunción legal de cumplimiento de los requisitos técnicos de los artículos 8 a 15 (y de los artículos 53 y 55 para GPAI).',
-    enterpriseLesson:
-      'Alinear tu ingeniería de IA con las normas armonizadas CEN/CENELEC (JTC 21) publicadas en el DOUE bajo el Art. 40 es la vía más segura y rápida para demostrar el cumplimiento técnico ante inspectores y auditores.',
-    citations: [
-      makeCitation({
-        id: 'art_40.p1',
-        targetType: 'paragraph',
-        articleId: 'art_40',
-        paragraphId: 'art_40.p1',
-        displayLabel: 'Art. 40.1 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Se presumirá que los sistemas de IA de alto riesgo o los modelos de IA de uso general que sean conformes con normas armonizadas o partes de ellas cuyas referencias se hayan publicado en el Diario Oficial de la Unión Europea con arreglo al Reglamento (UE) n.º 1025/2012 son conformes con los requisitos establecidos en la sección 2 del presente capítulo o, según proceda, con las obligaciones establecidas en el capítulo V, secciones 2 y 3, en la medida en que dichas normas abarquen tales requisitos u obligaciones.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_116',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_41',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 41, ¿en qué supuestos puede la Comisión Europea adoptar mediante actos de ejecución «especificaciones comunes» técnicas que otorguen también presunción de conformidad, y qué ocurre si un proveedor decide no aplicar esas especificaciones comunes?',
-    options: [
-      'La Comisión puede adoptarlas cuando no existan normas armonizadas publicadas o cuando su petición de normalización no haya sido aceptada o sufra retrasos indebidos; y los proveedores que no cumplan dichas especificaciones comunes deberán justificar debidamente en su documentación técnica que han adoptado soluciones técnicas que cumplen los requisitos en un nivel al menos equivalente.',
-      'Las especificaciones comunes derogan el Reglamento y nadie puede usar soluciones equivalentes.',
-      'Solo pueden adoptarlas los ayuntamientos.',
-      'Se aplican sin consultar al Comité Europeo de IA ni a las partes interesadas.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 41.1 faculta a la Comisión para adoptar especificaciones comunes como mecanismo de respaldo si las organizaciones europeas de normalización no entregan a tiempo las normas armonizadas del artículo 40. Según el artículo 41.4, si un proveedor no aplica las especificaciones comunes, debe justificar debidamente que ha adoptado soluciones técnicas de nivel al menos equivalente.',
-    enterpriseLesson:
-      'Si no aplicas una norma armonizada (Art. 40) o especificación común (Art. 41), la carga de la prueba recae sobre tu empresa: deberás demostrar y documentar equivalencia técnica rigurosa (Art. 41.4).',
-    citations: [
-      makeCitation({
-        id: 'art_41.p4',
-        targetType: 'paragraph',
-        articleId: 'art_41',
-        paragraphId: 'art_41.p4',
-        displayLabel: 'Art. 41.1, 41.3 y 41.4 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los proveedores que no cumplan las especificaciones comunes a que se refiere el apartado 1 justificarán debidamente que han adoptado soluciones técnicas que cumplen los requisitos establecidos en la sección 2 o, según proceda, las obligaciones establecidas en el capítulo V, secciones 2 y 3, en un nivel al menos equivalente.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_117',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_42',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 42, ¿con qué requisito técnico específico de los sistemas de IA de alto riesgo se presume que cumple un sistema que ha sido certificado o para el que se ha expedido una declaración de conformidad en el marco de un esquema europeo de certificación de la ciberseguridad adoptado con arreglo al Reglamento (UE) 2019/881 (Cybersecurity Act)?',
-    options: [
-      'Con la obligación de informar a los sindicatos del artículo 26.7.',
-      'Con los requisitos de ciberseguridad establecidos en el artículo 15 del Reglamento, en la medida en que el certificado de ciberseguridad o la declaración de conformidad, o partes de ellos, abarquen dichos requisitos.',
-      'Con la exención de pagar tasas de registro.',
-      'Con la prohibición del artículo 5.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 42.2 establece una sinergia directa con el Reglamento de Ciberseguridad (UE) 2019/881 (esquemas ENISA): los sistemas de IA de alto riesgo certificados bajo un esquema europeo de certificación de ciberseguridad gozan de presunción de conformidad respecto a los requisitos de ciberseguridad del artículo 15 en la medida en que el certificado los cubra. Asimismo, el artículo 42.1 presume el cumplimiento del artículo 10.4 cuando el sistema ha sido entrenado y probado con datos del espacio geográfico/funcional previsto.',
-    enterpriseLesson:
-      'Reutiliza las certificaciones europeas de ciberseguridad (Reglamento 2019/881 / esquemas ENISA) para acreditar por presunción legal el cumplimiento del Art. 15 en tu expediente del Anexo IV (Art. 42.2).',
-    citations: [
-      makeCitation({
-        id: 'art_42.p2',
-        targetType: 'paragraph',
-        articleId: 'art_42',
-        paragraphId: 'art_42.p2',
-        displayLabel: 'Art. 42.1 y 42.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Se presumirá que los sistemas de IA de alto riesgo que hayan sido certificados o para los que se haya expedido una declaración de conformidad en el marco de un esquema de ciberseguridad de conformidad con el Reglamento (UE) 2019/881 del Parlamento Europeo y del Consejo y cuyas referencias se hayan publicado en el Diario Oficial de la Unión Europea cumplen los requisitos de ciberseguridad establecidos en el artículo 15 del presente Reglamento.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_118',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_43',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: true,
-    question:
-      'Un proveedor desarrolla un sistema biométrico de alto riesgo incluido en el Anexo III, punto 1 (por ejemplo, reconocimiento de emociones fuera del ámbito laboral/educativo o identificación biométrica remota permitida). Según el artículo 43.1, ¿cuándo está OBLIGADO a acudir a un organismo notificado (Anexo VII) en lugar de realizar la evaluación por control interno (Anexo VI)?',
-    options: [
-      'Nunca; el punto 1 del Anexo III siempre va por control interno sin excepción.',
-      'Solo cuando el proveedor tenga menos de 10 empleados.',
-      'Cuando NO existan normas armonizadas (Art. 40) ni especificaciones comunes (Art. 41), cuando el proveedor las haya aplicado solo en parte, o cuando dichas normas armonizadas existan pero se hayan publicado con una restricción; mientras que si ha aplicado íntegramente normas armonizadas o especificaciones comunes completas, puede optar entre el control interno (Anexo VI) o el organismo notificado (Anexo VII).',
-      'Solo los días festivos.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 43.1 establece un régimen dual para el punto 1 del Anexo III (biometría): si el proveedor aplica íntegramente normas armonizadas (Art. 40) o especificaciones comunes (Art. 41) que cubran todos los requisitos, puede elegir entre el control interno del Anexo VI o la evaluación por organismo notificado del Anexo VII; pero si no ha aplicado dichas normas, solo las ha aplicado parcialmente o tienen restricciones, está OBLIGADO a seguir el procedimiento del Anexo VII con un organismo notificado.',
-    enterpriseLesson:
-      'En sistemas biométricos del Anexo III punto 1, aplicar al 100 % las normas armonizadas CEN/CENELEC (Art. 40) te permite realizar la evaluación de conformidad por control interno (Anexo VI) sin depender de un organismo notificado (Art. 43.1).',
-    citations: [
-      makeCitation({
-        id: 'art_43.p1',
-        targetType: 'paragraph',
-        articleId: 'art_43',
-        paragraphId: 'art_43.p1',
-        displayLabel: 'Art. 43.1 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Al demostrar la conformidad de un sistema de IA de alto riesgo con los requisitos establecidos en la sección 2, el proveedor seguirá el procedimiento de evaluación de la conformidad establecido en el anexo VII en cualquiera de los casos siguientes: i) cuando no existan las normas armonizadas a que se refiere el artículo 40... ii) cuando el proveedor haya aplicado solo una parte de la norma armonizada; iii) cuando no existan las especificaciones comunes a que se refiere el artículo 41; iv) cuando una o más de las normas armonizadas a que se refiere el inciso i) se hayan publicado con una restricción.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_119',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_43',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 43.4, ¿en qué dos situaciones un sistema de IA de alto riesgo que ya se ha sometido a un procedimiento de evaluación de la conformidad debe someterse a un NUEVO procedimiento de evaluación de la conformidad?',
-    options: [
-      'Cada vez que cambia el director financiero del proveedor o cambia el domicilio fiscal dentro del mismo país.',
-      'Cada lunes a las 9 de la mañana.',
-      'Solo cuando caduca el dominio web de la empresa.',
-      'En caso de que sea objeto de una «modificación sustancial» (con independencia de que el sistema modificado esté destinado a ser distribuido ulteriormente o continúe siendo utilizado por el actual responsable del despliegue), advirtiendo que para los sistemas con aprendizaje continuo los cambios predeterminados en la evaluación inicial y el Anexo IV.2.f) no constituirán una modificación sustancial.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El artículo 43.4 dispone que los sistemas de IA de alto riesgo que ya se hayan sometido a evaluación de la conformidad se someterán a un nuevo procedimiento de evaluación de la conformidad en caso de que sean objeto de una modificación sustancial (Art. 3.23), respetando la salvaguardia para cambios predeterminados en sistemas con aprendizaje continuo.',
-    enterpriseLesson:
-      'Integra un filtro de "Impacto en Conformidad IA (Art. 43.4)" dentro de tu comité de Control de Cambios de Ingeniería (Change Advisory Board): cualquier cambio no predeterminado que altere la arquitectura, los requisitos de los Arts. 8–15 o la finalidad prevista exige reevaluar la conformidad.',
-    citations: [
-      makeCitation({
-        id: 'art_43.p4',
-        targetType: 'paragraph',
-        articleId: 'art_43',
-        paragraphId: 'art_43.p4',
-        displayLabel: 'Art. 43.4 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los sistemas de IA de alto riesgo que ya se hayan sometido a un procedimiento de evaluación de la conformidad se someterán a un nuevo procedimiento de evaluación de la conformidad en caso de que sean objeto de una modificación sustancial, con independencia de que el sistema modificado esté destinado a ser distribuido ulteriormente o continúe siendo utilizado por el actual responsable del despliegue.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_120',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_44',
-    titleId: 'tit_III',
-    difficulty: 'básico',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 44.1, ¿cuál es el período máximo de validez de los certificados expedidos por los organismos notificados de conformidad con el Anexo VII antes de requerir una nueva evaluación para su prórroga?',
-    options: [
-      'El período que en ellos se indique, que no excederá de cuatro años en el caso de los sistemas de IA regidos por el Anexo I, ni de cinco años en el caso de los sistemas de IA regidos por el Anexo III, pudiendo prorrogarse por períodos adicionales que no excedan de cuatro o cinco años respectivamente previa solicitud del proveedor y sobre la base de una nueva evaluación.',
-      'Validez perpetua e indefinida sin revisiones.',
-      'Exactamente 30 días naturales.',
-      '25 años.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 44.1 fija la vigencia máxima de los certificados emitidos por organismos notificados con arreglo al Anexo VII en un máximo de 4 años para sistemas del Anexo I y de 5 años para sistemas del Anexo III, renovables por períodos equivalentes previa nueva evaluación.',
-    enterpriseLesson:
-      'Si tu sistema de alto riesgo requiere certificado de Organismo Notificado (Anexo VII), programa su renovación en el calendario regulatorio cada 4 años (Anexo I) o 5 años (Anexo III) según el Art. 44.1.',
-    citations: [
-      makeCitation({
-        id: 'art_44.p1',
-        targetType: 'paragraph',
-        articleId: 'art_44',
-        paragraphId: 'art_44.p1',
-        displayLabel: 'Art. 44.1 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los certificados expedidos por los organismos notificados de conformidad con el anexo VII tendrán validez durante el período que en ellos se indique. Dicho período no excederá de cuatro años en el caso de los sistemas de IA regidos por el anexo I, y de cinco años en el caso de los sistemas de IA regidos por el anexo III.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_121',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_44',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      '¿Qué debe hacer un organismo notificado según el artículo 44.2 cuando comprueba que un sistema de IA de alto riesgo certificado deja de cumplir los requisitos de la Sección 2?',
-    options: [
-      'No puede tocar el certificado hasta que caduquen los 5 años.',
-      'Teniendo en cuenta el principio de proporcionalidad, suspenderá o retirará el certificado expedido o le impondrá restricciones, a no ser que se garantice el cumplimiento de dichos requisitos mediante medidas correctoras adecuadas adoptadas por el proveedor del sistema dentro de un plazo adecuado fijado por el organismo notificado (motivando siempre su decisión, frente a la cual cabrá recurso según el Art. 45).',
-      'Multar directamente al proveedor con 35 millones de euros.',
-      'Confiscar los edificios de la empresa.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 44.2 faculta al organismo notificado para suspender, retirar o restringir el certificado bajo el principio de proporcionalidad si el sistema deja de cumplir los requisitos y el proveedor no aplica las medidas correctoras adecuadas en el plazo concedido. El artículo 45 garantiza que exista un procedimiento de recurso contra las decisiones de los organismos notificados.',
-    enterpriseLesson:
-      'Mantener el certificado del Anexo VII exige superar la vigilancia periódica del organismo notificado; ante cualquier requerimiento de subsanación (Art. 44.2), ejecuta las medidas correctoras dentro del plazo o interpon recurso motivado (Art. 45).',
-    citations: [
-      makeCitation({
-        id: 'art_44.p2',
-        targetType: 'paragraph',
-        articleId: 'art_44',
-        paragraphId: 'art_44.p2',
-        displayLabel: 'Art. 44.2 y Art. 45 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Cuando un organismo notificado compruebe que un sistema de IA deja de cumplir los requisitos establecidos en la sección 2, teniendo en cuenta el principio de proporcionalidad, suspenderá o retirará el certificado expedido o le impondrá restricciones, a no ser que se garantice el cumplimiento de dichos requisitos mediante medidas correctoras adecuadas que adopte el proveedor del sistema dentro de un plazo adecuado fijado por el organismo notificado.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_122',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_46',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: true,
-    question:
-      'Ante una emergencia sanitaria o catástrofe medioambiental urgente, ¿permite el artículo 46 que una autoridad de vigilancia del mercado autorice temporalmente la introducción en el mercado o puesta en servicio de un sistema específico de IA de alto riesgo en su territorio ANTES de haber completado el procedimiento ordinario de evaluación de la conformidad del artículo 43?',
-    options: [
-      'No, no existe ninguna excepción ni siquiera en caso de catástrofe nacional.',
-      'Sí, cualquier empresa privada puede autodeclararse en emergencia comercial para vender sin evaluación.',
-      'Sí: como excepción al artículo 43 y previa solicitud debidamente justificada, cualquier autoridad de vigilancia del mercado podrá autorizar por un período de tiempo limitado la introducción o puesta en servicio de sistemas específicos de IA de alto riesgo en el territorio de su Estado miembro por razones excepcionales de seguridad pública o de protección de la vida y la salud de las personas, la protección del medio ambiente y la protección de activos industriales y de infraestructuras clave, mientras se llevan a cabo los procedimientos del artículo 43.',
-      'Solo si el sistema infringe también el artículo 5.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 46 contempla una válvula de escape excepcional por razones urgentes de interés público (seguridad pública, protección de la vida y la salud, medio ambiente o infraestructuras clave): la autoridad de vigilancia del mercado puede conceder una autorización temporal en su territorio mientras se completan sin demora indebida los procedimientos del artículo 43, informando a la Comisión y a los demás Estados miembros.',
-    enterpriseLesson:
-      'La autorización de emergencia del Art. 46 es temporal, nacional, sujeta a control de la Comisión Europea y exige que la evaluación de conformidad del Art. 43 se complete en paralelo sin demora indebida.',
-    citations: [
-      makeCitation({
-        id: 'art_46.p1',
-        targetType: 'paragraph',
-        articleId: 'art_46',
-        paragraphId: 'art_46.p1',
-        displayLabel: 'Art. 46.1 y 46.2 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'No obstante lo dispuesto en el artículo 43 y previa solicitud debidamente justificada, cualquier autoridad de vigilancia del mercado podrá autorizar que se introduzcan en el mercado o se pongan en servicio sistemas específicos de IA de alto riesgo en el territorio del Estado miembro de que se trate, por razones excepcionales de seguridad pública o de protección de la vida y la salud de las personas, la protección del medio ambiente y la protección de activos industriales y de infraestructuras clave.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_123',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_47',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 47 y el Anexo V, ¿qué elementos adicionales de protección de datos y propiedad intelectual debe contener la «declaración UE de conformidad» firmada por el proveedor de un sistema de IA de alto riesgo?',
-    options: [
-      'Únicamente el código fiscal de la empresa.',
-      'El listado de todos los clientes que han comprado el producto.',
-      'Solo el nombre del presidente del consejo.',
-      'Además de la identificación del sistema, los datos del proveedor, las normas armonizadas aplicadas y los datos del organismo notificado (si procede), el Anexo V punto 5 exige que, cuando un sistema de IA de alto riesgo conlleve el tratamiento de datos personales, incluya una declaración de que dicho sistema cumple los Reglamentos (UE) 2016/679 (RGPD) y (UE) 2018/1725 y la Directiva (UE) 2016/680.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El artículo 47 regula la declaración UE de conformidad (que debe conservarse durante 10 años y redactarse como declaración única si aplican varios actos de la Unión), y el Anexo V especifica sus 8 puntos obligatorios, destacando en el punto 5 la declaración expresa de cumplimiento del RGPD y normativa europea de protección de datos cuando el sistema de alto riesgo conlleve el tratamiento de datos personales.',
-    enterpriseLesson:
-      'En la Declaración UE de Conformidad (Anexo V), el proveedor certifica bajo su exclusiva responsabilidad (Art. 47.4) no solo el cumplimiento técnico del Reglamento de IA, sino también la conformidad del sistema con el RGPD (Anexo V punto 5).',
-    citations: [
-      makeCitation({
-        id: 'art_47.p1',
-        targetType: 'paragraph',
-        articleId: 'art_47',
-        paragraphId: 'art_47.p1',
-        displayLabel: 'Art. 47 y Anexo V punto 5 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'El proveedor elaborará una declaración UE de conformidad escrita, legible por máquina y firmada física o electrónicamente para cada sistema de IA de alto riesgo y la mantendrá a disposición de las autoridades nacionales competentes durante diez años a partir de la introducción en el mercado o la puesta en servicio del sistema de IA de alto riesgo.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_124',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_48',
-    titleId: 'tit_III',
-    difficulty: 'básico',
-    isPracticalCase: true,
-    question:
-      'Un proveedor comercializa como servicio en la nube (SaaS puramente digital, sin embalaje físico) un sistema de IA de alto riesgo para selección de personal. ¿Cómo debe colocar el marcado CE según los apartados 2, 3 y 4 del artículo 48?',
-    options: [
-      'Utilizará un marcado CE digital que sea fácilmente accesible a través de la interfaz desde la que se accede a dicho sistema o a través de un código legible por máquina fácilmente accesible u otros medios electrónicos (e irá seguido del número de identificación del organismo notificado únicamente si este ha intervenido en el procedimiento del artículo 43).',
-      'Está exento de colocar el marcado CE por ser software en la nube.',
-      'Debe enviar una pegatina física por correo postal a cada candidato entrevistado.',
-      'Solo puede colocarlo en la fachada del edificio de sus oficinas.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 48.2 regula específicamente el marcado CE digital para los sistemas de IA de alto riesgo suministrados digitalmente: debe poder accederse fácilmente a él a través de la interfaz de usuario desde la que se accede al sistema o mediante un código legible por máquina u otros medios electrónicos. Cuando haya intervenido un organismo notificado, el marcado CE irá seguido de su número de identificación (Art. 48.4).',
-    enterpriseLesson:
-      'En productos SaaS de alto riesgo, incorpora el marcado CE digital y el enlace a la Declaración UE de Conformidad (Art. 47) tanto en la interfaz de usuario como en los metadatos legibles por máquina de la API.',
-    citations: [
-      makeCitation({
-        id: 'art_48.p2',
-        targetType: 'paragraph',
-        articleId: 'art_48',
-        paragraphId: 'art_48.p2',
-        displayLabel: 'Art. 48.2 y 48.4 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Cuando los sistemas de IA de alto riesgo se suministren digitalmente, solo se utilizará un marcado CE digital si se puede acceder fácilmente a él a través de la interfaz desde la que se accede a dicho sistema o a través de un código legible por máquina fácilmente accesible u otros medios electrónicos.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_125',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_49',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: false,
-    question:
-      'Según el artículo 49 y el Anexo VIII, ¿qué tres perfiles o supuestos distintos tienen obligación de inscribirse en la base de datos de la UE del artículo 71 en relación con los sistemas del Anexo III (con las especialidades de los apartados 4 y 5 para infraestructuras críticas y fuerzas del orden/migración)?',
-    options: [
-      'Solo las universidades públicas.',
-      '(1) Los proveedores (o representantes autorizados) de sistemas de IA de alto riesgo del Anexo III antes de comercializarlos o ponerlos en servicio (Art. 49.1, Anexo VIII Sección A); (2) los proveedores que hayan concluido que su sistema del Anexo III NO es de alto riesgo con arreglo al artículo 6.3 antes de comercializarlo o ponerlo en servicio (Art. 49.2, Anexo VIII Sección B); y (3) los responsables del despliegue que sean autoridades u organismos públicos o personas que actúen en su nombre antes de poner en servicio o utilizar el sistema (Art. 49.3, Anexo VIII Sección C).',
-      'Únicamente los consumidores finales que descarguen una aplicación móvil.',
-      'Solo las empresas que hayan sido sancionadas previamente.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 49 estructura el deber de inscripción en la base de datos de la UE en tres apartados complementarios que corresponden a las Secciones A, B y C del Anexo VIII: proveedores de alto riesgo (49.1), proveedores que invocan la excepción del artículo 6.3 (49.2) y desplegadores que sean autoridades públicas o actúen en su nombre (49.3), mientras que el punto 2 del Anexo III (infraestructuras críticas) se registra a nivel nacional (49.4) y los puntos 1, 6 y 7 (biometría/policía/migración) en una sección segura no pública de la base de datos de la UE (49.4 párrafo segundo y Art. 71.4).',
-    enterpriseLesson:
-      'Recuerda las tres vías del Anexo VIII: Sección A (proveedor de alto riesgo), Sección B (proveedor que se acoge a la excepción del Art. 6.3) y Sección C (desplegador público o contratista que actúa en nombre del sector público).',
-    citations: [
-      makeCitation({
-        id: 'art_49.p1',
-        targetType: 'paragraph',
-        articleId: 'art_49',
-        paragraphId: 'art_49.p1',
-        displayLabel: 'Art. 49.1, 49.2 y 49.3 y Anexo VIII · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Antes de introducir en el mercado o poner en servicio un sistema de IA de alto riesgo enumerado en el anexo III, con excepción de los sistemas de IA de alto riesgo a que se refiere el punto 2 del anexo III, el proveedor o, en su caso, el representante autorizado se inscribirá y registrará su sistema en la base de datos de la UE a que se refiere el artículo 71.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_126',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_29',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según los artículos 29 y 30, ¿cómo solicita un organismo de evaluación de la conformidad su notificación y cuándo puede empezar a operar válidamente como organismo notificado?',
-    options: [
-      'Simplemente publicando un anuncio en prensa.',
-      'Enviando un correo electrónico a sus clientes.',
-      'Presentando una solicitud de notificación a la autoridad notificante del Estado miembro en el que esté establecido (acompañada de la descripción de actividades, módulo de evaluación y certificado de acreditación si existe), y solo podrá realizar las actividades de un organismo notificado si ni la Comisión ni los demás Estados miembros han formulado objeciones en el plazo de dos semanas tras la notificación (si hay certificado de acreditación) o de dos meses (si no se recurre a la acreditación).',
-      'Automáticamente en el momento de constituir una sociedad mercantil.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El artículo 29 regula la solicitud ante la autoridad notificante nacional y el artículo 30 establece el procedimiento de notificación electrónica a la Comisión y a los demás Estados miembros, exigiendo superar el plazo de control sin objeciones (2 semanas con certificado de acreditación nacional o 2 meses con pruebas documentales equivalentes, Art. 30.4) antes de recibir su número de identificación (Art. 32) y poder operar.',
-    enterpriseLesson:
-      'Verifica siempre en la base de datos europea NANDO (Art. 32.2) que el organismo notificado tiene asignado su número de identificación oficial específicamente para el Reglamento (UE) 2024/1689.',
-    citations: [
-      makeCitation({
-        id: 'art_30.p4',
-        targetType: 'paragraph',
-        articleId: 'art_30',
-        paragraphId: 'art_30.p4',
-        displayLabel: 'Art. 29, Art. 30.4 y Art. 32 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'El organismo en cuestión solo podrá realizar las actividades de un organismo notificado si ni la Comisión ni los demás Estados miembros han formulado objeciones en el plazo de dos semanas a partir de la notificación realizada por la autoridad notificante, en caso de que incluya el certificado de acreditación a que se refiere el artículo 29, apartado 2, o en el plazo de dos meses a partir de la notificación, en caso de que incluya las pruebas documentales a que se refiere el artículo 29, apartado 3.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_127',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_31',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      '¿Qué requisitos de seguro, secreto profesional y ciberseguridad impone el artículo 31 (apartados 9, 10 y 11) a todos los organismos notificados?',
-    options: [
-      'No necesitan seguro ni medidas de ciberseguridad.',
-      'Pueden publicar en abierto la documentación técnica confidencial de los proveedores.',
-      'Solo tienen que contratar un seguro de incendio del edificio.',
-      'Deberán suscribir un seguro de responsabilidad civil adecuado para sus actividades de evaluación de la conformidad (salvo que el Estado miembro asuma la responsabilidad); su personal estará sujeto al secreto profesional respecto a toda información obtenida (protegiendo derechos de propiedad intelectual y secretos comerciales); y deberán contar con medidas internas y procedimientos que garanticen un nivel adecuado de ciberseguridad.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El artículo 31 exige en sus apartados 9, 10 y 11 que los organismos notificados cuenten con seguro de responsabilidad civil, mantengan estricto secreto profesional protegiendo la propiedad industrial y los secretos comerciales del proveedor auditado, y dispongan de procedimientos y controles de ciberseguridad para custodiar la documentación técnica y el código o datos que examinan.',
-    enterpriseLesson:
-      'Tus secretos comerciales, arquitecturas de modelos y datasets entregados a un Organismo Notificado están protegidos por el deber legal de secreto profesional y ciberseguridad del Art. 31.10-11 y del Art. 78.',
-    citations: [
-      makeCitation({
-        id: 'art_31.p10',
-        targetType: 'paragraph',
-        articleId: 'art_31',
-        paragraphId: 'art_31.p10',
-        displayLabel: 'Art. 31.9, 31.10 y 31.11 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'El personal de los organismos notificados estará sujeto al secreto profesional con respecto a toda la información que obtenga en el ejercicio de sus funciones en virtud del presente Reglamento, excepto en relación con las autoridades notificantes del Estado miembro en que ejerza sus actividades. Se protegerán los derechos de propiedad intelectual e industrial, así como los secretos comerciales.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_128',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_35',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según los artículos 35, 36 y 37, ¿qué ocurre cuando una autoridad notificante constata (o cuando la Comisión investiga y confirma) que un organismo notificado ya no cumple los requisitos del artículo 31 o está incumpliendo sus obligaciones?',
-    options: [
-      'La autoridad notificante restringirá, suspenderá o retirará la notificación, según proceda, en función de la gravedad del incumplimiento, informando inmediatamente a la Comisión y a los demás Estados miembros; y en caso de cese, suspensión o retirada, los expedientes se transferirán a otro organismo notificado a elección del proveedor o se pondrán a disposición de las autoridades responsables.',
-      'Los certificados emitidos desaparecen sin dejar rastro y los expedientes se destruyen.',
-      'El organismo notificado puede seguir certificando sistemas durante 10 años más.',
-      'La Comisión Europea no tiene competencia para investigar la competencia de los organismos notificados.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El artículo 35 obliga a las autoridades notificantes a supervisar continuamente a los organismos notificados; el artículo 36 regula la restricción, suspensión o retirada de la notificación y la transferencia ordenada de los expedientes a otro organismo notificado elegido por el proveedor; y el artículo 37 faculta a la Comisión para investigar de oficio o previa denuncia la competencia de un organismo notificado y ordenar medidas correctoras o la retirada de la notificación.',
-    enterpriseLesson:
-      'Si tu organismo notificado sufre una suspensión o retirada de su designación (Art. 36.3), tienes derecho como proveedor a solicitar la transferencia íntegra de tus expedientes a otro organismo notificado acreditado.',
-    citations: [
-      makeCitation({
-        id: 'art_36.p1',
-        targetType: 'paragraph',
-        articleId: 'art_36',
-        paragraphId: 'art_36.p1',
-        displayLabel: 'Arts. 35, 36 y 37 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Cuando una autoridad notificante haya constatado o se le haya informado de que un organismo notificado ya no cumple los requisitos establecidos en el artículo 31, o de que está incumpliendo sus obligaciones, la autoridad notificante restringirá, suspenderá o retirará la notificación, según proceda, en función de la gravedad del incumplimiento de tales requisitos u obligaciones.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_129',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_39',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: false,
-    question:
-      '¿Bajo qué condición permite el artículo 39 que los organismos de evaluación de la conformidad establecidos en un TERCER PAÍS (fuera de la Unión Europea) realicen las actividades de los organismos notificados en virtud del Reglamento (UE) 2024/1689?',
-    options: [
-      'Cualquier empresa extranjera puede autodesignarse organismo notificado sin requisitos.',
-      'Únicamente cuando la Unión haya celebrado un acuerdo de reconocimiento mutuo (ARM) con dicho tercer país, y siempre que dichos organismos cumplan los requisitos establecidos en el artículo 31 o requisitos equivalentes.',
-      'Está prohibido incluso aunque exista un tratado internacional firmado por la Unión.',
-      'Basta con que tengan una cuenta bancaria en su país.',
-    ],
-    correctOptionIndex: 1,
-    explanation:
-      'El artículo 39 establece que los organismos de evaluación de la conformidad establecidos con arreglo a la legislación de un tercer país con el que la Unión haya celebrado un acuerdo (acuerdo de reconocimiento mutuo) podrán ser autorizados a realizar las actividades de los organismos notificados en virtud del Reglamento, siempre que cumplan los requisitos del artículo 31 o equivalentes.',
-    enterpriseLesson:
-      'Un certificado emitido por una entidad auditora de EE. UU., Reino Unido, Suiza o Japón NO equivale a un certificado de Organismo Notificado europeo salvo que medie un Acuerdo de Reconocimiento Mutuo (ARM) específico de la UE bajo el Art. 39.',
-    citations: [
-      makeCitation({
-        id: 'art_39.p1',
-        targetType: 'paragraph',
-        articleId: 'art_39',
-        paragraphId: 'art_39.p1',
-        displayLabel: 'Art. 39 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Los organismos de evaluación de la conformidad establecidos con arreglo a la legislación de un tercer país con el que la Unión haya celebrado un acuerdo podrán ser autorizados a realizar las actividades de los organismos notificados en virtud del presente Reglamento, siempre que cumplan los requisitos establecidos en el artículo 31 o garanticen un nivel equivalente de cumplimiento.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_130',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_11',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: true,
-    question:
-      'Al redactar la documentación técnica conforme al Anexo IV (Art. 11), el equipo de ingeniería pregunta qué debe incluirse en el punto 2, letra d) del Anexo IV respecto a las «hojas de datos» (datasheets) de los conjuntos de datos utilizados. ¿Qué exige dicho apartado?',
-    options: [
-      'Únicamente el tamaño total en gigabytes de la carpeta de entrenamiento.',
-      'Solo el nombre del proveedor de almacenamiento en la nube.',
-      'Las hojas de datos que describan todas las metodologías de entrenamiento y las técnicas utilizadas, así como la información general sobre los conjuntos de datos utilizados, incluida información sobre su procedencia, su alcance y sus características principales, cómo se obtuvieron y seleccionaron los datos, los procedimientos de etiquetado (por ejemplo, para el aprendizaje supervisado) y las metodologías de limpieza de datos (por ejemplo, detección de valores atípicos).',
-      'Adjuntar en texto plano todos los datos personales en bruto de millones de ciudadanos.',
-    ],
-    correctOptionIndex: 2,
-    explanation:
-      'El Anexo IV, punto 2, letra d), exige incluir hojas de datos (datasheets for datasets) detallando metodologías de entrenamiento, procedencia, alcance y características principales de los conjuntos de datos, cómo se obtuvieron y seleccionaron, los procedimientos de etiquetado (data labeling) y las metodologías de limpieza y preprocesamiento.',
-    enterpriseLesson:
-      'Adopta en tu pipeline de datos el estándar de «Datasheets for Datasets» cubriendo procedencia, selección, protocolo de etiquetado y limpieza para cumplir de forma nativa el Anexo IV.2.d).',
-    citations: [
-      makeCitation({
-        id: 'anx_IV.p7',
-        targetType: 'annex',
-        articleId: 'anx_IV',
-        paragraphId: 'anx_IV.p7',
-        displayLabel: 'Anexo IV, punto 2(d) · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'cuando proceda, las hojas de datos que describan todas las metodologías de entrenamiento y las técnicas utilizadas, así como la información general sobre los conjuntos de datos utilizados, incluida información sobre su procedencia, su alcance y sus características principales; cómo se obtuvieron y seleccionaron los datos; los procedimientos de etiquetado (por ejemplo, para el aprendizaje supervisado) y las metodologías de limpieza de datos (por ejemplo, detección de valores atípicos);',
-      }),
-    ],
-  },
-  {
-    id: 'qz_131',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_43',
-    titleId: 'tit_III',
-    difficulty: 'intermedio',
-    isPracticalCase: false,
-    question:
-      'Según el Anexo VI (Procedimiento de evaluación de la conformidad fundamentado en un control interno), ¿cuáles son los tres pasos verificables que debe realizar el propio proveedor para superar la evaluación de conformidad en los sistemas de los puntos 2 a 8 del Anexo III?',
-    options: [
-      'Pagar una tasa municipal, publicar un comunicado de prensa y contratar una auditora externa.',
-      'Solo firmar una declaración jurada sin revisar la documentación.',
-      'Enviar los pesos del modelo a la policía local.',
-      '(1) Verificar que el sistema de gestión de la calidad establecido cumple los requisitos del artículo 17; (2) examinar la información contenida en la documentación técnica (Anexo IV) a fin de evaluar la conformidad del sistema de IA con los requisitos esenciales pertinentes del Capítulo III, Sección 2; y (3) verificar que el proceso de diseño y desarrollo del sistema de IA y su vigilancia poscomercialización (Art. 72) son coherentes con la documentación técnica.',
-    ],
-    correctOptionIndex: 3,
-    explanation:
-      'El Anexo VI estructura el procedimiento de evaluación de la conformidad basado en el control interno en tres puntos precisos (puntos 2, 3 y 4 del Anexo VI): verificación del sistema de gestión de calidad (Art. 17), examen de la documentación técnica frente a los requisitos de los artículos 8 a 15, y verificación de la coherencia entre el proceso real de diseño/desarrollo y vigilancia poscomercialización (Art. 72) con la documentación técnica.',
-    enterpriseLesson:
-      'Para superar el control interno del Anexo VI con garantías ante una inspección posterior de la AESIA, documenta un acta interna firmada que acredite la verificación de los 3 bloques del Anexo VI (Calidad Art. 17 + Expediente Anexo IV + Coherencia MLOps y Vigilancia Art. 72).',
-    citations: [
-      makeCitation({
-        id: 'anx_VI.p2',
-        targetType: 'annex',
-        articleId: 'anx_VI',
-        displayLabel: 'Anexo VI, puntos 2, 3 y 4 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          '2. El proveedor verificará que el sistema de gestión de la calidad establecido cumple los requisitos del artículo 17. 3. El proveedor examinará la información contenida en la documentación técnica a fin de evaluar la conformidad del sistema de IA con los requisitos esenciales pertinentes establecidos en el capítulo III, sección 2. 4. El proveedor también verificará que el proceso de diseño y desarrollo del sistema de IA y su vigilancia poscomercialización a que se refiere el artículo 72 son coherentes con la documentación técnica.',
-      }),
-    ],
-  },
-  {
-    id: 'qz_132',
-    topicId: 'high_risk',
-    topicLabel: 'Sistemas de Alto Riesgo (Arts. 6-49)',
-    articleId: 'art_43',
-    titleId: 'tit_III',
-    difficulty: 'avanzado',
-    isPracticalCase: false,
-    question:
-      'En el procedimiento de evaluación de la conformidad con intervención de un organismo notificado regulado en el Anexo VII, ¿qué facultades de inspección técnica tiene el organismo notificado durante el examen de la documentación técnica (punto 4 del Anexo VII)?',
-    options: [
-      'Se le concederá acceso completo a los conjuntos de datos de entrenamiento, validación y prueba utilizados (incluso mediante interfaces de programación / APIs o medios remotos seguros), podrá exigir al proveedor que realice más pruebas o realizarlas él mismo, y cuando no quede convencido tras agotar otras vías, se le concederá acceso al código fuente del sistema de IA previa solicitud motivada (punto 4.5 del Anexo VII).',
-      'Solo puede leer un resumen de dos páginas sin ver datos ni realizar pruebas.',
-      'Tiene prohibido realizar pruebas propias sobre el sistema.',
-      'Solo revisa las facturas contables del proveedor.',
-    ],
-    correctOptionIndex: 0,
-    explanation:
-      'El Anexo VII, punto 4 (apartados 4.3, 4.4 y 4.5), dota al organismo notificado de amplias facultades de auditoría técnica: acceso completo a los conjuntos de datos de entrenamiento, validación y prueba (4.3), facultad de realizar pruebas directamente o exigir pruebas adicionales (4.4) y acceso motivado al código fuente del sistema de IA cuando las demás pruebas y verificaciones no hayan bastado para demostrar la conformidad (4.5).',
-    enterpriseLesson:
-      'Cuando te sometas a una evaluación de conformidad del Anexo VII ante un organismo notificado, prepara un entorno técnico seguro (clean room / API de auditoría) con acceso a los datasets de entrenamiento/prueba y, si se requiere motivadamente, al repositorio de código fuente.',
-    citations: [
-      makeCitation({
-        id: 'anx_VII.p16',
-        targetType: 'annex',
-        articleId: 'anx_VII',
-        paragraphId: 'anx_VII.p16',
-        displayLabel: 'Anexo VII, puntos 4.3, 4.4 y 4.5 · Reglamento (UE) 2024/1689',
-        exactQuote:
-          'Para evaluar la conformidad de un sistema de IA de alto riesgo con los requisitos establecidos en el capítulo III, sección 2, tras haber agotado todos los demás medios razonables para verificar la conformidad y cuando haya resultado ser insuficiente, se concederá al organismo notificado, previa solicitud motivada, acceso al código fuente del sistema de IA.',
-      }),
-    ],
-  },
 ];
-
