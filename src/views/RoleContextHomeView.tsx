@@ -885,9 +885,9 @@ export const RoleContextHomeView: React.FC<RoleContextHomeViewProps> = ({
   }, [simOrigin, simDomain]);
 
   return (
-    <div className="p-6 max-w-7xl mx-auto space-y-8 animate-in fade-in duration-200">
+    <div className="p-3.5 sm:p-5 md:p-6 pb-20 lg:pb-8 max-w-7xl mx-auto space-y-4 sm:space-y-6 md:space-y-8 animate-in fade-in duration-200">
       {/* 1. HERO: EL CONTEXTO DEL REGLAMENTO EN LENGUAJE CLARO */}
-      <header className="p-6 rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-slate-900 via-slate-900/95 to-indigo-950/30 shadow-xl space-y-4">
+      <header className="p-4 sm:p-6 rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-slate-900 via-slate-900/95 to-indigo-950/30 shadow-xl space-y-3 sm:space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="font-mono text-xs font-semibold px-2.5 py-0.5 rounded bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">

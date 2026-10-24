@@ -467,40 +467,34 @@ p, blockquote, li, .pretty-text {
   }
 }
 
-@keyframes eu-siri-pulse {
+@keyframes eu-siri-flow {
   0% {
-    box-shadow: 0 -2px 14px rgba(0, 51, 153, 0.65), 0 0 16px rgba(255, 204, 0, 0.45);
-    border-color: rgba(255, 204, 0, 0.7);
-  }
-  50% {
-    box-shadow: 0 -4px 28px rgba(0, 51, 153, 0.95), 0 0 30px rgba(255, 204, 0, 0.9), inset 0 0 16px rgba(255, 204, 0, 0.4);
-    border-color: rgba(255, 204, 0, 1);
+    background-position: 0% 50%;
   }
   100% {
-    box-shadow: 0 -2px 14px rgba(0, 51, 153, 0.65), 0 0 16px rgba(255, 204, 0, 0.45);
-    border-color: rgba(255, 204, 0, 0.7);
+    background-position: 200% 50%;
   }
 }
 
 .eu-siri-glow {
   position: relative;
-  animation: eu-siri-pulse 1.3s ease-in-out infinite;
-  border-color: rgba(255, 204, 0, 0.85) !important;
+  border-top-color: rgba(255, 204, 0, 0.85) !important;
+  box-shadow: 0 -4px 18px rgba(0, 51, 153, 0.35), 0 -1px 8px rgba(255, 204, 0, 0.3) !important;
+  transition: all 0.8s ease-out;
 }
 
 .eu-siri-glow::before {
   content: '';
   position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  padding: 2px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
   background: linear-gradient(90deg, #003399, #2563eb, #FFCC00, #38bdf8, #FFCC00, #003399);
-  background-size: 300% 300%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  background-size: 200% 100%;
   animation: eu-siri-flow 2s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.7), 0 0 16px rgba(0, 51, 153, 0.5);
   pointer-events: none;
-  z-index: 10;
+  z-index: 20;
 }
 

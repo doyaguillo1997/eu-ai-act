@@ -253,9 +253,10 @@ describe('End-to-End View Rendering & Visual Integrity Audit', () => {
       />
     );
 
-    // 1. Mobile bottom dock exists with lg:hidden and contains provision info and up-arrow
+    // 1. Mobile bottom dock exists with lg:hidden fixed at bottom, provision info, and refined glow indicator
     expect(html).toContain('data-testid="mobile-inspector-dock"');
-    expect(html).toContain('lg:hidden shrink-0 border-t border-slate-800');
+    expect(html).toContain('lg:hidden fixed bottom-0 inset-x-0 z-30');
+    expect(html).toContain('data-testid="siri-glow-indicator"');
     expect(html).toContain('Art. 5 (1.a))');
 
     // 2. Mobile drawer exists with 60vh height constraints and minimize button

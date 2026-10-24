@@ -237,9 +237,36 @@ function extractDivById(html, id) {
   return html.slice(openTagEnd);
 }
 
+function normalizeHtmlBlock(block) {
+  let s = block;
+  s = s.replace(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi, (match, trContent) => {
+    const tds = [...trContent.matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/gi)]
+      .map((m) => cleanHtmlText(m[1]))
+      .filter((t) => t.length > 0);
+    if (tds.length === 0) return '';
+    if (tds.length === 1) return `<p class="oj-normal">${tds[0]}</p>`;
+    if (/^(\d+\.|\d+\)|[a-z]\)|—|-)$/i.test(tds[0])) {
+      return `<p class="oj-normal">${tds[0]}</p><p class="oj-normal">${tds.slice(1).join(' ')}</p>`;
+    }
+    if (tds.length >= 2 && /^(\d+\.|\d+\)|[a-z]\)|—|-)$/i.test(tds[1])) {
+      return `<p class="oj-normal">${tds[1]}</p><p class="oj-normal">${tds.slice(2).join(' ')}</p>`;
+    }
+    return `<p class="oj-normal">${tds.join(' ')}</p>`;
+  });
+  s = s.replace(/<div\b[^>]*class="oj-enumeration-spacing"[^>]*>([\s\S]*?)<\/div>/gi, (match, divContent) => {
+    const ps = [...divContent.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)]
+      .map((m) => cleanHtmlText(m[1]))
+      .filter(Boolean);
+    if (ps.length === 0) return '';
+    return ps.map((p) => `<p class="oj-normal">${p}</p>`).join('');
+  });
+  return s;
+}
+
 function extractParagraphsFromHtmlBlock(blockHtml) {
+  const normalized = normalizeHtmlBlock(blockHtml);
   const pMatches = [
-    ...blockHtml.matchAll(/<p\b[^>]*class="(oj-normal|oj-ti-grseq-1)"[^>]*>([\s\S]*?)<\/p>/gi),
+    ...normalized.matchAll(/<p\b[^>]*class="(oj-normal|oj-ti-grseq-1)"[^>]*>([\s\S]*?)<\/p>/gi),
   ];
   const rawTokens = pMatches
     .map((m) => ({ cls: m[1], text: cleanHtmlText(m[2]) }))

@@ -274,8 +274,8 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
         </div>
       </header>
 
-      {/* 2. BODY CONTENT (SCROLLABLE) */}
-      <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-6">
+      {/* 2. BODY CONTENT (SCROLLABLE WITH GENEROUS BOTTOM CLEARANCE FOR MOBILE) */}
+      <div className="flex-1 overflow-y-auto p-4 sm:p-5 pb-24 sm:pb-20 space-y-6">
         {/* Test launcher button (if available) */}
         {onStartArticleQuiz && targetArticleId && (
           <div>

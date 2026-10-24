@@ -794,7 +794,7 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
       {/* Center Column: Reader + Mobile Inspector Bottom Dock */}
       <div className="flex-1 min-w-0 h-full flex flex-col overflow-hidden">
         {/* Center Reader ("La Ley con Vuelta de Tuerca") */}
-        <section ref={readerContainerRef} className="flex-1 min-w-0 overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-6">
+        <section ref={readerContainerRef} className="flex-1 min-w-0 overflow-y-auto p-4 sm:p-6 lg:p-8 pb-28 lg:pb-8 space-y-6">
         {/* Top Control Bar: Multi-Role Selector & Inspector Toggle */}
         <div className="w-full max-w-3xl mx-auto flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
           <div className="flex items-center gap-2 min-w-0">
@@ -1210,65 +1210,6 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
           </div>
         )}
         </section>
-
-        {/* Mobile Inspector Bottom Dock (Fixed at bottom of mobile reader, with Siri EU Glow) */}
-        <div
-          data-testid="mobile-inspector-dock"
-          onClick={() => {
-            setIsMobileDrawerOpen(true);
-            setIsSiriGlowing(false);
-          }}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              setIsMobileDrawerOpen(true);
-              setIsSiriGlowing(false);
-            }
-          }}
-          className={`lg:hidden shrink-0 border-t border-slate-800 bg-slate-900/95 backdrop-blur-md px-3.5 py-2.5 flex items-center justify-between gap-3 cursor-pointer select-none transition-all duration-200 shadow-lg ${
-            isSiriGlowing ? 'eu-siri-glow bg-slate-900' : 'hover:bg-slate-850'
-          }`}
-          title="Toca para desplegar el inspector (60% pantalla)"
-          aria-label="Desplegar inspector legal y empresarial"
-        >
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-8 h-8 rounded-lg bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center text-indigo-300 shrink-0 group-hover:scale-105 transition-transform">
-              <ChevronUp className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-1.5">
-                <span className="font-mono text-xs font-bold text-indigo-300 truncate">
-                  {selectedProvision.annexId && currentAnnex
-                    ? `Anexo ${currentAnnex.roman}${currentParagraph?.numberLabel ? ` (${currentParagraph.numberLabel})` : ''}`
-                    : selectedProvision.recitalId && currentRecital
-                    ? `Cons. ${currentRecital.number}`
-                    : currentArticle
-                    ? `Art. ${currentArticle.number}${currentParagraph?.numberLabel ? ` (${currentParagraph.numberLabel})` : ''}`
-                    : 'Inspector Legal'}
-                </span>
-                <RiskBadge
-                  level={currentParagraph?.riskLevel || currentArticle?.riskLevel || 'governance'}
-                  size="xs"
-                  showDot={false}
-                />
-              </div>
-              <p className="text-[11px] text-slate-400 truncate max-w-[210px] sm:max-w-md">
-                {isSiriGlowing
-                  ? '★ ¡Actualizado! Toca de nuevo para abrir inspector'
-                  : currentArticle?.heading || currentAnnex?.heading || 'Toca para abrir análisis empresarial'}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-1 shrink-0">
-            <span className={`text-[11px] font-medium ${isSiriGlowing ? 'text-amber-300 font-bold' : 'text-slate-400'}`}>
-              {isSiriGlowing ? 'Abrir (60%)' : 'Inspector'}
-            </span>
-            <ChevronUp className={`w-3.5 h-3.5 ${isSiriGlowing ? 'text-amber-300 animate-bounce' : 'text-indigo-400'}`} />
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -1307,6 +1248,79 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
         onToggleInspector={() => setIsInspectorOpen((prev) => !prev)}
         inspectorWidthClass="w-80 xl:w-96 2xl:w-[420px]"
       />
+
+      {/* Mobile Inspector Bottom Dock — Fixed permanently at bottom of viewport */}
+      <div
+        data-testid="mobile-inspector-dock"
+        onClick={() => {
+          setIsMobileDrawerOpen(true);
+          setIsSiriGlowing(false);
+        }}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setIsMobileDrawerOpen(true);
+            setIsSiriGlowing(false);
+          }
+        }}
+        className={`lg:hidden fixed bottom-0 inset-x-0 z-30 border-t border-slate-800 bg-slate-900/95 backdrop-blur-md px-3.5 py-2.5 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex items-center justify-between gap-3 cursor-pointer select-none transition-all duration-700 shadow-xl ${
+          isSiriGlowing ? 'eu-siri-glow bg-slate-900' : 'hover:bg-slate-850'
+        }`}
+        title="Toca para desplegar el inspector (60% pantalla)"
+        aria-label="Desplegar inspector legal y empresarial"
+      >
+        {/* Sleek 1.5px Siri-EU top glow indicator line with smooth 1s fade-out */}
+        <div
+          data-testid="siri-glow-indicator"
+          className={`absolute top-0 inset-x-0 h-[1.5px] pointer-events-none transition-opacity duration-1000 ease-out z-20 ${
+            isSiriGlowing ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            background: 'linear-gradient(90deg, #003399 0%, #2563eb 20%, #FFCC00 50%, #38bdf8 80%, #003399 100%)',
+            backgroundSize: '200% 100%',
+            boxShadow: '0 0 10px rgba(255, 204, 0, 0.75), 0 0 18px rgba(0, 51, 153, 0.55)',
+            animation: isSiriGlowing ? 'eu-siri-flow 2s linear infinite' : 'none',
+          }}
+        />
+
+        <div className="flex items-center gap-2.5 min-w-0">
+          <div className="w-8 h-8 rounded-lg bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center text-indigo-300 shrink-0 group-hover:scale-105 transition-transform">
+            <ChevronUp className="w-4 h-4" />
+          </div>
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5">
+              <span className="font-mono text-xs font-bold text-indigo-300 truncate">
+                {selectedProvision.annexId && currentAnnex
+                  ? `Anexo ${currentAnnex.roman}${currentParagraph?.numberLabel ? ` (${currentParagraph.numberLabel})` : ''}`
+                  : selectedProvision.recitalId && currentRecital
+                  ? `Cons. ${currentRecital.number}`
+                  : currentArticle
+                  ? `Art. ${currentArticle.number}${currentParagraph?.numberLabel ? ` (${currentParagraph.numberLabel})` : ''}`
+                  : 'Inspector Legal'}
+              </span>
+              <RiskBadge
+                level={currentParagraph?.riskLevel || currentArticle?.riskLevel || 'governance'}
+                size="xs"
+                showDot={false}
+              />
+            </div>
+            <p className="text-[11px] text-slate-400 truncate max-w-[210px] sm:max-w-md">
+              {isSiriGlowing
+                ? '★ ¡Actualizado! Toca de nuevo para abrir inspector'
+                : currentArticle?.heading || currentAnnex?.heading || 'Toca para abrir análisis empresarial'}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-1 shrink-0">
+          <span className={`text-[11px] font-medium transition-colors duration-300 ${isSiriGlowing ? 'text-amber-300 font-bold' : 'text-slate-400'}`}>
+            {isSiriGlowing ? 'Abrir (60%)' : 'Inspector'}
+          </span>
+          <ChevronUp className={`w-3.5 h-3.5 transition-all duration-300 ${isSiriGlowing ? 'text-amber-300 animate-bounce' : 'text-indigo-400'}`} />
+        </div>
+      </div>
 
       {/* Mobile Drawer (up to 60vh from bottom, with header minimize button) */}
       <div

@@ -163,7 +163,7 @@ export const TimelineDeadlinesView: React.FC<TimelineDeadlinesViewProps> = ({
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto space-y-8 animate-in fade-in duration-200">
+    <div className="p-3.5 sm:p-5 md:p-6 pb-20 lg:pb-8 max-w-7xl mx-auto space-y-4 sm:space-y-6 md:space-y-8 animate-in fade-in duration-200">
       {/* View Header & KPIs */}
       <header className="space-y-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-4 border-b border-slate-800">
