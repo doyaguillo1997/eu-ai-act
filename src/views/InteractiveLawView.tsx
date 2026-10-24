@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   LegalVectorEngine,
   resolveOfficialExternalUrl,
+  isLeadInParagraph,
 } from '../services/vectorStore';
 import {
   EnterpriseRole,
@@ -123,16 +124,30 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
     return undefined;
   }, [engine, selectedProvision.annexId]);
 
+  // Memoized currently selected paragraph (skips non-interactive introductory lead-in paragraphs)
   const currentParagraph: LegalParagraph | undefined = useMemo(() => {
     if (selectedProvision.recitalId) return undefined;
     if (selectedProvision.paragraphId) {
       const resolved = engine.getParagraph(selectedProvision.paragraphId);
-      if (resolved) return resolved;
+      if (resolved) {
+        // If the targeted paragraph is an introductory lead-in line, advance to the first substantive paragraph
+        if (isLeadInParagraph(resolved, currentArticle?.paragraphs)) {
+          const firstSubstantive = currentArticle?.paragraphs.find(
+            (p) => !isLeadInParagraph(p, currentArticle.paragraphs)
+          );
+          return firstSubstantive || resolved;
+        }
+        return resolved;
+      }
     }
     if (selectedProvision.annexId && currentAnnex) {
       return currentAnnex.paragraphs[0];
     }
-    return currentArticle?.paragraphs[0];
+    // Default to the first substantive paragraph of the current article
+    const firstSubstantive = currentArticle?.paragraphs.find(
+      (p) => !isLeadInParagraph(p, currentArticle.paragraphs)
+    );
+    return firstSubstantive || currentArticle?.paragraphs[0];
   }, [engine, selectedProvision.recitalId, selectedProvision.paragraphId, selectedProvision.annexId, currentAnnex, currentArticle]);
 
   // Automatically sync Rail Tab, expanded Title, and scroll paragraph into view on citation jump
@@ -256,18 +271,20 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
     });
   }, [engine, searchQuery]);
 
-  // Select article handler
+  // Select article handler (targets first substantive paragraph, skipping introductory lead-ins)
   const handleSelectArticle = (art: LegalArticle) => {
+    const firstSubstantive = art.paragraphs.find((p) => !isLeadInParagraph(p, art.paragraphs));
     onSelectProvision({
       articleId: art.id,
-      paragraphId: art.paragraphs[0]?.id,
+      paragraphId: firstSubstantive?.id || art.paragraphs[0]?.id,
     });
     setExpandedTitleId(art.titleId);
     setIsInspectorOpen(true);
   };
 
-  // Select paragraph handler
+  // Select paragraph handler (ignores non-interactive introductory lead-in lines)
   const handleSelectParagraph = (p: LegalParagraph) => {
+    if (isLeadInParagraph(p, currentArticle?.paragraphs)) return;
     onSelectProvision({
       articleId: p.articleId.startsWith('art_') ? p.articleId : selectedProvision.articleId,
       paragraphId: p.id,
@@ -871,12 +888,43 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
             <div className="space-y-4">
               <div className="flex items-center justify-between text-xs text-slate-400">
                 <span className="font-mono uppercase tracking-wider font-semibold">
-                  Articulado Oficial EUR-Lex ({currentArticle.paragraphs.length} párrafos interactivos)
+                  Articulado Oficial EUR-Lex ({currentArticle.paragraphs.filter((p) => !isLeadInParagraph(p, currentArticle.paragraphs)).length} apartados interactivos)
                 </span>
-                <span>Haga clic en cualquier párrafo para abrir su análisis empresarial</span>
+                <span>Haga clic en cualquier apartado para abrir su análisis empresarial</span>
               </div>
 
               {currentArticle.paragraphs.map((p, idx) => {
+                const isLeadIn = isLeadInParagraph(p, currentArticle.paragraphs);
+
+                // Non-interactive structural lead-in / chapeau heading
+                if (isLeadIn) {
+                  return (
+                    <div
+                      key={p.id}
+                      data-paragraph-id={p.id}
+                      className="py-3 px-4 rounded-xl bg-slate-900/40 border border-slate-800/60 text-left my-2 shadow-sm"
+                    >
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">
+                          Disposición introductoria
+                        </span>
+                        {p.numberLabel && (
+                          <span className="font-mono text-xs font-semibold text-slate-300">
+                            {p.numberLabel}
+                          </span>
+                        )}
+                        <span className="text-slate-500 text-xs">·</span>
+                        <span className="text-xs text-slate-400 italic">
+                          Enumera los apartados siguientes:
+                        </span>
+                      </div>
+                      <p className="font-sans font-medium text-slate-200 text-sm sm:text-[15px] leading-relaxed select-text pl-0.5">
+                        {p.officialText}
+                      </p>
+                    </div>
+                  );
+                }
+
                 const isSelected = currentParagraph?.id === p.id;
                 const isDeferred = idx >= 6;
                 const riskMeta = RISK_METADATA[p.riskLevel] ?? RISK_METADATA.minimal;

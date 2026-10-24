@@ -8,6 +8,7 @@ import {
   decodeVectorsBinary,
   LegalVectorEngine,
   resolveOfficialExternalUrl,
+  isLeadInParagraph,
 } from '../src/services/vectorStore';
 import { RoleContextHomeView } from '../src/views/RoleContextHomeView';
 import { EnterpriseGuideView } from '../src/views/EnterpriseGuideView';
@@ -210,5 +211,32 @@ describe('End-to-End View Rendering & Visual Integrity Audit', () => {
       />
     );
     expect(timelineHtml).toContain('2 roles combinados');
+  });
+
+  it('correctly identifies introductory lead-ins and keeps them non-interactive and out of the inspector', () => {
+    const art5 = engine.getArticle('art_5')!;
+    const p1 = art5.paragraphs[0]; // "1. Quedan prohibidas las siguientes prácticas de IA:"
+    const p2 = art5.paragraphs[1]; // "a) la introducción en el mercado..."
+
+    expect(isLeadInParagraph(p1, art5.paragraphs)).toBe(true);
+    expect(isLeadInParagraph(p2, art5.paragraphs)).toBe(false);
+
+    // Render Art. 5 with no explicit paragraph selected (or default)
+    const html = renderToStaticMarkup(
+      <InteractiveLawView
+        engine={engine}
+        selectedProvision={{ articleId: 'art_5' }}
+        onSelectProvision={noop}
+        selectedRole="deployer"
+        onSelectRole={noop}
+        onNavigateCitation={noop}
+        onStartArticleQuiz={noop}
+      />
+    );
+
+    // Inspector should automatically target the first substantive paragraph (p2: 1.a), NOT p1!
+    expect(html).toContain('Artículo 5 · 1.a)');
+    expect(html).toContain('Disposición introductoria');
+    expect(html).toContain('Quedan prohibidas las siguientes prácticas de IA:');
   });
 });

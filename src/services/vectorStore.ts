@@ -483,3 +483,47 @@ export class LegalVectorEngine {
     };
   }
 }
+
+/**
+ * Determines if a paragraph is a structural legal lead-in / chapeau / encabezamiento
+ * (e.g. "1. Quedan prohibidas las siguientes prácticas de IA:", "2. El presente Reglamento establece:",
+ * "...cuando reúna las dos condiciones siguientes:") that merely introduces subordinate
+ * lettered/numbered sections rather than containing an independent interactive obligation.
+ */
+export function isLeadInParagraph(
+  p: LegalParagraph,
+  articleParagraphs?: LegalParagraph[]
+): boolean {
+  const text = p.officialText.trim();
+  const idx = articleParagraphs ? articleParagraphs.findIndex((item) => item.id === p.id) : -1;
+  const nextP = articleParagraphs && idx >= 0 ? articleParagraphs[idx + 1] : undefined;
+
+  // 1. Ends with a colon ":"
+  if (text.endsWith(':')) {
+    if (nextP) {
+      const nextLabel = (nextP.numberLabel || '').trim();
+      const nextText = nextP.officialText.trim();
+      if (
+        /^([a-z]\)|\d+\)|[ivxlcdm]+\))/i.test(nextLabel) ||
+        /\.[a-z]\)/i.test(nextLabel) ||
+        /^[a-z]\)\s+/i.test(nextText) ||
+        nextLabel.includes(')')
+      ) {
+        return true;
+      }
+    }
+    if (text.length < 380) {
+      return true;
+    }
+  }
+
+  // 2. Typical Spanish legal lead-in introductory phrases
+  const leadInRegex = /(quedan prohibid[ao]s?|se prohíben?|enumera lo siguiente|las siguientes prácticas|las siguientes condiciones|las condiciones siguientes|los requisitos siguientes|los criterios siguientes|los elementos siguientes|lo siguiente|se aplicará a|establece lo siguiente|se entenderá por|tendrá en cuenta los siguientes aspectos|comprenderá lo siguiente)\s*:?$/i;
+  if (leadInRegex.test(text)) {
+    if (nextP || text.length < 350) {
+      return true;
+    }
+  }
+
+  return false;
+}

@@ -12,6 +12,7 @@ import {
   LegalVectorEngine,
   resolveOfficialExternalUrl,
   resolveOfficialAnchorBadge,
+  isLeadInParagraph,
 } from '../../services/vectorStore';
 import { RiskBadge } from '../shared/RiskBadge';
 import { CitationBadge } from '../shared/CitationBadge';
@@ -70,28 +71,40 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
     return selectedRoles && selectedRoles.length > 0 ? selectedRoles : [selectedRole];
   }, [selectedRoles, selectedRole]);
 
+  // Resolve effective active paragraph (skips non-interactive lead-in paragraphs)
+  const activeParagraph = useMemo(() => {
+    if (!paragraph) return undefined;
+    if (isLeadInParagraph(paragraph, article?.paragraphs)) {
+      const firstSubstantive = article?.paragraphs.find(
+        (p) => !isLeadInParagraph(p, article.paragraphs)
+      );
+      return firstSubstantive;
+    }
+    return paragraph;
+  }, [paragraph, article]);
+
   // Determine current active entity
-  const isParagraph = Boolean(paragraph);
-  const isRecital = Boolean(recital) && !paragraph && !article;
+  const isParagraph = Boolean(activeParagraph);
+  const isRecital = Boolean(recital) && !activeParagraph && !article;
   const isAnnex = Boolean(annex);
 
   const riskLevel: RiskLevel = useMemo(() => {
-    if (paragraph) return paragraph.riskLevel;
+    if (activeParagraph) return activeParagraph.riskLevel;
     if (article) return article.riskLevel;
     if (recital) return recital.riskLevel;
     if (annex) return annex.riskLevel;
     return 'governance';
-  }, [paragraph, article, recital, annex]);
+  }, [activeParagraph, article, recital, annex]);
 
   // Current entity identifiers
   const displayTitle = useMemo(() => {
-    if (annex && paragraph) {
-      return `Anexo ${annex.roman} · Punto ${paragraph.numberLabel || 'Apartado'}`;
+    if (annex && activeParagraph) {
+      return `Anexo ${annex.roman} · Punto ${activeParagraph.numberLabel || 'Apartado'}`;
     }
-    if (paragraph) {
-      const art = article || engine.getArticle(paragraph.articleId);
-      const artLabel = art ? art.titleLabel : paragraph.articleId;
-      return `${artLabel} · ${paragraph.numberLabel || 'Apartado'}`;
+    if (activeParagraph) {
+      const art = article || engine.getArticle(activeParagraph.articleId);
+      const artLabel = art ? art.titleLabel : activeParagraph.articleId;
+      return `${artLabel} · ${activeParagraph.numberLabel || 'Apartado'}`;
     }
     if (article) {
       return `${article.titleLabel}: ${article.heading}`;
@@ -103,18 +116,18 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
       return `Anexo ${annex.roman}: ${annex.heading || annex.title}`;
     }
     return 'Inspector de Provisiones';
-  }, [paragraph, article, recital, annex, engine]);
+  }, [activeParagraph, article, recital, annex, engine]);
 
   const displaySubtitle = useMemo(() => {
     if (annex) return annex.heading || annex.title;
-    if (paragraph && article) return article.heading;
-    if (paragraph) {
-      const art = engine.getArticle(paragraph.articleId);
+    if (activeParagraph && article) return article.heading;
+    if (activeParagraph) {
+      const art = engine.getArticle(activeParagraph.articleId);
       return art ? art.heading : '';
     }
     if (recital) return 'Fundamento del Reglamento (UE) 2024/1689';
     return 'Reglamento (UE) 2024/1689 · DOUE-L-2024-81079';
-  }, [paragraph, article, recital, annex, engine]);
+  }, [activeParagraph, article, recital, annex, engine]);
 
   const officialCitationString = useMemo(() => {
     const boeId = engine.corpus.metadata?.boeId || 'DOUE-L-2024-81079';
@@ -132,7 +145,7 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
   };
 
   // Find vector similarity connections (top 4)
-  const vectorIndex = paragraph?.vectorIndex ?? article?.vectorIndex ?? recital?.vectorIndex ?? annex?.vectorIndex;
+  const vectorIndex = activeParagraph?.vectorIndex ?? article?.vectorIndex ?? recital?.vectorIndex ?? annex?.vectorIndex;
 
   const semanticConnections = useMemo(() => {
     if (vectorIndex === undefined || vectorIndex < 0) return [];
@@ -141,23 +154,23 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
 
   // Related recitals & annexes
   const linkedRecitals = useMemo(() => {
-    const ids = paragraph?.relatedRecitals ?? article?.relatedRecitals ?? [];
+    const ids = activeParagraph?.relatedRecitals ?? article?.relatedRecitals ?? [];
     return ids
       .map((id) => engine.getRecital(id))
       .filter((r): r is LegalRecital => Boolean(r));
-  }, [paragraph, article, engine]);
+  }, [activeParagraph, article, engine]);
 
   const linkedAnnexes = useMemo(() => {
-    const ids = paragraph?.relatedAnnexes ?? article?.relatedAnnexes ?? [];
+    const ids = activeParagraph?.relatedAnnexes ?? article?.relatedAnnexes ?? [];
     return ids
       .map((id) => engine.getAnnex(id))
       .filter((a): a is LegalAnnex => Boolean(a));
-  }, [paragraph, article, engine]);
+  }, [activeParagraph, article, engine]);
 
   // Enterprise impact
-  const enterpriseImpact = paragraph?.enterpriseImpact;
+  const enterpriseImpact = activeParagraph?.enterpriseImpact;
   const targetArticleId =
-    (paragraph?.articleId.startsWith('art_') ? paragraph.articleId : undefined) ||
+    (activeParagraph?.articleId.startsWith('art_') ? activeParagraph.articleId : undefined) ||
     article?.id ||
     annex?.linkedArticles?.[0] ||
     recital?.linkedArticles?.[0];
@@ -167,26 +180,26 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
   const externalUrl = useMemo(
     () =>
       resolveOfficialExternalUrl({
-        articleId: article?.id || paragraph?.articleId,
-        paragraphId: paragraph?.id,
+        articleId: article?.id || activeParagraph?.articleId,
+        paragraphId: activeParagraph?.id,
         recitalId: recital?.id,
         annexId: annex?.id,
         boeId,
-        targetType: annex ? 'annex' : recital ? 'recital' : paragraph ? 'paragraph' : 'article',
+        targetType: annex ? 'annex' : recital ? 'recital' : activeParagraph ? 'paragraph' : 'article',
       }),
-    [article, paragraph, recital, annex, boeId]
+    [article, activeParagraph, recital, annex, boeId]
   );
   const anchorBadge = useMemo(
     () =>
       resolveOfficialAnchorBadge({
-        articleId: article?.id || paragraph?.articleId,
-        paragraphId: paragraph?.id,
+        articleId: article?.id || activeParagraph?.articleId,
+        paragraphId: activeParagraph?.id,
         recitalId: recital?.id,
         annexId: annex?.id,
         boeId,
-        targetType: annex ? 'annex' : recital ? 'recital' : paragraph ? 'paragraph' : 'article',
+        targetType: annex ? 'annex' : recital ? 'recital' : activeParagraph ? 'paragraph' : 'article',
       }),
-    [article, paragraph, recital, annex, boeId]
+    [article, activeParagraph, recital, annex, boeId]
   );
 
   return (
@@ -288,8 +301,8 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
           </div>
 
           <div className="p-3.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-slate-200 text-xs leading-relaxed space-y-2">
-            {paragraph?.plainExplanation ? (
-              <p>{paragraph.plainExplanation}</p>
+            {activeParagraph?.plainExplanation ? (
+              <p>{activeParagraph.plainExplanation}</p>
             ) : article?.summary ? (
               <p>{article.summary}</p>
             ) : recital?.plainSummary ? (
@@ -302,7 +315,7 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
               </p>
             )}
 
-            {article?.enterpriseTakeaway && !paragraph && (
+            {article?.enterpriseTakeaway && !activeParagraph && (
               <div className="pt-2 border-t border-amber-500/20">
                 <span className="font-semibold text-amber-200 block mb-1">
                   Clave ejecutiva:
