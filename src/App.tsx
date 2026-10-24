@@ -63,7 +63,12 @@ export const App: React.FC = () => {
     clearExamHistory,
   } = useLegalStore();
 
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1024;
+    }
+    return false;
+  });
   const [isRolePopoverOpen, setIsRolePopoverOpen] = useState<boolean>(false);
   const rolePopoverRef = useRef<HTMLDivElement | null>(null);
   const [quizFilterTopicOrArticle, setQuizFilterTopicOrArticle] = useState<{

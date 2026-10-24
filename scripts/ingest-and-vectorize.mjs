@@ -251,7 +251,37 @@ function extractParagraphsFromHtmlBlock(blockHtml) {
 
   for (let i = 0; i < rawTokens.length; i++) {
     const cur = rawTokens[i];
-    const isMarker = /^(\(\d+\)|\d+\.|\d+\)|[a-z]{1,3}\)|[ivx]{1,4}\)|—|-)$/i.test(cur.text);
+
+    // Dash / hyphen bullet enumeration: attach to previous paragraph rather than separating into independent clickable articles
+    const isDashOnly = /^[—–-]$/.test(cur.text.trim());
+    if (isDashOnly && i + 1 < rawTokens.length) {
+      const next = rawTokens[i + 1];
+      const bulletText = `— ${next.text}`;
+      if (merged.length > 0) {
+        merged[merged.length - 1].officialText += `\n${bulletText}`;
+      } else {
+        merged.push({
+          numberLabel: currentMainNum ? `Apdo. ${currentMainNum}` : `Párrafo 1`,
+          officialText: bulletText,
+        });
+      }
+      i++; // Skip consumed body paragraph
+      continue;
+    }
+
+    if (/^[—–-]\s+/.test(cur.text.trim())) {
+      if (merged.length > 0) {
+        merged[merged.length - 1].officialText += `\n${cur.text.trim()}`;
+      } else {
+        merged.push({
+          numberLabel: currentMainNum ? `Apdo. ${currentMainNum}` : `Párrafo 1`,
+          officialText: cur.text.trim(),
+        });
+      }
+      continue;
+    }
+
+    const isMarker = /^(\(\d+\)|\d+\.|\d+\)|[a-z]{1,3}\)|[ivx]{1,4}\))$/i.test(cur.text);
 
     if (isMarker && i + 1 < rawTokens.length) {
       const next = rawTokens[i + 1];

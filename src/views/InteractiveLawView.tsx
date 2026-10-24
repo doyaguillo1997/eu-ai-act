@@ -39,6 +39,8 @@ import {
   PanelLeftOpen,
   PanelRightClose,
   PanelRightOpen,
+  ChevronUp,
+  ChevronDown,
 } from 'lucide-react';
 
 export interface InteractiveLawViewProps {
@@ -88,9 +90,97 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [riskFilter, setRiskFilter] = useState<string>('all');
   const [expandedTitleId, setExpandedTitleId] = useState<string | null>('tit_II');
-  const [isLeftRailCollapsed, setIsLeftRailCollapsed] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1024;
+    }
+    return false;
+  });
+  const [isLeftRailCollapsed, setIsLeftRailCollapsed] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1024;
+    }
+    return false;
+  });
   const [isInspectorOpen, setIsInspectorOpen] = useState<boolean>(true);
+  const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState<boolean>(false);
+  const [isSiriGlowing, setIsSiriGlowing] = useState<boolean>(false);
   const readerContainerRef = useRef<HTMLElement | null>(null);
+  const lastSelectedKeyRef = useRef<string | null>(null);
+  const siriTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartYRef = useRef<number | null>(null);
+
+  // Close mobile drawer and reset consecutive tap tracking
+  const closeMobileDrawer = () => {
+    setIsMobileDrawerOpen(false);
+    lastSelectedKeyRef.current = null;
+  };
+
+  // When drawer closes by any means, clear consecutive tap tracking so next tap previews with glow
+  useEffect(() => {
+    if (!isMobileDrawerOpen) {
+      lastSelectedKeyRef.current = null;
+    }
+  }, [isMobileDrawerOpen]);
+
+  // Responsive mobile tracking (< 1024px) & ghost state cleanup
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 1024;
+      setIsMobile(mobile);
+      if (!mobile) {
+        setIsMobileDrawerOpen(false);
+        lastSelectedKeyRef.current = null;
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Cleanup Siri glow timer on unmount
+  useEffect(() => {
+    return () => {
+      if (siriTimeoutRef.current) {
+        clearTimeout(siriTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Keyboard navigation: Escape minimizes mobile drawer
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileDrawerOpen) {
+        closeMobileDrawer();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMobileDrawerOpen]);
+
+  // Touch swipe-down handler for mobile drawer top bar
+  const handleHeaderTouchStart = (e: React.TouchEvent) => {
+    touchStartYRef.current = e.touches[0].clientY;
+  };
+
+  const handleHeaderTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartYRef.current !== null) {
+      const diff = e.changedTouches[0].clientY - touchStartYRef.current;
+      if (diff > 45) {
+        closeMobileDrawer();
+      }
+      touchStartYRef.current = null;
+    }
+  };
+
+  const triggerSiriGlow = () => {
+    setIsSiriGlowing(true);
+    if (siriTimeoutRef.current) {
+      clearTimeout(siriTimeoutRef.current);
+    }
+    siriTimeoutRef.current = setTimeout(() => {
+      setIsSiriGlowing(false);
+    }, 1800);
+  };
 
   const activeRoles: EnterpriseRole[] = useMemo(() => {
     if (selectedRoles && selectedRoles.length > 0) return selectedRoles;
@@ -141,7 +231,14 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
       }
     }
     if (selectedProvision.annexId && currentAnnex) {
-      return currentAnnex.paragraphs[0];
+      if (selectedProvision.paragraphId) {
+        const resolvedAnx = currentAnnex.paragraphs.find((p) => p.id === selectedProvision.paragraphId);
+        if (resolvedAnx && !isLeadInParagraph(resolvedAnx, currentAnnex.paragraphs)) return resolvedAnx;
+      }
+      const firstSubstantiveAnnex = currentAnnex.paragraphs.find(
+        (p) => !isLeadInParagraph(p, currentAnnex.paragraphs)
+      );
+      return firstSubstantiveAnnex || currentAnnex.paragraphs[0];
     }
     // Default to the first substantive paragraph of the current article
     const firstSubstantive = currentArticle?.paragraphs.find(
@@ -274,42 +371,107 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
   // Select article handler (targets first substantive paragraph, skipping introductory lead-ins)
   const handleSelectArticle = (art: LegalArticle) => {
     const firstSubstantive = art.paragraphs.find((p) => !isLeadInParagraph(p, art.paragraphs));
+    const targetKey = art.id;
     onSelectProvision({
       articleId: art.id,
       paragraphId: firstSubstantive?.id || art.paragraphs[0]?.id,
     });
     setExpandedTitleId(art.titleId);
     setIsInspectorOpen(true);
+
+    if (isMobile) {
+      setIsLeftRailCollapsed(true);
+      if (isMobileDrawerOpen) {
+        lastSelectedKeyRef.current = targetKey;
+      } else {
+        if (lastSelectedKeyRef.current === targetKey) {
+          setIsMobileDrawerOpen(true);
+          setIsSiriGlowing(false);
+        } else {
+          lastSelectedKeyRef.current = targetKey;
+          triggerSiriGlow();
+        }
+      }
+    }
   };
 
   // Select paragraph handler (ignores non-interactive introductory lead-in lines)
   const handleSelectParagraph = (p: LegalParagraph) => {
-    if (isLeadInParagraph(p, currentArticle?.paragraphs)) return;
+    const activeParas = selectedProvision.annexId && currentAnnex ? currentAnnex.paragraphs : currentArticle?.paragraphs;
+    if (isLeadInParagraph(p, activeParas)) return;
+    const targetKey = p.id;
     onSelectProvision({
       articleId: p.articleId.startsWith('art_') ? p.articleId : selectedProvision.articleId,
       paragraphId: p.id,
       annexId: selectedProvision.annexId,
     });
     setIsInspectorOpen(true);
+
+    if (isMobile) {
+      if (isMobileDrawerOpen) {
+        lastSelectedKeyRef.current = targetKey;
+      } else {
+        if (lastSelectedKeyRef.current === targetKey) {
+          setIsMobileDrawerOpen(true);
+          setIsSiriGlowing(false);
+        } else {
+          lastSelectedKeyRef.current = targetKey;
+          triggerSiriGlow();
+        }
+      }
+    }
   };
 
   // Select recital handler
   const handleSelectRecital = (r: LegalRecital) => {
+    const targetKey = r.id;
     onSelectProvision({
       articleId: r.linkedArticles[0] || 'art_1',
       recitalId: r.id,
     });
     setIsInspectorOpen(true);
+
+    if (isMobile) {
+      setIsLeftRailCollapsed(true);
+      if (isMobileDrawerOpen) {
+        lastSelectedKeyRef.current = targetKey;
+      } else {
+        if (lastSelectedKeyRef.current === targetKey) {
+          setIsMobileDrawerOpen(true);
+          setIsSiriGlowing(false);
+        } else {
+          lastSelectedKeyRef.current = targetKey;
+          triggerSiriGlow();
+        }
+      }
+    }
   };
 
   // Select annex handler
   const handleSelectAnnex = (anx: LegalAnnex) => {
+    const targetKey = anx.id;
+    const firstSubstantiveAnnex = anx.paragraphs.find((p) => !isLeadInParagraph(p, anx.paragraphs));
     onSelectProvision({
       articleId: anx.linkedArticles[0] || 'art_6',
       annexId: anx.id,
-      paragraphId: anx.paragraphs[0]?.id,
+      paragraphId: firstSubstantiveAnnex?.id || anx.paragraphs[0]?.id,
     });
     setIsInspectorOpen(true);
+
+    if (isMobile) {
+      setIsLeftRailCollapsed(true);
+      if (isMobileDrawerOpen) {
+        lastSelectedKeyRef.current = targetKey;
+      } else {
+        if (lastSelectedKeyRef.current === targetKey) {
+          setIsMobileDrawerOpen(true);
+          setIsSiriGlowing(false);
+        } else {
+          lastSelectedKeyRef.current = targetKey;
+          triggerSiriGlow();
+        }
+      }
+    }
   };
 
   // Primary pane content
@@ -629,8 +791,10 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
       </aside>
       )}
 
-      {/* Center Reader ("La Ley con Vuelta de Tuerca") */}
-      <section ref={readerContainerRef} className="flex-1 min-w-0 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-6">
+      {/* Center Column: Reader + Mobile Inspector Bottom Dock */}
+      <div className="flex-1 min-w-0 h-full flex flex-col overflow-hidden">
+        {/* Center Reader ("La Ley con Vuelta de Tuerca") */}
+        <section ref={readerContainerRef} className="flex-1 min-w-0 overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-6">
         {/* Top Control Bar: Multi-Role Selector & Inspector Toggle */}
         <div className="w-full max-w-3xl mx-auto flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
           <div className="flex items-center gap-2 min-w-0">
@@ -647,17 +811,29 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
 
           <button
             type="button"
-            onClick={() => setIsInspectorOpen((prev) => !prev)}
+            onClick={() => {
+              if (isMobile) {
+                setIsMobileDrawerOpen((prev) => !prev);
+              } else {
+                setIsInspectorOpen((prev) => !prev);
+              }
+            }}
             className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border transition-colors shrink-0 ${
-              isInspectorOpen
+              (isMobile ? isMobileDrawerOpen : isInspectorOpen)
                 ? 'bg-indigo-600/20 border-indigo-500/40 text-indigo-300 hover:bg-indigo-600/30'
                 : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-850'
             }`}
-            title={isInspectorOpen ? 'Ocultar Inspector Lateral' : 'Mostrar Inspector Lateral'}
-            aria-label={isInspectorOpen ? 'Ocultar Inspector Lateral' : 'Mostrar Inspector Lateral'}
+            title="Mostrar u Ocultar Inspector"
+            aria-label="Mostrar u Ocultar Inspector"
           >
-            {isInspectorOpen ? <PanelRightClose className="w-3.5 h-3.5" /> : <PanelRightOpen className="w-3.5 h-3.5" />}
-            <span className="hidden sm:inline">{isInspectorOpen ? 'Ocultar Inspector' : 'Ver Inspector'}</span>
+            {(isMobile ? isMobileDrawerOpen : isInspectorOpen) ? (
+              <PanelRightClose className="w-3.5 h-3.5" />
+            ) : (
+              <PanelRightOpen className="w-3.5 h-3.5" />
+            )}
+            <span className="hidden sm:inline">
+              {(isMobile ? isMobileDrawerOpen : isInspectorOpen) ? 'Ocultar Inspector' : 'Ver Inspector'}
+            </span>
           </button>
         </div>
 
@@ -776,6 +952,34 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
               </h3>
 
               {currentAnnex.paragraphs.map((p, idx) => {
+                const isLeadIn = isLeadInParagraph(p, currentAnnex.paragraphs);
+                const isBulletItem = /^[—–-]/.test(p.numberLabel || '') || /^[—–-]\s+/.test(p.officialText.trim());
+
+                // Non-interactive introductory chapeau or subordinate enumeration
+                if (isLeadIn || isBulletItem) {
+                  return (
+                    <div
+                      key={p.id}
+                      data-paragraph-id={p.id}
+                      className="py-3 px-4 rounded-xl bg-slate-900/40 border border-slate-800/60 text-left my-2 shadow-sm"
+                    >
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                          {isLeadIn ? 'Disposición introductoria' : 'Enumeración subordinada'}
+                        </span>
+                        {p.numberLabel && (
+                          <span className="font-mono text-xs font-semibold text-slate-300">
+                            {p.numberLabel}
+                          </span>
+                        )}
+                      </div>
+                      <p className="font-sans font-medium text-slate-200 text-xs sm:text-sm leading-relaxed select-text pl-0.5 whitespace-pre-line">
+                        {p.officialText}
+                      </p>
+                    </div>
+                  );
+                }
+
                 const isSelected = currentParagraph?.id === p.id;
                 const isDeferred = idx >= 6;
 
@@ -792,12 +996,16 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
                   >
                     <div className="flex items-center justify-between gap-2 pb-2 mb-2 border-b border-slate-800/60">
                       <span className="font-mono font-bold text-xs text-amber-400">
-                        Punto {p.numberLabel || `${idx + 1}.`}
+                        {p.numberLabel
+                          ? p.numberLabel.startsWith('Párrafo')
+                            ? p.numberLabel
+                            : `Punto ${p.numberLabel}`
+                          : `Punto ${idx + 1}.`}
                       </span>
                       <RiskBadge level={p.riskLevel} size="xs" showDot={false} />
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans">
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans whitespace-pre-line">
                       {p.officialText}
                     </p>
 
@@ -895,9 +1103,10 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
 
               {currentArticle.paragraphs.map((p, idx) => {
                 const isLeadIn = isLeadInParagraph(p, currentArticle.paragraphs);
+                const isBulletItem = /^[—–-]/.test(p.numberLabel || '') || /^[—–-]\s+/.test(p.officialText.trim());
 
-                // Non-interactive structural lead-in / chapeau heading
-                if (isLeadIn) {
+                // Non-interactive structural lead-in / chapeau heading or subordinate enumeration
+                if (isLeadIn || isBulletItem) {
                   return (
                     <div
                       key={p.id}
@@ -906,7 +1115,7 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
                     >
                       <div className="flex items-center gap-2 mb-1.5">
                         <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">
-                          Disposición introductoria
+                          {isLeadIn ? 'Disposición introductoria' : 'Enumeración subordinada'}
                         </span>
                         {p.numberLabel && (
                           <span className="font-mono text-xs font-semibold text-slate-300">
@@ -915,10 +1124,10 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
                         )}
                         <span className="text-slate-500 text-xs">·</span>
                         <span className="text-xs text-slate-400 italic">
-                          Enumera los apartados siguientes:
+                          {isLeadIn ? 'Enumera los apartados siguientes:' : 'Elemento enumerado:'}
                         </span>
                       </div>
-                      <p className="font-sans font-medium text-slate-200 text-sm sm:text-[15px] leading-relaxed select-text pl-0.5">
+                      <p className="font-sans font-medium text-slate-200 text-sm sm:text-[15px] leading-relaxed select-text pl-0.5 whitespace-pre-line">
                         {p.officialText}
                       </p>
                     </div>
@@ -981,7 +1190,7 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
                     </div>
 
                     {/* Official Paragraph Text */}
-                    <p className="text-slate-100 text-sm sm:text-[15px] leading-relaxed font-sans pl-2 select-text">
+                    <p className="text-slate-100 text-sm sm:text-[15px] leading-relaxed font-sans pl-2 select-text whitespace-pre-line">
                       {p.officialText}
                     </p>
 
@@ -1000,11 +1209,71 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
             </div>
           </div>
         )}
-      </section>
+        </section>
+
+        {/* Mobile Inspector Bottom Dock (Fixed at bottom of mobile reader, with Siri EU Glow) */}
+        <div
+          data-testid="mobile-inspector-dock"
+          onClick={() => {
+            setIsMobileDrawerOpen(true);
+            setIsSiriGlowing(false);
+          }}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setIsMobileDrawerOpen(true);
+              setIsSiriGlowing(false);
+            }
+          }}
+          className={`lg:hidden shrink-0 border-t border-slate-800 bg-slate-900/95 backdrop-blur-md px-3.5 py-2.5 flex items-center justify-between gap-3 cursor-pointer select-none transition-all duration-200 shadow-lg ${
+            isSiriGlowing ? 'eu-siri-glow bg-slate-900' : 'hover:bg-slate-850'
+          }`}
+          title="Toca para desplegar el inspector (60% pantalla)"
+          aria-label="Desplegar inspector legal y empresarial"
+        >
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="w-8 h-8 rounded-lg bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center text-indigo-300 shrink-0 group-hover:scale-105 transition-transform">
+              <ChevronUp className="w-4 h-4" />
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="font-mono text-xs font-bold text-indigo-300 truncate">
+                  {selectedProvision.annexId && currentAnnex
+                    ? `Anexo ${currentAnnex.roman}${currentParagraph?.numberLabel ? ` (${currentParagraph.numberLabel})` : ''}`
+                    : selectedProvision.recitalId && currentRecital
+                    ? `Cons. ${currentRecital.number}`
+                    : currentArticle
+                    ? `Art. ${currentArticle.number}${currentParagraph?.numberLabel ? ` (${currentParagraph.numberLabel})` : ''}`
+                    : 'Inspector Legal'}
+                </span>
+                <RiskBadge
+                  level={currentParagraph?.riskLevel || currentArticle?.riskLevel || 'governance'}
+                  size="xs"
+                  showDot={false}
+                />
+              </div>
+              <p className="text-[11px] text-slate-400 truncate max-w-[210px] sm:max-w-md">
+                {isSiriGlowing
+                  ? '★ ¡Actualizado! Toca de nuevo para abrir inspector'
+                  : currentArticle?.heading || currentAnnex?.heading || 'Toca para abrir análisis empresarial'}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1 shrink-0">
+            <span className={`text-[11px] font-medium ${isSiriGlowing ? 'text-amber-300 font-bold' : 'text-slate-400'}`}>
+              {isSiriGlowing ? 'Abrir (60%)' : 'Inspector'}
+            </span>
+            <ChevronUp className={`w-3.5 h-3.5 ${isSiriGlowing ? 'text-amber-300 animate-bounce' : 'text-indigo-400'}`} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 
-  // Inspector pane content
+  // Inspector pane content (desktop and mobile drawer)
   const inspectorContent = (
     <ParagraphInspector
       engine={engine}
@@ -1017,14 +1286,20 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
       selectedRoles={activeRoles}
       onToggleRole={handleToggleRole}
       onSetRoles={onSetRoles}
-      onCollapseInspector={() => setIsInspectorOpen(false)}
-      onNavigateCitation={onNavigateCitation}
+      onCollapseInspector={() => {
+        setIsInspectorOpen(false);
+        closeMobileDrawer();
+      }}
+      onNavigateCitation={(cit) => {
+        closeMobileDrawer();
+        onNavigateCitation(cit);
+      }}
       onStartArticleQuiz={onStartArticleQuiz}
     />
   );
 
   return (
-    <div className="h-full w-full overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden">
       <SplitViewLayout
         primary={primaryContent}
         inspector={inspectorContent}
@@ -1032,6 +1307,65 @@ export const InteractiveLawView: React.FC<InteractiveLawViewProps> = ({
         onToggleInspector={() => setIsInspectorOpen((prev) => !prev)}
         inspectorWidthClass="w-80 xl:w-96 2xl:w-[420px]"
       />
+
+      {/* Mobile Drawer (up to 60vh from bottom, with header minimize button) */}
+      <div
+        data-testid="mobile-inspector-drawer"
+        className={`fixed inset-x-0 bottom-0 z-50 h-[60vh] max-h-[60vh] bg-slate-900 border-t border-slate-700 shadow-2xl rounded-t-2xl flex flex-col transition-transform duration-300 ease-out lg:hidden ${
+          isMobileDrawerOpen ? 'translate-y-0' : 'translate-y-full pointer-events-none'
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Inspector Legal y Empresarial (Versión Móvil)"
+      >
+        {/* Top Header with Drag Handle & Close/Minimize Button (Supports Swipe-Down Dismiss) */}
+        <div
+          onTouchStart={handleHeaderTouchStart}
+          onTouchEnd={handleHeaderTouchEnd}
+          className="shrink-0 px-4 pt-2.5 pb-2 border-b border-slate-800 bg-slate-950/80 rounded-t-2xl flex flex-col gap-1.5 touch-none select-none"
+        >
+          <div className="w-12 h-1 bg-slate-600 rounded-full mx-auto shrink-0" />
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+              <span className="font-bold text-xs text-white truncate">
+                Inspector Legal y Empresarial
+              </span>
+              <RiskBadge
+                level={currentParagraph?.riskLevel || currentArticle?.riskLevel || 'governance'}
+                size="xs"
+                showDot={false}
+              />
+            </div>
+            <button
+              type="button"
+              data-testid="mobile-inspector-minimize-button"
+              onClick={closeMobileDrawer}
+              className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 shadow-sm transition-colors cursor-pointer shrink-0"
+              title="Minimizar inspector abajo del todo"
+              aria-label="Minimizar inspector abajo del todo"
+            >
+              <ChevronDown className="w-4 h-4 text-indigo-400" />
+              <span>Minimizar</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Scrollable Drawer Inspector Content (Single-scroll container) */}
+        <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
+          {inspectorContent}
+        </div>
+      </div>
+
+      {/* Mobile Drawer Backdrop Overlay */}
+      {isMobileDrawerOpen && (
+        <div
+          data-testid="mobile-inspector-backdrop"
+          className="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 lg:hidden transition-opacity duration-300"
+          onClick={closeMobileDrawer}
+          aria-hidden="true"
+        />
+      )}
     </div>
   );
 };

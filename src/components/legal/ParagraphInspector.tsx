@@ -99,7 +99,9 @@ export const ParagraphInspector: React.FC<ParagraphInspectorProps> = ({
   // Current entity identifiers
   const displayTitle = useMemo(() => {
     if (annex && activeParagraph) {
-      return `Anexo ${annex.roman} · Punto ${activeParagraph.numberLabel || 'Apartado'}`;
+      const pLabel = activeParagraph.numberLabel;
+      const formattedLabel = pLabel ? (pLabel.startsWith('Párrafo') ? pLabel : `Punto ${pLabel}`) : 'Apartado';
+      return `Anexo ${annex.roman} · ${formattedLabel}`;
     }
     if (activeParagraph) {
       const art = article || engine.getArticle(activeParagraph.articleId);

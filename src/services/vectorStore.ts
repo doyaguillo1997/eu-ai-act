@@ -507,7 +507,9 @@ export function isLeadInParagraph(
         /^([a-z]\)|\d+\)|[ivxlcdm]+\))/i.test(nextLabel) ||
         /\.[a-z]\)/i.test(nextLabel) ||
         /^[a-z]\)\s+/i.test(nextText) ||
-        nextLabel.includes(')')
+        nextLabel.includes(')') ||
+        /^[—–-]/.test(nextLabel) ||
+        /^[—–-]/.test(nextText)
       ) {
         return true;
       }

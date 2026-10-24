@@ -239,4 +239,81 @@ describe('End-to-End View Rendering & Visual Integrity Audit', () => {
     expect(html).toContain('Disposición introductoria');
     expect(html).toContain('Quedan prohibidas las siguientes prácticas de IA:');
   });
+
+  it('renders mobile bottom dock and 60% drawer with minimize button and responsive visibility', () => {
+    const html = renderToStaticMarkup(
+      <InteractiveLawView
+        engine={engine}
+        selectedProvision={{ articleId: 'art_5', paragraphId: 'art_5.p2' }}
+        onSelectProvision={noop}
+        selectedRole="provider"
+        onSelectRole={noop}
+        onNavigateCitation={noop}
+        onStartArticleQuiz={noop}
+      />
+    );
+
+    // 1. Mobile bottom dock exists with lg:hidden and contains provision info and up-arrow
+    expect(html).toContain('data-testid="mobile-inspector-dock"');
+    expect(html).toContain('lg:hidden shrink-0 border-t border-slate-800');
+    expect(html).toContain('Art. 5 (1.a))');
+
+    // 2. Mobile drawer exists with 60vh height constraints and minimize button
+    expect(html).toContain('data-testid="mobile-inspector-drawer"');
+    expect(html).toContain('h-[60vh] max-h-[60vh]');
+    expect(html).toContain('data-testid="mobile-inspector-minimize-button"');
+    expect(html).toContain('Minimizar');
+
+    // 3. Mobile drawer contains touch drag handle and clean flex wrapper
+    expect(html).toContain('w-12 h-1 bg-slate-600 rounded-full');
+    expect(html).toContain('flex-1 min-h-0 flex flex-col overflow-hidden');
+
+    // 4. Desktop side inspector in SplitViewLayout is hidden on mobile screens
+    expect(html).toContain('hidden lg:block');
+  });
+
+  it('unifies hyphen/dash bullet enumerations into their parent paragraph without creating standalone clickable articles', () => {
+    // 1. In Anexo II, all 16 bulleted crimes are unified into paragraph 1 rather than 17 separate disconnected cards
+    const anx2 = engine.getAnnex('anx_II');
+    expect(anx2).toBeDefined();
+    expect(anx2!.paragraphs.length).toBe(1);
+
+    const fullAnx2Text = anx2!.paragraphs[0].officialText;
+    expect(fullAnx2Text).toContain('terrorismo');
+    expect(fullAnx2Text).toContain('trata de seres humanos');
+    expect(fullAnx2Text).toContain('explotación sexual de menores');
+    expect(fullAnx2Text).toContain('tráfico ilícito de estupefacientes');
+    expect(fullAnx2Text).toContain('sabotaje');
+
+    // 2. Verify zero paragraphs in the entire corpus have a standalone dash/hyphen as their numberLabel
+    for (const art of engine.corpus.articles) {
+      for (const p of art.paragraphs) {
+        expect(p.numberLabel).not.toBe('—');
+        expect(p.numberLabel).not.toBe('-');
+      }
+    }
+    for (const anx of engine.corpus.annexes) {
+      for (const p of anx.paragraphs) {
+        expect(p.numberLabel).not.toBe('—');
+        expect(p.numberLabel).not.toBe('-');
+      }
+    }
+
+    // 3. Render Anexo II in InteractiveLawView: renders unified paragraph with whitespace-pre-line and clean label
+    const html = renderToStaticMarkup(
+      <InteractiveLawView
+        engine={engine}
+        selectedProvision={{ articleId: 'art_5', annexId: 'anx_II', paragraphId: 'anx_II.p1' }}
+        onSelectProvision={noop}
+        selectedRole="provider"
+        onSelectRole={noop}
+        onNavigateCitation={noop}
+        onStartArticleQuiz={noop}
+      />
+    );
+    expect(html).toContain('whitespace-pre-line');
+    expect(html).toContain('terrorismo');
+    expect(html).toContain('Párrafo 1');
+    expect(html).not.toContain('Punto Párrafo 1');
+  });
 });

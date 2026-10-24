@@ -30,7 +30,7 @@ export const SplitViewLayout: React.FC<SplitViewLayoutProps> = ({
           onClick={onToggleInspector}
           title="Abrir Inspector"
           aria-label="Abrir Inspector"
-          className="shrink-0 h-full w-9 flex flex-col items-center justify-start pt-6 gap-3 border-l border-slate-800/80 bg-slate-900/90 hover:bg-slate-800/90 text-slate-400 hover:text-indigo-300 transition-colors cursor-pointer select-none z-20 group"
+          className="hidden lg:flex shrink-0 h-full w-9 flex-col items-center justify-start pt-6 gap-3 border-l border-slate-800/80 bg-slate-900/90 hover:bg-slate-800/90 text-slate-400 hover:text-indigo-300 transition-colors cursor-pointer select-none z-20 group"
         >
           <PanelRightOpen className="w-4 h-4 text-indigo-400 group-hover:scale-110 transition-transform" />
           <span className="[writing-mode:vertical-rl] rotate-180 text-[11px] font-mono tracking-wider text-slate-400 group-hover:text-indigo-200 uppercase font-semibold">
@@ -42,7 +42,7 @@ export const SplitViewLayout: React.FC<SplitViewLayoutProps> = ({
       {/* Right-hand inspector pane (collapsible to the right) */}
       <aside
         aria-label="Inspector Legal y Empresarial"
-        className={`relative shrink-0 h-full transition-all duration-200 z-10 ${
+        className={`relative shrink-0 h-full transition-all duration-200 z-10 hidden lg:block ${
           inspectorOpen
             ? `border-l border-slate-800/80 bg-slate-900 overflow-y-auto ${inspectorWidthClass}`
             : 'w-0 overflow-hidden border-l-0'
